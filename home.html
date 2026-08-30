@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Home - ভেল্কি এজেন্ট লিস্ট</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+*{ margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+html{ scroll-behavior:smooth; }
+body{ width:100%; min-height:100vh; background:#f1f1f1; color:#111; overflow-x:hidden; font-family: "Noto Sans Bengali", sans-serif; }
+
+/* LOGO HEADER */
+.logo-header{ width:100%; background:#ffd817; padding:10px 0; text-align:center; }
+.logo-header img{ max-width:100%; width:100%; height:auto; display:block; margin:0 auto; }
+
+/* MENU */
+.menu{ width:100%; background:#d3d3d3; }
+.menu-row{ width:100%; height:55px; display:flex; border-bottom:2px solid #eeeeee; }
+.menu-row:last-child{ border-bottom:none; }
+.menu a{ height:55px; display:flex; align-items:center; justify-content:center; flex:1; text-decoration:none; color:#4a4a4a; font-family:Arial,sans-serif; font-size:18px; font-weight:800; border-right:2px solid #eeeeee; white-space:nowrap; }
+.menu a:last-child{ border-right:none; }
+.menu a i{ margin-right:8px; font-size:18px; }
+.menu a:active{ background:#bc; }
+.separator{ width:100%; height:7px; background:#ffd817; }
+
+/* PAGE CONTAINER */
+.container{ width:100%; max-width:900px; margin:0 auto; padding:15px; }
+
+/* POST CARD */
+.post-card{ background:#fff; border:1px solid #ddd; border-radius:5px; margin-bottom:15px; overflow:hidden; }
+.post-header{ padding:12px 15px; background:#f9f9f9; border-bottom:1px solid #eee; }
+.post-tag{ display:inline-block; background:#e0e0e0; color:#333; font-size:12px; padding:3px 8px; border-radius:3px; margin-bottom:8px; }
+.post-title{ font-size:20px; font-weight:700; color:#222; line-height:1.4; margin-bottom:5px; }
+.post-date{ font-size:13px; color:#777; }
+
+.post-body{ padding:15px; font-size:15px; line-height:1.7; color:#444; }
+.post-body .highlight{ background:#fffde7; padding:15px; border-left:4px solid #f1a04a; margin:10px 0; font-weight:600; }
+
+.read-more{ display:block; width:100%; text-align:center; padding:10px; background:#f1f1f1; border-top:1px solid #ddd; text-decoration:none; color:#333; font-weight:600; font-size:15px; }
+.read-more:hover{ background:#e9e9e9; }
+
+/* YELLOW BOX */
+.yellow-box{ background:#fffde7; padding:15px; text-align:center; border:1px solid #f1a04a; margin:15px 0; }
+.yellow-box h3{ color:#d32f2f; font-size:18px; margin-bottom:10px; }
+.yellow-box p{ font-size:14px; line-height:1.6; }
+
+/* MASTER AGENT LIST */
+.agent-item{ display:flex; gap:10px; padding:10px; border-bottom:1px solid #eee; }
+.agent-item:last-child{ border-bottom:none; }
+.agent-item img{ width:80px; height:100px; object-fit:cover; border-radius:3px; }
+.agent-info h4{ font-size:16px; margin-bottom:5px; }
+.agent-info p{ font-size:13px; color:#555; }
+.agent-info .wa{ color:#d32f2f; font-weight:700; }
+
+.master-btn{ display:inline-block; background:#d32f2f; color:#fff; padding:10px 20px; text-decoration:none; border-radius:3px; font-weight:700; margin-top:10px; }
+
+/* FAQ */
+.faq-item{ background:#fff; border:1px solid #ddd; padding:12px; margin-bottom:8px; border-radius:3px; font-size:15px; }
+
+/* MOBILE */
+@media(max-width:500px){
+    .menu a{ font-size:15px; }
+    .menu a i{ font-size:15px; margin-right:5px; }
+    .post-title{ font-size:18px; }
+    .agent-item img{ width:70px; height:90px; }
+}
+</style>
+</head>
+<body>
+
+<!-- LOGO -->
+<header class="logo-header">
+    <img src="logo.png" alt="VELKI Logo">
+</header>
+
+<!-- MENU -->
+<nav class="menu">
+    <div class="menu-row">
+        <a href="index.html"><i class="fa-solid fa-house"></i> HOME </a>
+        <a href="#customer"><i class="fa-solid fa-circle-question"></i> CUSTOMER SERVICE </a>
+        <a href="#oldnew"><i class="fa-solid fa-gear"></i> OLD/NEW </a>
+    </div>
+    <div class="separator"></div>
+    <div class="menu-row">
+        <a href="#admin"><i class="fa-solid fa-gear"></i> ADMIN </a>
+        <a href="#super"><i class="fa-solid fa-gear"></i> SUPER </a>
+        <a href="#master"><i class="fa-solid fa-gear"></i> MASTER </a>
+    </div>
+</nav>
+
+<div class="container">
+
+    <!-- POST 1 -->
+    <div class="post-card">
+        <div class="post-header">
+            <span class="post-tag">Agent</span>
+            <h2 class="post-title">ভেল্কি অটো ডিপোজিট এজেন্ট</h2>
+            <p class="post-date">ভেল্কি তে কিভাবে অটো ডিপোজিট করবেন তা জানতে এই লিংক এ ক্লিক করুন।</p>
+        </div>
+        <a href="#" class="read-more">Read more... ভেল্কি অটো ডিপোজিট এজেন্ট</a>
+    </div>
+
+    <!-- YELLOW BOX -->
+    <div class="yellow-box">
+        <h3>VELKI.COM</h3>
+        <p>ভেল্কি তে একাউন্ট করতে হলে আপনার এজেন্ট এর মাধ্যমে একাউন্ট খুলতে হবে। এজেন্ট এর মাধ্যমেই টাকা ডিপোজিট এবং উইথড্র করতে হবে।</p>
+    </div>
+
+    <!-- POST 2 -->
+    <div class="post-card">
+        <div class="post-header">
+            <span class="post-tag">Agent</span>
+            <h2 class="post-title">কাস্টমার সার্ভিস লিস্ট <br> VELKI CUSTOMER SERVICE LIST</h2>
+        </div>
+        <a href="#" class="read-more">Read More... কাস্টমার সার্ভিস লিস্ট</a>
+    </div>
+
+    <!-- POST 3 -->
+    <div class="post-card">
+        <div class="post-header">
+            <span class="post-tag">Agent</span>
+            <h2 class="post-title">মাস্টার এজেন্ট লিস্টঃ</h2>
+            <p class="post-date">এজেন্ট দের সাপোর্ট দেয়ার জন্য আছেন ভেল্কির মিয়া ওপলা জোন লিডার।</p>
+        </div>
+        <a href="#" class="read-more">Read More... মাস্টার এজেন্ট লিস্টঃ</a>
+    </div>
+
+    <!-- POST 4 -->
+    <div class="post-card">
+        <div class="post-header">
+            <span class="post-tag">Agent</span>
+            <h2 class="post-title">ভেল্কি সুপার এজেন্ট লিস্ট</h2>
+        </div>
+        <a href="#" class="read-more">Read More... সুপার এজেন্ট লিস্টঃ</a>
+    </div>
+
+    <!-- MORE NEWS -->
+    <h3 style="margin:20px 0 10px; font-size:18px;">MORE NEWS</h3>
+    
+    <div class="post-card">
+        <div class="post-header">
+            <span class="post-tag">Agent</span>
+            <p style="font-weight:600;">ভেল্কি বুক কিভাবে ওপেন করবো?</p>
+            <p class="post-date">31 August 2021</p>
+        </div>
+    </div>
+
+    <div class="post-card">
+        <div class="post-header">
+            <span class="post-tag">Agent</span>
+            <p style="font-weight:600;">সাইট লগইন লিংক</p>
+            <p class="post-date">02 January 2024</p>
+        </div>
+    </div>
+
+    <!-- RANDOM MASTER -->
+    <div class="yellow-box">
+        <h3>জানুন ভেল্কি তে কিভাবে একাউন্ট খুলবেন!!!</h3>
+    </div>
+
+    <h3 style="margin:20px 0 10px;">Random Master Agent</h3>
+    <a href="#" class="master-btn">Master agent →</a>
+
+    <div class="agent-item">
+        <img src="https://via.placeholder.com/80x100" alt="Agent">
+        <div class="agent-info">
+            <h4>মাস্টার এজেন্ট এর তথ্য 1</h4>
+            <p>Administrator 10/14/2024</p>
+            <p>মাস্টার এজেন্ট আইডি 190</p>
+            <p class="wa">হোয়াটসঅ্যাপ নাম্বার +60107059091</p>
+        </div>
+    </div>
+
+    <div class="agent-item">
+        <img src="https://via.placeholder.com/80x100" alt="Agent">
+        <div class="agent-info">
+            <h4>মাস্টার এজেন্ট এর তথ্য 2</h4>
+            <p>Administrator 12/21/2024</p>
+            <p>মাস্টার এজেন্ট আইডি 216</p>
+            <p class="wa">হোয়াটসঅ্যাপ নাম্বার +60182418294</p>
+        </div>
+    </div>
+
+    <!-- FAQ -->
+    <h3 style="margin:20px 0 10px;">FAQ</h3>
+    <a href="#" class="master-btn">VELKI FAQ →</a>
+
+    <div class="yellow-box">
+        <h3>VELKI.COM</h3>
+        <h4>ভেল্কি প্রশ্ন লিংক</h4>
+    </div>
+
+    <div class="faq-item">ভেল্কি সাইটের প্রশ্ন লিংকঃ</div>
+    <div class="faq-item">ভেল্কি তে কিভাবে ডিপোজিট করবেন?</div>
+    <div class="faq-item">কিভাবে একাউন্ট খুলবেন?</div>
+    <div class="faq-item">একাউন্টে লেনদেন মিস বা ভুল করলে কি?</div>
+
+</div>
+
+</body>
+</html>
