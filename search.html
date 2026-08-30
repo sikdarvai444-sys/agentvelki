@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agent Search</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+body{font-family:"Noto Sans Bengali";background:#f1f1f1;margin:0;padding:15px}
+.box{background:#fff;padding:20px;border-radius:5px;max-width:500px;margin:0 auto}
+input,select{width:100%;padding:10px;margin:10px 0;border:1px solid #ccc;border-radius:4px;font-size:16px}
+button{width:100%;padding:12px;background:#24d866;color:#fff;border:none;border-radius:4px;font-size:18px;font-weight:700}
+.result{margin-top:20px;padding:15px;background:#fffde7;border:2px solid #f1a04a;display:none}
+.chain{font-size:16px;line-height:2}
+</style>
+</head>
+<body>
+<div class="box">
+<h2 style="text-align:center">এজেন্ট এর আইডি নাম্বার দিয়ে খুজুনঃ</h2>
+<label>Agent Type:</label>
+<select id="type">
+  <option value="master">মাস্টার এজেন্ট</option>
+  <option value="super">সুপার এজেন্ট</option>
+</select>
+<label>Agent ID:</label>
+<input type="number" id="agentId" placeholder="যেমন: 03">
+<button onclick="searchAgent()">Submit</button>
+
+<div class="result" id="result">
+  <h3>ফলাফলঃ</h3>
+  <div class="chain" id="chain"></div>
+</div>
+</div>
+
+<script>
+const data = {
+  "03": {master:"03", super:"249", subadmin:"18", admin:"02", phone:"+13435008121"},
+  "655": {master:"655", super:"243", subadmin:"5", admin:"01", phone:"+601124133383"},
+  "326": {master:"326", super:"287", subadmin:"12", admin:"01", phone:"+601174744722"}
+};
+
+function searchAgent(){
+  const id = document.getElementById('agentId').value;
+  const type = document.getElementById('type').value;
+  const res = document.getElementById('result');
+  const chain = document.getElementById('chain');
+  
+  if(data[id]){
+    const d = data[id];
+    chain.innerHTML = `
+      মাস্টার এজেন্ট ID: <b>${d.master}</b> <br>
+      ↓ এর আন্ডারে <br>
+      সুপার এজেন্ট ID: <b>${d.super}</b> <br>
+      ↓ এর আন্ডারে <br>
+      সাব এডমিন ID: <b>${d.subadmin}</b> <br>
+      ↓ এর আন্ডারে <br>
+      এডমিন ID: <b>${d.admin}</b> <br><br>
+      WhatsApp: <a href="https://wa.me/${d.phone.replace('+','')}">${d.phone}</a>
+    `;
+    res.style.display = 'block';
+  } else {
+    chain.innerHTML = "এই ID এর এজেন্ট পাওয়া যায়নি";
+    res.style.display = 'block';
+  }
+}
+</script>
+</body></html>
