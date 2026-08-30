@@ -12,8 +12,29 @@
 
 <style>
 *{ margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
-html{ scroll-behavior:smooth; }
-body{ width:100%; min-height:100vh; background:#f1f1f1; color:#111; overflow-x:hidden; font-family: "Noto Sans Bengali", sans-serif; }
+body{ width:100%; background:#f1f1f1; color:#111; font-family: "Noto Sans Bengali", sans-serif; overflow-x:hidden; }
+
+/* HEADER */
+.header{ width:100%; background:#fff; border-bottom:2px solid #d32f2f; position:sticky; top:0; z-index:99; }
+.top-bar{ display:flex; align-items:center; padding:8px 10px; }
+.hamburger{ font-size:24px; color:#333; padding:5px 10px; cursor:pointer; }
+.logo{ flex:1; text-align:center; }
+.logo img{ height:35px; }
+.customer{ color:#d32f2f; font-weight:700; font-size:14px; }
+
+/* SIDEBAR */
+.sidebar{ position:fixed; top:0; left:-280px; width:280px; height:100%; background:#000; color:#fff; z-index:999; transition:0.3s; overflow-y:auto; }
+.sidebar.active{ left:0; }
+.sidebar-header{ background:#111; padding:12px; display:flex; justify-content:space-between; align-items:center; font-weight:700; }
+.sidebar-close{ font-size:22px; cursor:pointer; }
+.sidebar-menu{ list-style:none; }
+.sidebar-menu li{ border-bottom:1px dashed #333; }
+.sidebar-menu li a{ display:block; padding:12px 15px; color:#fff; text-decoration:none; font-size:15px; }
+.sidebar-menu li a.active{ background:#d32f2f; color:#fff; }
+.sidebar-menu .arrow{ float:right; color:#ff0; font-size:12px; }
+
+.overlay{ position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:998; display:none; }
+.overlay.active{ display:block; }
 
 /* LOGO HEADER */
 .logo-header{ width:100%; background:#ffd817; padding:10px 0; text-align:center; }
@@ -21,87 +42,130 @@ body{ width:100%; min-height:100vh; background:#f1f1f1; color:#111; overflow-x:h
 
 /* MENU */
 .menu{ width:100%; background:#d3d3d3; }
-.menu-row{ width:100%; height:55px; display:flex; border-bottom:2px solid #eeeeee; }
-.menu-row:last-child{ border-bottom:none; }
-.menu a{ height:55px; display:flex; align-items:center; justify-content:center; flex:1; text-decoration:none; color:#4a4a4a; font-family:Arial,sans-serif; font-size:18px; font-weight:800; border-right:2px solid #eeeeee; white-space:nowrap; }
+.menu-row{ width:100%; height:50px; display:flex; border-bottom:2px solid #eee; }
+.menu a{ height:50px; display:flex; align-items:center; justify-content:center; flex:1; text-decoration:none; color:#4a4a4a; font-size:16px; font-weight:800; border-right:2px solid #eee; }
 .menu a:last-child{ border-right:none; }
-.menu a i{ margin-right:8px; font-size:18px; }
-.menu a:active{ background:#bc; }
+.menu a i{ margin-right:6px; }
 .separator{ width:100%; height:7px; background:#ffd817; }
 
-/* PAGE CONTAINER */
-.container{ width:100%; max-width:900px; margin:0 auto; padding:15px; }
+/* CONTAINER */
+.container{ width:100%; max-width:800px; margin:0 auto; padding:10px; }
 
-/* POST CARD */
-.post-card{ background:#fff; border:1px solid #ddd; border-radius:5px; margin-bottom:15px; overflow:hidden; }
-.post-header{ padding:12px 15px; background:#f9f9f9; border-bottom:1px solid #eee; }
-.post-tag{ display:inline-block; background:#e0e0e0; color:#333; font-size:12px; padding:3px 8px; border-radius:3px; margin-bottom:8px; }
-.post-title{ font-size:20px; font-weight:700; color:#222; line-height:1.4; margin-bottom:5px; }
-.post-date{ font-size:13px; color:#777; }
+/* CARD */
+.card{ background:#fff; border-radius:3px; margin-bottom:12px; border:1px solid #ddd; overflow:hidden; }
+.card-header{ background:#f9f9f9; padding:10px 12px; border-bottom:1px solid #eee; }
+.tag{ display:inline-block; background:#e0e0e0; color:#333; font-size:11px; padding:2px 6px; border-radius:2px; margin-bottom:5px; }
+.title{ font-size:18px; font-weight:700; line-height:1.4; }
+.date{ font-size:12px; color:#777; }
+.read-more{ display:block; text-align:center; padding:8px; background:#f1f1f1; border-top:1px solid #ddd; text-decoration:none; color:#333; font-weight:600; font-size:14px; }
 
-.post-body{ padding:15px; font-size:15px; line-height:1.7; color:#444; }
-.post-body .highlight{ background:#fffde7; padding:15px; border-left:4px solid #f1a04a; margin:10px 0; font-weight:600; }
-
-.read-more{ display:block; width:100%; text-align:center; padding:10px; background:#f1f1f1; border-top:1px solid #ddd; text-decoration:none; color:#333; font-weight:600; font-size:15px; }
-.read-more:hover{ background:#e9e9e9; }
+/* QUICK MASTER BOX */
+.quick-box{ background:#fffde7; border:2px solid #f1a04a; padding:10px; margin-bottom:12px; }
+.quick-title{ background:#292929; color:#fff; padding:8px; font-size:16px; font-weight:700; display:flex; align-items:center; }
+.quick-title i{ background:#4caed8; border-radius:50%; width:20px; height:20px; display:flex; align-items:center; justify-content:center; margin-right:8px; font-size:12px; }
+.quick-inner{ background:#fff; border:1px solid #ccc; padding:10px; margin-top:8px; display:flex; justify-content:space-between; align-items:center; }
+.quick-id{ font-size:20px; font-weight:700; }
+.quick-id span{ color:#ee5c12; }
+.quick-wa{ display:flex; align-items:center; gap:8px; font-size:18px; font-weight:700; color:#ed5c11; }
+.quick-wa i{ background:#24d866; color:#fff; width:35px; height:35px; display:flex; align-items:center; justify-content:center; border-radius:4px; font-size:20px; }
 
 /* YELLOW BOX */
 .yellow-box{ background:#fffde7; padding:15px; text-align:center; border:1px solid #f1a04a; margin:15px 0; }
-.yellow-box h3{ color:#d32f2f; font-size:18px; margin-bottom:10px; }
-.yellow-box p{ font-size:14px; line-height:1.6; }
+.yellow-box h3{ color:#d32f2f; font-size:18px; margin-bottom:8px; }
 
-/* MASTER AGENT LIST */
-.agent-item{ display:flex; gap:10px; padding:10px; border-bottom:1px solid #eee; }
-.agent-item:last-child{ border-bottom:none; }
-.agent-item img{ width:80px; height:100px; object-fit:cover; border-radius:3px; }
-.agent-info h4{ font-size:16px; margin-bottom:5px; }
+/* RANDOM AGENT */
+.agent-card{ background:#fff; border:1px solid #ddd; margin-bottom:10px; }
+.agent-img{ width:100%; height:180px; background:#000; display:flex; align-items:center; justify-content:center; color:#fff; }
+.agent-info{ padding:10px; }
+.agent-info h4{ font-size:15px; margin-bottom:4px; }
 .agent-info p{ font-size:13px; color:#555; }
 .agent-info .wa{ color:#d32f2f; font-weight:700; }
-
-.master-btn{ display:inline-block; background:#d32f2f; color:#fff; padding:10px 20px; text-decoration:none; border-radius:3px; font-weight:700; margin-top:10px; }
+.master-btn{ display:inline-block; background:#d32f2f; color:#fff; padding:8px 15px; text-decoration:none; border-radius:3px; font-weight:700; font-size:14px; margin:10px 0; }
 
 /* FAQ */
-.faq-item{ background:#fff; border:1px solid #ddd; padding:12px; margin-bottom:8px; border-radius:3px; font-size:15px; }
+.faq-title{ font-size:18px; font-weight:700; margin:15px 0 8px; }
+.faq-item{ background:#fff; border:1px solid #ddd; padding:10px; margin-bottom:6px; border-radius:3px; font-size:14px; }
 
-/* MOBILE */
 @media(max-width:500px){
-    .menu a{ font-size:15px; }
-    .menu a i{ font-size:15px; margin-right:5px; }
-    .post-title{ font-size:18px; }
-    .agent-item img{ width:70px; height:90px; }
+    .menu a{ font-size:13px; }
+    .title{ font-size:16px; }
 }
 </style>
 </head>
 <body>
 
-<!-- LOGO -->
-<header class="logo-header">
-    <img src="logo.png" alt="VELKI Logo">
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <span>SIDEBAR</span>
+        <span class="sidebar-close" onclick="toggleSidebar()"><i class="fa-solid fa-xmark"></i></span>
+    </div>
+    <ul class="sidebar-menu">
+        <li><a href="#">প্রধান মেনু</a></li>
+        <li><a href="#">ভেল্কি অটো ডিপোজিট এজেন্ট</a></li>
+        <li><a href="index.html">হোম পেইজ</a></li>
+        <li><a href="#">সাধারন প্রশ্ন উত্তর <span class="arrow">▶</span></a></li>
+        <li><a href="#" class="active">ভেল্কি প্রশ্ন লিংক</a></li>
+        <li><a href="#">ভেল্কিতে একাউন্ট খুলবেন?</a></li>
+        <li><a href="#">এজেন্ট এর নতুন নাম্বার</a></li>
+        <li><a href="#">ফোন নাম্বার সার্চ করুন</a></li>
+        <li><a href="#">এজেন্ট লিস্ট <span class="arrow">▶</span></a></li>
+        <li><a href="#">এজেন্ট কে ভেরিফাই করুন</a></li>
+        <li><a href="master.html">মাস্টার এজেন্ট লিস্ট</a></li>
+        <li><a href="super.html">সুপার এজেন্ট লিস্ট</a></li>
+        <li><a href="#">সাব এডমিন লিস্ট</a></li>
+        <li><a href="admin.html">সাইট এডমিন লিস্ট</a></li>
+        <li><a href="customer-service.html">কাস্টমার সার্ভিস লিস্ট</a></li>
+    </ul>
+</div>
+<div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+<!-- HEADER -->
+<header class="header">
+    <div class="top-bar">
+        <div class="hamburger" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></div>
+        <div class="logo"><img src="logo.png" alt="VELKI"></div>
+        <div class="customer">কাস্টমার সার্ভিস</div>
+    </div>
 </header>
+
+<!-- LOGO HEADER -->
+<div class="logo-header">
+    <img src="logo.png" alt="VELKI Logo">
+</div>
 
 <!-- MENU -->
 <nav class="menu">
     <div class="menu-row">
         <a href="index.html"><i class="fa-solid fa-house"></i> HOME </a>
-        <a href="#customer"><i class="fa-solid fa-circle-question"></i> CUSTOMER SERVICE </a>
-        <a href="#oldnew"><i class="fa-solid fa-gear"></i> OLD/NEW </a>
+        <a href="customer-service.html"><i class="fa-solid fa-circle-question"></i> CUSTOMER SERVICE </a>
+        <a href="oldnew.html"><i class="fa-solid fa-gear"></i> OLD/NEW </a>
     </div>
     <div class="separator"></div>
     <div class="menu-row">
-        <a href="#admin"><i class="fa-solid fa-gear"></i> ADMIN </a>
-        <a href="#super"><i class="fa-solid fa-gear"></i> SUPER </a>
-        <a href="#master"><i class="fa-solid fa-gear"></i> MASTER </a>
+        <a href="admin.html"><i class="fa-solid fa-gear"></i> ADMIN </a>
+        <a href="super.html"><i class="fa-solid fa-gear"></i> SUPER </a>
+        <a href="master.html"><i class="fa-solid fa-gear"></i> MASTER </a>
     </div>
 </nav>
 
 <div class="container">
 
+    <!-- QUICK MASTER -->
+    <div class="quick-box">
+        <div class="quick-title"><i>i</i> QUICK MASTER AGENT NUMBER:</div>
+        <div class="quick-inner">
+            <div class="quick-id">Agent id: <span>03</span></div>
+            <div class="quick-wa"><i class="fa-brands fa-whatsapp"></i> +13435008121</div>
+        </div>
+    </div>
+
     <!-- POST 1 -->
-    <div class="post-card">
-        <div class="post-header">
-            <span class="post-tag">Agent</span>
-            <h2 class="post-title">ভেল্কি অটো ডিপোজিট এজেন্ট</h2>
-            <p class="post-date">ভেল্কি তে কিভাবে অটো ডিপোজিট করবেন তা জানতে এই লিংক এ ক্লিক করুন।</p>
+    <div class="card">
+        <div class="card-header">
+            <span class="tag">Agent</span>
+            <h2 class="title">ভেল্কি অটো ডিপোজিট এজেন্ট</h2>
+            <p class="date">ভেল্কি তে কিভাবে অটো ডিপোজিট করবেন তা আপনি এই লিংক এ ক্লিক করে ভিডিও টি দেখে নিন</p>
         </div>
         <a href="#" class="read-more">Read more... ভেল্কি অটো ডিপোজিট এজেন্ট</a>
     </div>
@@ -113,95 +177,81 @@ body{ width:100%; min-height:100vh; background:#f1f1f1; color:#111; overflow-x:h
     </div>
 
     <!-- POST 2 -->
-    <div class="post-card">
-        <div class="post-header">
-            <span class="post-tag">Agent</span>
-            <h2 class="post-title">কাস্টমার সার্ভিস লিস্ট <br> VELKI CUSTOMER SERVICE LIST</h2>
+    <div class="card">
+        <div class="card-header">
+            <span class="tag">Agent</span>
+            <h2 class="title">কাস্টমার সার্ভিস লিস্ট <br> VELKI CUSTOMER SERVICE LIST</h2>
         </div>
         <a href="#" class="read-more">Read More... কাস্টমার সার্ভিস লিস্ট</a>
     </div>
 
     <!-- POST 3 -->
-    <div class="post-card">
-        <div class="post-header">
-            <span class="post-tag">Agent</span>
-            <h2 class="post-title">মাস্টার এজেন্ট লিস্টঃ</h2>
-            <p class="post-date">এজেন্ট দের সাপোর্ট দেয়ার জন্য আছেন ভেল্কির মিয়া ওপলা জোন লিডার।</p>
+    <div class="card">
+        <div class="card-header">
+            <span class="tag">Agent</span>
+            <h2 class="title">মাস্টার এজেন্ট লিস্টঃ</h2>
+            <p class="date">এজেন্ট দের সাপোর্ট দেয়ার জন্য আছেন ভেল্কির মিয়া ওপলা জোন লিডার।</p>
         </div>
         <a href="#" class="read-more">Read More... মাস্টার এজেন্ট লিস্টঃ</a>
     </div>
 
     <!-- POST 4 -->
-    <div class="post-card">
-        <div class="post-header">
-            <span class="post-tag">Agent</span>
-            <h2 class="post-title">ভেল্কি সুপার এজেন্ট লিস্ট</h2>
+    <div class="card">
+        <div class="card-header">
+            <span class="tag">Agent</span>
+            <h2 class="title">ভেল্কি সুপার এজেন্ট লিস্ট</h2>
         </div>
         <a href="#" class="read-more">Read More... সুপার এজেন্ট লিস্টঃ</a>
     </div>
 
-    <!-- MORE NEWS -->
-    <h3 style="margin:20px 0 10px; font-size:18px;">MORE NEWS</h3>
-    
-    <div class="post-card">
-        <div class="post-header">
-            <span class="post-tag">Agent</span>
+    <h3 style="margin:15px 0 8px; font-size:16px;">MORE NEWS</h3>
+
+    <div class="card">
+        <div class="card-header">
+            <span class="tag">Agent</span>
             <p style="font-weight:600;">ভেল্কি বুক কিভাবে ওপেন করবো?</p>
-            <p class="post-date">31 August 2021</p>
+            <p class="date">31 August 2021</p>
         </div>
     </div>
 
-    <div class="post-card">
-        <div class="post-header">
-            <span class="post-tag">Agent</span>
-            <p style="font-weight:600;">সাইট লগইন লিংক</p>
-            <p class="post-date">02 January 2024</p>
-        </div>
-    </div>
-
-    <!-- RANDOM MASTER -->
     <div class="yellow-box">
         <h3>জানুন ভেল্কি তে কিভাবে একাউন্ট খুলবেন!!!</h3>
     </div>
 
-    <h3 style="margin:20px 0 10px;">Random Master Agent</h3>
+    <h3 style="margin:15px 0 8px;">Random Master Agent</h3>
     <a href="#" class="master-btn">Master agent →</a>
 
-    <div class="agent-item">
-        <img src="https://via.placeholder.com/80x100" alt="Agent">
+    <div class="agent-card">
+        <div class="agent-img"><i class="fa-solid fa-user" style="font-size:60px"></i></div>
         <div class="agent-info">
             <h4>মাস্টার এজেন্ট এর তথ্য 1</h4>
-            <p>Administrator 10/14/2024</p>
-            <p>মাস্টার এজেন্ট আইডি 190</p>
-            <p class="wa">হোয়াটসঅ্যাপ নাম্বার +60107059091</p>
-        </div>
-    </div>
-
-    <div class="agent-item">
-        <img src="https://via.placeholder.com/80x100" alt="Agent">
-        <div class="agent-info">
-            <h4>মাস্টার এজেন্ট এর তথ্য 2</h4>
-            <p>Administrator 12/21/2024</p>
-            <p>মাস্টার এজেন্ট আইডি 216</p>
-            <p class="wa">হোয়াটসঅ্যাপ নাম্বার +60182418294</p>
+            <p>Administrator 8/20/2025</p>
+            <p>মাস্টার এজেন্ট আইডি 556</p>
+            <p class="wa">হোয়াটসঅ্যাপ নাম্বার +60 11-3994 6084</p>
         </div>
     </div>
 
     <!-- FAQ -->
-    <h3 style="margin:20px 0 10px;">FAQ</h3>
+    <h3 class="faq-title">FAQ</h3>
     <a href="#" class="master-btn">VELKI FAQ →</a>
 
     <div class="yellow-box">
         <h3>VELKI.COM</h3>
-        <h4>ভেল্কি প্রশ্ন লিংক</h4>
+        <p style="font-weight:700;">ভেল্কি প্রশ্ন লিংক</p>
     </div>
 
     <div class="faq-item">ভেল্কি সাইটের প্রশ্ন লিংকঃ</div>
     <div class="faq-item">ভেল্কি তে কিভাবে ডিপোজিট করবেন?</div>
     <div class="faq-item">কিভাবে একাউন্ট খুলবেন?</div>
-    <div class="faq-item">একাউন্টে লেনদেন মিস বা ভুল করলে কি?</div>
 
 </div>
+
+<script>
+function toggleSidebar(){
+    document.getElementById('sidebar').classList.toggle('active');
+    document.getElementById('overlay').classList.toggle('active');
+}
+</script>
 
 </body>
 </html>
