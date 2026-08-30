@@ -15,39 +15,28 @@
 html{ scroll-behavior:smooth; }
 body{ width:100%; min-height:100vh; background:#ffd817; color:#111; overflow-x:hidden; font-family: "Noto Sans Bengali", sans-serif; }
 
-/* ============================== LOGO HEADER ============================== */
-.logo-header{
-    width:100%;
-    background:#ffd817;
-    padding:10px 0;
-    text-align:center;
-}
-.logo-header img{
-    max-width:100%;
-    width:100%;
-    height:auto;
-    display:block;
-    margin:0 auto;
-}
+/* LOGO HEADER */
+.logo-header{ width:100%; background:#ffd817; padding:10px 0; text-align:center; }
+.logo-header img{ max-width:100%; width:100%; height:auto; display:block; margin:0 auto; }
 
-/* ============================== MENU ============================== */
+/* MENU */
 .menu{ width:100%; background:#d3d3d3; }
 .menu-row{ width:100%; height:55px; display:flex; border-bottom:2px solid #eeeeee; }
 .menu-row:last-child{ border-bottom:none; }
-.menu a{ height:55px; display:flex; align-items:center; justify-content:center; flex:1; text-decoration:none; color:#4a4a4a; font-family:Arial,sans-serif; font-size:21px; font-weight:800; border-right:2px solid #eeeeee; white-space:nowrap; }
+.menu a{ height:55px; display:flex; align-items:center; justify-content:center; flex:1; text-decoration:none; color:#4a4a4a; font-family:Arial,sans-serif; font-size:18px; font-weight:800; border-right:2px solid #eeeeee; white-space:nowrap; }
 .menu a:last-child{ border-right:none; }
-.menu a i{ margin-right:8px; font-size:20px; }
-.menu a:active{ background:#bc; }
+.menu a i{ margin-right:8px; font-size:18px; }
+.menu a:active{ background:#bcbcbc; }
 .separator{ width:100%; height:7px; background:#ffd817; }
 
-/* ============================== PAGE ============================== */
+/* PAGE */
 .page{ width:100%; padding: 32px 16px 60px; }
 .card{ width:100%; margin-bottom:31px; background:#353535; border-radius:0 0 7px 7px; overflow:hidden; }
 .card-header{ width:100%; min-height:95px; display:flex; align-items:center; padding: 18px 24px; background:#292929; color:#f3f3f3; font-size:30px; font-weight:800; line-height:1.2; text-shadow: 1px 1px 1px #111; }
 .info{ width:32px; height:32px; min-width:32px; display:flex; align-items:center; justify-content:center; margin-right:15px; background:#4caed8; border-radius:50%; color:#fff; font-family:Arial,sans-serif; font-size:21px; font-weight:bold; text-shadow:none; }
 .card-body{ padding: 32px 16px; }
 
-/* ============================== MASTER AGENT ============================== */
+/* MASTER AGENT */
 .master-box{ width:70%; margin:0 auto; padding:16px; background:#fffde7; border:2px solid #f1a04a; }
 .master-inner{ width:100%; background:#cecece; padding: 7px 16px 6px; }
 .agent-top{ width:100%; display:flex; justify-content:space-between; align-items:center; font-family:Arial,sans-serif; font-size:36px; font-weight:700; }
@@ -57,82 +46,102 @@ body{ width:100%; min-height:100vh; background:#ffd817; color:#111; overflow-x:h
 .whatsapp{ width:46px; height:46px; margin-left:7px; display:flex; align-items:center; justify-content:center; background:#24d866; color:white; text-decoration:none; font-size:32px; }
 .phone{ color:#ed5c11; font-family:Arial,sans-serif; font-size:32px; font-weight:700; }
 
-/* ============================== CONTENT BOX ============================== */
+/* CONTENT BOX */
 .content-box{ width:100%; padding: 39px 28px; background:#ffffe9; border:2px solid #eea04b; text-align:center; font-size:31px; line-height:1.72; font-weight:400; color:#050505; }
 .content-box a{ color:#1657bd; text-decoration:underline; cursor:pointer; }
 .agent-list{ width:100%; padding: 35px 25px; background:#ffffe9; border:2px solid #eea04b; text-align:center; font-size:30px; line-height:1.8; }
 
-/* ============================== MOBILE ============================== */
+/* SEARCH BOX */
+.search-box{ background:#fff;padding:20px;border-radius:5px;margin-bottom:20px }
+.search-box input,.search-box select{width:100%;padding:10px;margin:10px 0;border:1px solid #ccc;border-radius:4px;font-size:16px;font-family:"Noto Sans Bengali"}
+.search-box button{width:100%;padding:12px;background:#24d866;color:#fff;border:none;border-radius:4px;font-size:18px;font-weight:700;font-family:"Noto Sans Bengali"}
+.result{margin-top:20px;padding:15px;background:#fffde7;border:2px solid #f1a04a;display:none}
+.chain{font-size:16px;line-height:2;text-align:left}
+
+/* MOBILE */
 @media(max-width:720px){
-    .menu-row, .menu a{ height:55px; }
-    .menu a{ font-size:20px; }
-    .menu a i{ font-size:19px; margin-right:7px; }
-    .page{ padding: 32px 16px 50px; }
-    .card{ margin-bottom:31px; }
-    .card-header{ min-height:95px; padding: 18px 23px; font-size:29px; }
-    .info{ width:32px; height:32px; min-width:32px; margin-right:15px; }
-    .card-body{ padding: 32px 16px; }
-    .master-box{ width:70%; padding:16px; }
-    .agent-top{ font-size:35px; }
-    .phone{ font-size:31px; }
-    .content-box{ padding: 38px 25px; font-size:30px; line-height:1.72; }
-    .agent-list{ font-size:29px; }
+   .menu-row,.menu a{ height:55px; }
+   .menu a{ font-size:16px; }
+   .menu a i{ font-size:16px; margin-right:7px; }
+   .page{ padding: 32px 16px 50px; }
+   .card-header{ min-height:95px; padding: 18px 23px; font-size:29px; }
+   .master-box{ width:70%; padding:16px; }
+   .agent-top{ font-size:35px; }
+   .phone{ font-size:31px; }
+   .content-box{ padding: 38px 25px; font-size:30px; line-height:1.72; }
+   .agent-list{ font-size:29px; }
 }
 @media(max-width:500px){
-    .menu a{ font-size:17px; }
-    .menu a i{ font-size:16px; margin-right:5px; }
-    .page{ padding: 30px 16px 45px; }
-    .card-header{ min-height:82px; padding: 16px 22px; font-size:23px; }
-    .info{ width:30px; height:30px; min-width:30px; font-size:19px; margin-right:12px; }
-    .card-body{ padding: 32px 16px; }
-    .master-box{ width:88%; padding:14px; }
-    .master-inner{ padding: 7px 13px 6px; }
-    .agent-top{ font-size:27px; }
-    .phone{ font-size:26px; }
-    .whatsapp{ width:43px; height:43px; font-size:29px; }
-    .content-box{ padding: 34px 15px; font-size:25px; line-height:1.75; }
-    .agent-list{ padding: 30px 12px; font-size:24px; }
+   .menu a{ font-size:14px; }
+   .menu a i{ font-size:14px; margin-right:5px; }
+   .page{ padding: 30px 16px 45px; }
+   .card-header{ min-height:82px; padding: 16px 22px; font-size:23px; }
+   .master-box{ width:88%; padding:14px; }
+   .agent-top{ font-size:27px; }
+   .phone{ font-size:26px; }
+   .whatsapp{ width:43px; height:43px; font-size:29px; }
+   .content-box{ padding: 34px 15px; font-size:25px; line-height:1.75; }
+   .agent-list{ padding: 30px 12px; font-size:24px; }
 }
 @media(max-width:390px){
-    .menu a{ font-size:14px; }
-    .menu a i{ font-size:14px; margin-right:4px; }
-    .page{ padding-left:16px; padding-right:16px; }
-    .card-header{ font-size:21px; padding-left:18px; padding-right:12px; }
-    .info{ width:29px; height:29px; min-width:29px; margin-right:10px; font-size:18px; }
-    .master-box{ width:94%; }
-    .agent-top{ font-size:24px; }
-    .phone{ font-size:23px; }
-    .whatsapp{ width:40px; height:40px; font-size:26px; }
-    .content-box{ padding: 28px 10px; font-size:22px; }
-    .agent-list{ font-size:21px; }
+   .menu a{ font-size:12px; }
+   .menu a i{ font-size:12px; margin-right:4px; }
+   .card-header{ font-size:21px; }
+   .master-box{ width:94%; }
+   .agent-top{ font-size:24px; }
+   .phone{ font-size:23px; }
+   .whatsapp{ width:40px; height:40px; font-size:26px; }
+   .content-box{ padding: 28px 10px; font-size:22px; }
+   .agent-list{ font-size:21px; }
 }
 </style>
 </head>
 <body>
 
-<!-- ========================================== LOGO ========================================== -->
+<!-- LOGO -->
 <header class="logo-header">
     <img src="logo.png" alt="VELKI Logo">
 </header>
 
-<!-- ========================================== MENU ========================================== -->
+<!-- MENU -->
 <nav class="menu">
     <div class="menu-row">
-        <!-- শুধু এখানে home.html লিংক করে দিলাম -->
         <a href="home.html"><i class="fa-solid fa-house"></i> HOME </a>
         <a href="#customer"><i class="fa-solid fa-circle-question"></i> CUSTOMER SERVICE </a>
         <a href="#oldnew"><i class="fa-solid fa-gear"></i> OLD/NEW </a>
     </div>
     <div class="separator"></div>
     <div class="menu-row">
-        <a href="#admin"><i class="fa-solid fa-gear"></i> ADMIN </a>
-        <a href="#super"><i class="fa-solid fa-gear"></i> SUPER </a>
-        <a href="#master"><i class="fa-solid fa-gear"></i> MASTER </a>
+        <a href="admin.html"><i class="fa-solid fa-gear"></i> ADMIN </a>
+        <a href="super.html"><i class="fa-solid fa-gear"></i> SUPER </a>
+        <a href="master.html"><i class="fa-solid fa-gear"></i> MASTER </a>
     </div>
 </nav>
 
-<!-- ========================================== PAGE ========================================== -->
+<!-- PAGE -->
 <main class="page" id="home">
+
+<!-- SEARCH SECTION NEW -->
+<section class="card" id="search">
+    <div class="card-header"><span class="info">i</span><span> এজেন্ট খুজুন ID দিয়ে </span></div>
+    <div class="card-body">
+        <div class="search-box">
+            <label>Agent Type:</label>
+            <select id="type">
+              <option value="master">মাস্টার এজেন্ট</option>
+              <option value="super">সুপার এজেন্ট</option>
+            </select>
+            <label>Agent ID:</label>
+            <input type="number" id="agentId" placeholder="যেমন: 03">
+            <button onclick="searchAgent()">Submit</button>
+
+            <div class="result" id="result">
+              <h3 style="text-align:center;margin-bottom:10px">ফলাফলঃ</h3>
+              <div class="chain" id="chain"></div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <section class="card" id="master">
     <div class="card-header"><span class="info">i</span><span> QUICK MASTER AGENT NUMBER: </span></div>
@@ -167,42 +176,19 @@ body{ width:100%; min-height:100vh; background:#ffd817; color:#111; overflow-x:h
     <div class="card-header"><span class="info">i</span><span> এজেন্ট লিস্টঃ </span></div>
     <div class="card-body">
         <div class="content-box">
-            একাউন্ট খুলতে নিচের অনলাইন এজেন্ট লিস্ট এ ক্লিক করুন। এজেন্ট লিস্ট এর এজেন্ট দের সাথে ইউজার দের শুধু মাত্র হোয়াটসঅ্যাপ এর মাধ্যমে যোগাযোগ করতে হবে। হোয়াটসঅ্যাপ ছাড়া অন্য কোন মাধ্যমে যোগাযোগ করলে বা লেনদেন করলে তা গ্রহণযোগ্য হবে না। হোয়াটসঅ্যাপ এ যোগাযোগ করতে হলে এজেন্ট লিস্টের হোয়াটসঅ্যাপ আইকন উপরে ক্লিক করুন অথবা ফোন নাম্বার টি মোবাইলে সেভ করে তাকে হোয়াটসঅ্যাপ এ মেসেজ পাঠাতে পারবেন। হোয়াটসঅ্যাপ এপটি আপনার মোবাইলে আগে থেকেই থাকতে হবে। না থাকলে গুগল প্লে থেকে ইন্সটল করে নিন।
+            একাউন্ট খুলতে নিচের অনলাইন এজেন্ট লিস্ট এ ক্লিক করুন। এজেন্ট লিস্ট এর এজেন্ট দের সাথে ইউজার দের শুধু মাত্র হোয়াটসঅ্যাপ এর মাধ্যমে যোগাযোগ করতে হবে।
             <br><br>
-            <a href="#online-master"> অনলাইন মাস্টার এজেন্ট লিস্টঃ </a>
-        </div>
-    </div>
-</section>
-
-<section class="card" id="online-master">
-    <div class="card-header"><span class="info">i</span><span> এজেন্ট লিস্টঃ </span></div>
-    <div class="card-body">
-        <div class="agent-list">
-            <div> Agent ID: 01 </div>
-            <div> WhatsApp: <a href="https://wa.me/1234567890"> +1234567890 </a> </div>
-            <br>
-            <div> Agent ID: 02 </div>
-            <div> WhatsApp: <a href="https://wa.me/1234567890"> +1234567890 </a> </div>
+            <a href="master.html"> অনলাইন মাস্টার এজেন্ট লিস্ট দেখুন </a>
         </div>
     </div>
 </section>
 
 <section class="card" id="super">
-    <div class="card-header"><span class="info">i</span><span> কিভাবে একাউন্ট খুলবেনঃ </span></div>
+    <div class="card-header"><span class="info">i</span><span> সুপার এজেন্ট তথ্য </span></div>
     <div class="card-body">
         <div class="content-box">
-            <a href="#super-list"> অনলাইন সুপার এজেন্ট লিস্টঃ </a>
+            <a href="super.html"> অনলাইন সুপার এজেন্ট লিস্টঃ </a> <br><br>
             সুপার এজেন্ট রা, ইউজার একাউন্ট এবং মাস্টার একাউন্ট পরিচালনা করে থাকেন।
-        </div>
-    </div>
-</section>
-
-<section class="card" id="super-list">
-    <div class="card-header"><span class="info">i</span><span> সুপার এজেন্ট লিস্টঃ </span></div>
-    <div class="card-body">
-        <div class="agent-list">
-            <div> Super Agent ID: 01 </div>
-            <div> WhatsApp: <a href="https://wa.me/1234567890"> +1234567890 </a> </div>
         </div>
     </div>
 </section>
@@ -211,8 +197,8 @@ body{ width:100%; min-height:100vh; background:#ffd817; color:#111; overflow-x:h
     <div class="card-header"><span class="info">i</span><span> OLD / NEW </span></div>
     <div class="card-body">
         <div class="content-box">
-            <a href="#"> OLD ACCOUNT </a> &nbsp;&nbsp;&nbsp;
-            <a href="#"> NEW ACCOUNT </a>
+            <a href="oldnew.html"> OLD ACCOUNT </a> &nbsp;&nbsp;&nbsp;
+            <a href="oldnew.html"> NEW ACCOUNT </a>
         </div>
     </div>
 </section>
@@ -231,6 +217,7 @@ body{ width:100%; min-height:100vh; background:#ffd817; color:#111; overflow-x:h
 </main>
 
 <script>
+// SMOOTH SCROLL
 document.querySelectorAll('a[href^="#"]').forEach(function(link){
     link.addEventListener("click", function(event){
         const id = this.getAttribute("href");
@@ -242,6 +229,38 @@ document.querySelectorAll('a[href^="#"]').forEach(function(link){
         }
     });
 });
+
+// AGENT SEARCH FUNCTION
+const data = {
+  "03": {master:"03", super:"249", subadmin:"18", admin:"02", phone:"+13435008121"},
+  "655": {master:"655", super:"243", subadmin:"5", admin:"01", phone:"+601124133383"},
+  "326": {master:"326", super:"287", subadmin:"12", admin:"01", phone:"+601174744722"},
+  "2021": {master:"2021", super:"249", subadmin:"18", admin:"02", phone:"+971544919937"}
+};
+
+function searchAgent(){
+  const id = document.getElementById('agentId').value;
+  const res = document.getElementById('result');
+  const chain = document.getElementById('chain');
+
+  if(data[id]){
+    const d = data[id];
+    chain.innerHTML = `
+      মাস্টার এজেন্ট ID: <b style="color:#ee5c12">${d.master}</b> <br>
+      ↓ এর আন্ডারে <br>
+      সুপার এজেন্ট ID: <b style="color:#ee5c12">${d.super}</b> <br>
+      ↓ এর আন্ডারে <br>
+      সাব এডমিন ID: <b style="color:#ee5c12">${d.subadmin}</b> <br>
+      ↓ এর আন্ডারে <br>
+      এডমিন ID: <b style="color:#ee5c12">${d.admin}</b> <br><br>
+      WhatsApp: <a href="https://wa.me/${d.phone.replace('+','')}" style="color:#24d866;font-weight:700">${d.phone}</a>
+    `;
+    res.style.display = 'block';
+  } else {
+    chain.innerHTML = "এই ID এর এজেন্ট পাওয়া যায়নি। নতুন ID যোগ করতে admin এর সাথে যোগাযোগ করুন।";
+    res.style.display = 'block';
+  }
+}
 </script>
 
 </body>
