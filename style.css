@@ -1,0 +1,709 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Noto Sans Bengali",sans-serif;
+    background:#fff;
+    color:#111;
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button,
+input,
+select{
+    font-family:inherit;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+    width:100%;
+    height:70px;
+    background:#fff;
+    border-bottom:1px solid #eee;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.header-inner{
+    max-width:1100px;
+    height:100%;
+    margin:auto;
+    padding:0 18px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo-box{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    font-family:Georgia,serif;
+    font-size:24px;
+    font-weight:700;
+}
+
+.logo-box img{
+    width:42px;
+    height:42px;
+    object-fit:contain;
+}
+
+.menu-btn{
+    width:45px;
+    height:45px;
+
+    border:0;
+    background:transparent;
+
+    font-size:25px;
+    cursor:pointer;
+}
+
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+.mobile-menu{
+    position:fixed;
+    top:0;
+    right:-100%;
+
+    width:100%;
+    max-width:430px;
+    height:100vh;
+
+    background:#f7f7f7;
+
+    z-index:2000;
+
+    padding:80px 25px 30px;
+
+    overflow-y:auto;
+
+    transition:.35s ease;
+
+    box-shadow:-5px 0 20px rgba(0,0,0,.15);
+}
+
+.mobile-menu.show{
+    right:0;
+}
+
+.close-menu{
+    position:absolute;
+    top:20px;
+    left:25px;
+
+    border:0;
+    background:none;
+
+    font-size:28px;
+    cursor:pointer;
+}
+
+.mobile-menu > a,
+.menu-dropdown > button{
+    width:100%;
+    display:block;
+
+    padding:18px 5px;
+
+    border:0;
+    background:transparent;
+
+    text-align:center;
+
+    font-size:21px;
+    font-weight:600;
+
+    cursor:pointer;
+}
+
+.menu-dropdown > button i{
+    margin-left:7px;
+    font-size:14px;
+}
+
+.submenu{
+    display:none;
+    background:#eee;
+    margin:5px 0 10px;
+    padding:5px 0;
+}
+
+.submenu.show{
+    display:block;
+}
+
+.submenu a{
+    display:block;
+    text-align:center;
+    padding:12px;
+    font-size:18px;
+}
+
+
+/* =========================
+   BRAND
+========================= */
+
+.brand-section{
+    min-height:180px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:30px 20px;
+}
+
+.brand-logo{
+    text-align:center;
+}
+
+.brand-logo img{
+    width:190px;
+    max-width:80%;
+    height:100px;
+    object-fit:contain;
+}
+
+.brand-logo h3{
+    margin-top:5px;
+
+    font-family:Georgia,serif;
+
+    font-size:20px;
+    letter-spacing:2px;
+}
+
+
+/* =========================
+   FIND AGENT
+========================= */
+
+.find-section{
+    max-width:900px;
+    margin:auto;
+
+    padding:50px 20px 70px;
+}
+
+.find-section h1{
+    text-align:center;
+
+    font-family:Georgia,serif;
+
+    font-size:40px;
+    font-weight:400;
+
+    margin-bottom:55px;
+}
+
+.find-section h2,
+.phone-section h2{
+    text-align:center;
+
+    font-size:27px;
+    line-height:1.8;
+
+    font-weight:500;
+
+    margin-bottom:28px;
+}
+
+
+/* =========================
+   SEARCH CARD
+========================= */
+
+.search-card,
+.phone-card{
+    max-width:600px;
+
+    margin:auto;
+
+    padding:30px 22px;
+
+    background:#fff;
+
+    border:1px solid #ddd;
+
+    border-radius:10px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.search-card label,
+.phone-card label{
+    display:block;
+
+    margin-bottom:8px;
+
+    font-family:Arial,sans-serif;
+
+    font-size:17px;
+
+    color:#444;
+}
+
+.search-card select,
+.search-card input,
+.phone-card input{
+    width:100%;
+
+    height:52px;
+
+    border:1px solid #ddd;
+
+    border-radius:7px;
+
+    outline:none;
+
+    padding:0 15px;
+
+    font-size:17px;
+
+    margin-bottom:28px;
+
+    background:#fff;
+}
+
+.search-card select:focus,
+.search-card input:focus,
+.phone-card input:focus{
+    border-color:#999;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.submit-btn{
+    display:block;
+
+    border:0;
+
+    background:#fff;
+
+    color:#111;
+
+    font-size:21px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    margin:0 auto;
+
+    padding:5px 20px;
+}
+
+.submit-btn:hover{
+    opacity:.7;
+}
+
+
+/* =========================
+   RESULT
+========================= */
+
+.result-card{
+    margin-top:25px;
+
+    padding:20px;
+
+    border:1px solid #ddd;
+
+    border-radius:8px;
+
+    background:#fafafa;
+}
+
+.result-card h3{
+    margin-bottom:10px;
+}
+
+.result-row{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+
+    padding:7px 0;
+
+    border-bottom:1px solid #eee;
+}
+
+.result-row:last-child{
+    border-bottom:0;
+}
+
+.not-found{
+    margin-top:20px;
+
+    text-align:center;
+
+    padding:15px;
+
+    border-radius:8px;
+
+    background:#fff0f0;
+
+    color:#c00;
+}
+
+
+/* =========================
+   PHONE SECTION
+========================= */
+
+.phone-section{
+    max-width:900px;
+
+    margin:0 auto 70px;
+
+    padding:40px 20px;
+
+    border:1px solid #222;
+}
+
+.phone-card{
+    max-width:600px;
+}
+
+
+/* =========================
+   AGENT LIST
+========================= */
+
+.agent-list-section{
+    max-width:1000px;
+
+    margin:auto;
+
+    padding:40px 20px 70px;
+}
+
+.agent-list-section > h2{
+    text-align:center;
+
+    font-family:Georgia,serif;
+
+    font-size:36px;
+
+    font-weight:400;
+
+    margin-bottom:25px;
+}
+
+.filter-box{
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:8px;
+
+    margin-bottom:25px;
+}
+
+.filter-btn{
+    padding:10px 15px;
+
+    border:1px solid #ddd;
+
+    border-radius:6px;
+
+    background:#fff;
+
+    cursor:pointer;
+
+    font-size:15px;
+}
+
+.filter-btn.active,
+.filter-btn:hover{
+    background:#111;
+    color:#fff;
+}
+
+.agent-grid{
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:15px;
+}
+
+.agent-card{
+    border:1px solid #ddd;
+
+    border-radius:10px;
+
+    padding:18px;
+
+    background:#fff;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.06);
+}
+
+.agent-card h3{
+    font-size:20px;
+
+    margin-bottom:10px;
+}
+
+.agent-type{
+    display:inline-block;
+
+    font-size:13px;
+
+    background:#eee;
+
+    padding:4px 9px;
+
+    border-radius:20px;
+
+    margin-bottom:12px;
+}
+
+.agent-info{
+    line-height:1.8;
+
+    color:#444;
+}
+
+.call-btn,
+.whatsapp-btn{
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:7px;
+
+    padding:8px 12px;
+
+    margin-top:12px;
+
+    border-radius:6px;
+
+    font-size:14px;
+}
+
+.call-btn{
+    background:#111;
+    color:#fff;
+}
+
+.whatsapp-btn{
+    background:#25d366;
+    color:#fff;
+}
+
+
+/* =========================
+   INFO
+========================= */
+
+.info-section{
+    max-width:900px;
+
+    margin:auto;
+
+    padding:55px 20px;
+
+    text-align:center;
+}
+
+.info-section h2{
+    font-family:Georgia,serif;
+
+    font-size:30px;
+
+    margin-bottom:20px;
+}
+
+.info-section p{
+    line-height:2;
+
+    color:#444;
+}
+
+.info-link{
+    display:inline-block;
+
+    padding:12px 20px;
+
+    border:1px solid #ddd;
+
+    border-radius:7px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    text-align:center;
+
+    background:#111;
+
+    color:#fff;
+
+    padding:35px 20px;
+}
+
+.footer-logo{
+    font-family:Georgia,serif;
+
+    font-size:25px;
+
+    margin-bottom:10px;
+}
+
+footer p{
+    color:#bbb;
+
+    margin-bottom:15px;
+}
+
+.admin-link{
+    font-size:13px;
+
+    color:#888;
+}
+
+
+/* =========================
+   CHAT BUTTON
+========================= */
+
+.chat-button{
+    position:fixed;
+
+    right:18px;
+    bottom:25px;
+
+    width:62px;
+    height:62px;
+
+    border-radius:50%;
+
+    background:#071d48;
+
+    color:#fff;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:31px;
+
+    z-index:1500;
+
+    box-shadow:0 5px 18px rgba(0,0,0,.25);
+}
+
+.chat-button:hover{
+    transform:scale(1.05);
+}
+
+
+/* =========================
+   EMPTY
+========================= */
+
+.empty{
+    text-align:center;
+
+    padding:35px 10px;
+
+    color:#777;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:650px){
+
+    .header{
+        height:62px;
+    }
+
+    .logo-box{
+        font-size:20px;
+    }
+
+    .logo-box img{
+        width:35px;
+        height:35px;
+    }
+
+    .brand-section{
+        min-height:120px;
+    }
+
+    .brand-logo img{
+        height:75px;
+    }
+
+    .find-section{
+        padding-top:35px;
+    }
+
+    .find-section h1{
+        font-size:36px;
+
+        margin-bottom:40px;
+    }
+
+    .find-section h2,
+    .phone-section h2{
+        font-size:23px;
+    }
+
+    .search-card,
+    .phone-card{
+        padding:25px 20px;
+    }
+
+    .agent-grid{
+        grid-template-columns:1fr;
+    }
+
+    .phone-section{
+        margin-left:20px;
+        margin-right:20px;
+    }
+
+    .mobile-menu > a,
+    .menu-dropdown > button{
+        font-size:20px;
+    }
+}
