@@ -1,79 +1,745 @@
 <!DOCTYPE html>
 <html lang="bn">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Velki.com</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+
+<meta name="viewport"
+      content="width=device-width,
+      initial-scale=1.0,
+      maximum-scale=1.0,
+      user-scalable=no">
+
+<title>Velki.Com - Find Agent</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap"
+      rel="stylesheet">
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 </head>
+
+
 <body>
 
-<header>
-  <div class="logo-box">
-    <img src="https://i.postimg.cc/7hR3mKzL/velki-logo.png" alt="VELKI.COM" id="mainLogo">
-    <p>Velki.Com</p>
-  </div>
-  <div class="top-bar">
-    <i class="fa-solid fa-chevron-down" onclick="toggleMenu()"></i>
-    <i class="fa-solid fa-magnifying-glass"></i>
-  </div>
-</header>
 
-<div id="menu" class="menu hidden">
-  <span onclick="toggleMenu()">✕</span>
-  <a href="index.html">এজেন্ট খুঁজুন</a>
-  <a href="master.html">সকল এজেন্ট লিস্ট</a>
-  <a href="master.html">মাস্টার এজেন্ট লিস্ট</a>
-  <a href="#">সুপার এজেন্ট লিস্ট</a>
-  <a href="#">সাব এডমিন লিস্ট</a>
-  <a href="#">কাস্টমার সার্ভিস</a>
-  <a href="#">প্রশ্নোত্তর</a>
-  <a href="#">ভেলকি কি?</a>
-  <a href="#">নিয়ম কানুন</a>
-  <a href="#">ব্লগস</a>
+<!-- =====================================================
+     TOP LOGO AREA
+===================================================== -->
+
+<section class="top-logo-area">
+
+    <a href="index.html" class="main-logo-link">
+
+        <img
+            src="images/logo.png"
+            alt="Velki.Com Logo"
+            class="main-logo"
+        >
+
+    </a>
+
+    <div class="site-name">
+        Velki.Com
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTROL BAR
+===================================================== -->
+
+<div class="control-bar">
+
+    <!-- MENU / DOWN ARROW -->
+
+    <button
+        class="control-button menu-control"
+        id="menuBtn"
+        aria-label="Menu">
+
+        <i class="fa-solid fa-chevron-down"></i>
+
+    </button>
+
+
+    <!-- SEARCH -->
+
+    <button
+        class="control-button search-control"
+        id="topSearchBtn"
+        aria-label="Search">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+    </button>
+
 </div>
 
-<div class="container">
-  <h2 class="title">Find Agent</h2>
-  <h3 class="sub-title">এজেন্ট এর আইডি নাম্বার দিয়ে<br>খুঁজুনঃ</h3>
 
-  <div class="card">
-    <label>Agent Type:</label>
-    <select id="agentType">
-      <option>মাস্টার এজেন্ট</option>
-      <option>সুপার এজেন্ট</option>
-      <option>সাব এডমিন</option>
-    </select>
-    <label>Agent ID:</label>
-    <input type="number" id="agentIdInput" placeholder="">
-    <button onclick="searchById()">Submit</button>
-    <div id="idResult"></div>
-  </div>
 
-  <h3 class="sub-title" style="margin-top:25px;">এজেন্ট কে ফোন নাম্বার দিয়ে<br>খুঁজুনঃ</h3>
-  <div class="card">
-    <label>PHONE NUMBER:</label>
-    <input type="text" id="phoneInput" placeholder="">
-    <button onclick="searchByPhone()">Submit</button>
-    <div id="phoneResult"></div>
-  </div>
+<!-- =====================================================
+     MOBILE MENU
+===================================================== -->
 
-  <div class="quick-box">
-    <p>সকল মাস্টার এজেন্ট লিস্ট দেখতে ক্লিক করুন</p>
-    <a href="master.html" class="quick-btn">QUICK AGENT</a>
-  </div>
+<div class="mobile-menu" id="mobileMenu">
 
-  <div id="agentList"></div>
 
-  <div class="chat-banner">
-    <h4>CHAT WITH US ONLINE</h4>
-    <h2>আমাদের সাথে<br>অনলাইনে<br>চ্যাটিং করতে<br>ক্লিক করুন !!</h2>
-    <img src="https://i.postimg.cc/3x3Qv5cL/chat.png" alt="">
-  </div>
+    <button
+        class="close-menu"
+        id="closeMenu">
+
+        <i class="fa-solid fa-xmark"></i>
+
+    </button>
+
+
+    <div class="menu-title">
+        Velki.Com
+    </div>
+
+
+    <a href="#findAgent">
+        এজেন্ট কে খুঁজুন
+    </a>
+
+
+    <div class="menu-dropdown">
+
+        <button id="agentMenuBtn">
+
+            সকল এজেন্ট লিস্ট
+
+            <i class="fa-solid fa-chevron-down"></i>
+
+        </button>
+
+
+        <div
+            class="submenu"
+            id="agentSubmenu">
+
+
+            <a
+                href="#agentList"
+                data-type="master">
+
+                মাস্টার এজেন্ট লিস্ট
+
+            </a>
+
+
+            <a
+                href="#agentList"
+                data-type="super">
+
+                সুপার এজেন্ট লিস্ট
+
+            </a>
+
+
+            <a
+                href="#agentList"
+                data-type="admin">
+
+                সাব এডমিন লিস্ট
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+
+    <a href="#customerService">
+        কাস্টমার সার্ভিস
+    </a>
+
+
+    <a href="#importantLinks">
+        প্রয়োজনীয় লিংক
+    </a>
+
+
+    <a href="#about">
+        ভেলকি কি?
+    </a>
+
+
+    <a href="#rules">
+        নিয়ম কানুন
+    </a>
+
+
+    <a href="#brands">
+        ব্র্যান্ডস
+    </a>
+
+
 </div>
 
-<script type="module" src="app.js"></script>
+
+
+<!-- =====================================================
+     SEARCH OVERLAY
+===================================================== -->
+
+<div
+    class="top-search-box"
+    id="topSearchBox">
+
+    <input
+        type="text"
+        id="topSearchInput"
+        placeholder="Agent ID লিখুন..."
+        autocomplete="off">
+
+    <button id="topSearchSubmit">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+    </button>
+
+</div>
+
+
+
+<!-- =====================================================
+     FIND AGENT
+===================================================== -->
+
+<section
+    class="find-section"
+    id="findAgent">
+
+
+    <h1>
+        Find Agent
+    </h1>
+
+
+    <h2>
+
+        এজেন্ট এর আইডি নাম্বার দিয়ে<br>
+
+        খুঁজুনঃ
+
+    </h2>
+
+
+
+    <div class="search-card">
+
+
+        <!-- Agent Type -->
+
+        <div class="form-group">
+
+            <label>
+                Agent Type:
+            </label>
+
+
+            <select id="agentType">
+
+                <option value="master">
+                    মাস্টার এজেন্ট
+                </option>
+
+                <option value="super">
+                    সুপার এজেন্ট
+                </option>
+
+                <option value="admin">
+                    সাব এডমিন
+                </option>
+
+            </select>
+
+        </div>
+
+
+
+        <!-- Agent ID -->
+
+        <div class="form-group">
+
+            <label>
+                Agent ID:
+            </label>
+
+
+            <input
+                type="text"
+                id="agentId"
+                placeholder=""
+                autocomplete="off">
+
+        </div>
+
+
+
+        <!-- Submit -->
+
+        <button
+            class="submit-btn"
+            id="searchAgentBtn">
+
+            Submit
+
+        </button>
+
+
+        <!-- Search Result -->
+
+        <div id="searchResult"></div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     WARNING / INFORMATION
+===================================================== -->
+
+<section class="notice-section">
+
+    <h2>
+        লেনদেনের আগে জানার বিষয়
+    </h2>
+
+
+    <p>
+
+        লেনদেন করার পূর্বে অবশ্যই এজেন্টের
+        তথ্য ভালোভাবে যাচাই করে নিন।
+
+    </p>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     CHAT WITH US
+===================================================== -->
+
+<section
+    class="chat-online-section"
+    id="customerService">
+
+
+    <h2>
+        CHAT WITH US ONLINE
+    </h2>
+
+
+    <p>
+        যেকোনো প্রয়োজনে আমাদের সাথে যোগাযোগ করুন
+    </p>
+
+
+    <a
+        href="https://wa.me/60108919892"
+        target="_blank"
+        class="online-chat-button">
+
+        <i class="fa-brands fa-whatsapp"></i>
+
+        Chat With Us
+
+    </a>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     PHONE SEARCH
+===================================================== -->
+
+<section class="phone-section">
+
+
+    <h2>
+        এজেন্ট কে ফোন নাম্বার দিয়ে<br>
+        খুঁজুনঃ
+    </h2>
+
+
+    <div class="phone-card">
+
+
+        <label>
+            PHONE NUMBER:
+        </label>
+
+
+        <input
+            type="tel"
+            id="phoneNumber"
+            placeholder="ফোন নাম্বার লিখুন"
+            autocomplete="off">
+
+
+        <button
+            class="submit-btn"
+            id="phoneSearchBtn">
+
+            Submit
+
+        </button>
+
+
+        <div id="phoneResult"></div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     QUICK AGENT
+===================================================== -->
+
+<section
+    class="agent-list-section"
+    id="agentList">
+
+
+    <h2>
+        QUICK AGENT
+    </h2>
+
+
+    <div class="filter-box">
+
+
+        <button
+            class="filter-btn active"
+            data-filter="all">
+
+            সকল এজেন্ট
+
+        </button>
+
+
+        <button
+            class="filter-btn"
+            data-filter="master">
+
+            মাস্টার
+
+        </button>
+
+
+        <button
+            class="filter-btn"
+            data-filter="super">
+
+            সুপার
+
+        </button>
+
+
+        <button
+            class="filter-btn"
+            data-filter="admin">
+
+            সাব এডমিন
+
+        </button>
+
+
+    </div>
+
+
+    <div id="agentListContainer"></div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section
+    class="info-section"
+    id="about">
+
+
+    <h2>
+        ভেলকি কি?
+    </h2>
+
+
+    <p>
+
+        আমাদের ওয়েবসাইটের মাধ্যমে সহজেই
+        এজেন্টের তথ্য যাচাই ও প্রয়োজনীয়
+        যোগাযোগ করতে পারবেন।
+
+    </p>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     IMPORTANT LINKS
+===================================================== -->
+
+<section
+    class="info-section"
+    id="importantLinks">
+
+
+    <h2>
+        প্রয়োজনীয় লিংক
+    </h2>
+
+
+    <a href="#" class="info-link">
+
+        <i class="fa-solid fa-link"></i>
+
+        প্রয়োজনীয় লিংক
+
+    </a>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     RULES
+===================================================== -->
+
+<section
+    class="info-section"
+    id="rules">
+
+
+    <h2>
+        নিয়ম কানুন
+    </h2>
+
+
+    <p>
+
+        এজেন্টের সাথে লেনদেন করার পূর্বে
+        অবশ্যই এজেন্টের তথ্য যাচাই করুন।
+
+    </p>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     BRANDS
+===================================================== -->
+
+<section
+    class="info-section"
+    id="brands">
+
+
+    <h2>
+        ব্র্যান্ডস
+    </h2>
+
+
+    <p>
+        Velki.Com
+    </p>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+
+    <img
+        src="images/logo.png"
+        alt="Velki.Com"
+        class="footer-logo-image">
+
+
+    <p>
+        © 2026 Velki.Com
+    </p>
+
+
+    <a
+        href="admin.html"
+        class="admin-link">
+
+        Admin
+
+    </a>
+
+
+</footer>
+
+
+
+<!-- =====================================================
+     FLOATING CHAT
+===================================================== -->
+
+<a
+    href="https://wa.me/60108919892"
+    class="chat-button"
+    target="_blank"
+    aria-label="WhatsApp">
+
+
+    <i class="fa-brands fa-whatsapp"></i>
+
+
+</a>
+
+
+
+<script src="script.js"></script>
+
+
+
+<!-- =====================================================
+     TOP MENU + SEARCH SCRIPT
+===================================================== -->
+
+<script>
+
+
+/* ---------------------------------------
+   SEARCH BUTTON
+--------------------------------------- */
+
+const topSearchBtn =
+    document.getElementById("topSearchBtn");
+
+const topSearchBox =
+    document.getElementById("topSearchBox");
+
+
+topSearchBtn.addEventListener("click", function(){
+
+    topSearchBox.classList.toggle("show");
+
+    if(topSearchBox.classList.contains("show")){
+
+        document
+            .getElementById("topSearchInput")
+            .focus();
+
+    }
+
+});
+
+
+
+/* ---------------------------------------
+   TOP SEARCH
+--------------------------------------- */
+
+document
+    .getElementById("topSearchSubmit")
+    .addEventListener("click", function(){
+
+        const id =
+            document
+            .getElementById("topSearchInput")
+            .value
+            .trim();
+
+        if(!id) return;
+
+
+        document
+            .getElementById("agentId")
+            .value = id;
+
+
+        document
+            .getElementById("findAgent")
+            .scrollIntoView({
+                behavior:"smooth"
+            });
+
+
+        setTimeout(function(){
+
+            const button =
+                document.getElementById(
+                    "searchAgentBtn"
+                );
+
+            if(button){
+                button.click();
+            }
+
+        },500);
+
+    });
+
+
+
+/* ---------------------------------------
+   SEARCH ENTER
+--------------------------------------- */
+
+document
+    .getElementById("topSearchInput")
+    .addEventListener("keydown", function(e){
+
+        if(e.key === "Enter"){
+
+            document
+                .getElementById("topSearchSubmit")
+                .click();
+
+        }
+
+    });
+
+
+</script>
+
+
 </body>
 </html>
