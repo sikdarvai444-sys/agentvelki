@@ -2,284 +2,78 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-<title>Velki.Com - Find Agent</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Velki.com</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
-
 <body>
 
-<!-- HEADER -->
-<header class="header">
-
-    <div class="header-inner">
-
-        <a href="index.html" class="logo-box">
-            <img src="images/logo.png" alt="Logo"
-                 onerror="this.style.display='none'">
-            <span>Velki.Com</span>
-        </a>
-
-        <button class="menu-btn" id="menuBtn">
-            <i class="fa-solid fa-bars"></i>
-        </button>
-
-    </div>
-
+<header>
+  <div class="logo-box">
+    <img src="https://i.postimg.cc/7hR3mKzL/velki-logo.png" alt="VELKI.COM" id="mainLogo">
+    <p>Velki.Com</p>
+  </div>
+  <div class="top-bar">
+    <i class="fa-solid fa-chevron-down" onclick="toggleMenu()"></i>
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </div>
 </header>
 
-
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-
-    <button class="close-menu" id="closeMenu">
-        <i class="fa-solid fa-xmark"></i>
-    </button>
-
-    <a href="#findAgent">এজেন্ট কে খুঁজুন</a>
-
-    <div class="menu-dropdown">
-
-        <button id="agentMenuBtn">
-            সকল এজেন্ট লিস্ট
-            <i class="fa-solid fa-caret-down"></i>
-        </button>
-
-        <div class="submenu" id="agentSubmenu">
-
-            <a href="#agentList" data-type="master">
-                মাস্টার এজেন্ট লিস্ট
-            </a>
-
-            <a href="#agentList" data-type="super">
-                সুপার এজেন্ট লিস্ট
-            </a>
-
-            <a href="#agentList" data-type="admin">
-                সাব এডমিন লিস্ট
-            </a>
-
-        </div>
-
-    </div>
-
-    <a href="#customerService">কাস্টমার সার্ভিস</a>
-
-    <a href="#importantLinks">প্রয়োজনীয় লিংক</a>
-
-    <a href="#about">ভেলকি কি?</a>
-
-    <a href="#rules">নিয়ম কানুন</a>
-
-    <a href="#brands">ব্র্যান্ডস</a>
-
+<div id="menu" class="menu hidden">
+  <span onclick="toggleMenu()">✕</span>
+  <a href="index.html">এজেন্ট খুঁজুন</a>
+  <a href="master.html">সকল এজেন্ট লিস্ট</a>
+  <a href="master.html">মাস্টার এজেন্ট লিস্ট</a>
+  <a href="#">সুপার এজেন্ট লিস্ট</a>
+  <a href="#">সাব এডমিন লিস্ট</a>
+  <a href="#">কাস্টমার সার্ভিস</a>
+  <a href="#">প্রশ্নোত্তর</a>
+  <a href="#">ভেলকি কি?</a>
+  <a href="#">নিয়ম কানুন</a>
+  <a href="#">ব্লগস</a>
 </div>
 
-
-<!-- HERO / BRAND -->
-<section class="brand-section">
-
-    <div class="brand-logo">
-
-        <img src="images/logo.png"
-             alt="Velki Logo"
-             onerror="this.style.display='none'">
-
-        <h3>Velki.Com</h3>
-
-    </div>
-
-</section>
-
-
-<!-- FIND AGENT -->
-<section class="find-section" id="findAgent">
-
-    <h1>Find Agent</h1>
-
-    <h2>
-        এজেন্ট এর আইডি নাম্বার দিয়ে<br>
-        খুঁজুনঃ
-    </h2>
-
-    <div class="search-card">
-
-        <label>Agent Type:</label>
-
-        <select id="agentType">
-            <option value="master">মাস্টার এজেন্ট</option>
-            <option value="super">সুপার এজেন্ট</option>
-            <option value="admin">সাব এডমিন</option>
-        </select>
-
-
-        <label>Agent ID:</label>
-
-        <input
-            type="text"
-            id="agentId"
-            placeholder="এজেন্ট আইডি লিখুন"
-            autocomplete="off"
-        >
-
-        <button class="submit-btn" id="searchAgentBtn">
-            Submit
-        </button>
-
-        <div id="searchResult"></div>
-
-    </div>
-
-</section>
-
-
-<!-- PHONE SEARCH -->
-<section class="phone-section" id="customerService">
-
-    <h2>
-        এজেন্ট কে ফোন নাম্বার দিয়ে<br>
-        খুঁজুনঃ
-    </h2>
-
-    <div class="phone-card">
-
-        <label>PHONE NUMBER:</label>
-
-        <input
-            type="tel"
-            id="phoneNumber"
-            placeholder="ফোন নাম্বার লিখুন"
-            autocomplete="off"
-        >
-
-        <button class="submit-btn" id="phoneSearchBtn">
-            Submit
-        </button>
-
-        <div id="phoneResult"></div>
-
-    </div>
-
-</section>
-
-
-<!-- AGENT LIST -->
-<section class="agent-list-section" id="agentList">
-
-    <h2>Agent List</h2>
-
-    <div class="filter-box">
-
-        <button class="filter-btn active" data-filter="all">
-            সকল এজেন্ট
-        </button>
-
-        <button class="filter-btn" data-filter="master">
-            মাস্টার
-        </button>
-
-        <button class="filter-btn" data-filter="super">
-            সুপার
-        </button>
-
-        <button class="filter-btn" data-filter="admin">
-            সাব এডমিন
-        </button>
-
-    </div>
-
-    <div id="agentListContainer"></div>
-
-</section>
-
-
-<!-- INFO -->
-<section class="info-section" id="about">
-
-    <h2>ভেলকি কি?</h2>
-
-    <p>
-        আমাদের ওয়েবসাইটের মাধ্যমে সহজেই এজেন্টের
-        তথ্য যাচাই ও প্রয়োজনীয় যোগাযোগ করতে পারবেন।
-    </p>
-
-</section>
-
-
-<section class="info-section" id="importantLinks">
-
-    <h2>প্রয়োজনীয় লিংক</h2>
-
-    <a href="#" class="info-link">
-        <i class="fa-solid fa-link"></i>
-        প্রয়োজনীয় লিংক
-    </a>
-
-</section>
-
-
-<section class="info-section" id="rules">
-
-    <h2>নিয়ম কানুন</h2>
-
-    <p>
-        এজেন্টের সাথে লেনদেন করার পূর্বে অবশ্যই
-        এজেন্টের তথ্য যাচাই করুন।
-    </p>
-
-</section>
-
-
-<section class="info-section" id="brands">
-
-    <h2>ব্র্যান্ডস</h2>
-
-    <p>
-        Velki.Com
-    </p>
-
-</section>
-
-
-<!-- FOOTER -->
-<footer>
-
-    <div class="footer-logo">
-        Velki.Com
-    </div>
-
-    <p>© 2026 Velki.Com</p>
-
-    <a href="admin.html" class="admin-link">
-        Admin
-    </a>
-
-</footer>
-
-
-<!-- FLOATING CHAT -->
-<a href="https://wa.me/8801700000000"
-   class="chat-button"
-   target="_blank"
-   aria-label="WhatsApp">
-
-    <i class="fa-brands fa-whatsapp"></i>
-
-</a>
-
-
-<script src="script.js"></script>
-
+<div class="container">
+  <h2 class="title">Find Agent</h2>
+  <h3 class="sub-title">এজেন্ট এর আইডি নাম্বার দিয়ে<br>খুঁজুনঃ</h3>
+
+  <div class="card">
+    <label>Agent Type:</label>
+    <select id="agentType">
+      <option>মাস্টার এজেন্ট</option>
+      <option>সুপার এজেন্ট</option>
+      <option>সাব এডমিন</option>
+    </select>
+    <label>Agent ID:</label>
+    <input type="number" id="agentIdInput" placeholder="">
+    <button onclick="searchById()">Submit</button>
+    <div id="idResult"></div>
+  </div>
+
+  <h3 class="sub-title" style="margin-top:25px;">এজেন্ট কে ফোন নাম্বার দিয়ে<br>খুঁজুনঃ</h3>
+  <div class="card">
+    <label>PHONE NUMBER:</label>
+    <input type="text" id="phoneInput" placeholder="">
+    <button onclick="searchByPhone()">Submit</button>
+    <div id="phoneResult"></div>
+  </div>
+
+  <div class="quick-box">
+    <p>সকল মাস্টার এজেন্ট লিস্ট দেখতে ক্লিক করুন</p>
+    <a href="master.html" class="quick-btn">QUICK AGENT</a>
+  </div>
+
+  <div id="agentList"></div>
+
+  <div class="chat-banner">
+    <h4>CHAT WITH US ONLINE</h4>
+    <h2>আমাদের সাথে<br>অনলাইনে<br>চ্যাটিং করতে<br>ক্লিক করুন !!</h2>
+    <img src="https://i.postimg.cc/3x3Qv5cL/chat.png" alt="">
+  </div>
+</div>
+
+<script type="module" src="app.js"></script>
 </body>
 </html>
