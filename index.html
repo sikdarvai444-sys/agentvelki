@@ -13,12 +13,15 @@
 
 <meta name="theme-color" content="#ffffff">
 
-<title>Velki.Com - Find Agent</title>
+<title>Velki.Com - Super Agent List</title>
 
 
-<!-- GOOGLE FONT -->
+<!-- =====================================================
+     GOOGLE FONT
+===================================================== -->
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect"
+      href="https://fonts.googleapis.com">
 
 <link rel="preconnect"
       href="https://fonts.gstatic.com"
@@ -28,7 +31,9 @@
       rel="stylesheet">
 
 
-<!-- FONT AWESOME -->
+<!-- =====================================================
+     FONT AWESOME
+===================================================== -->
 
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -53,20 +58,20 @@ html{
 
 body{
 
+    margin:0;
+
     width:100%;
 
-    margin:0;
+    overflow-x:hidden;
 
     background:#ffffff;
 
-    color:#111111;
+    color:#111;
 
     font-family:
         Arial,
         "Noto Sans Bengali",
         sans-serif;
-
-    overflow-x:hidden;
 }
 
 button,
@@ -81,50 +86,54 @@ a{
 
 
 /* =====================================================
-   TOP LOGO
+   LOGO AREA
 ===================================================== */
 
 .top-logo-area{
 
     width:100%;
 
-    padding:16px 10px 12px;
+    background:#fff;
 
-    display:flex;
+    text-align:center;
 
-    flex-direction:column;
+    padding:26px 15px 28px;
 
-    align-items:center;
-
-    justify-content:center;
-
-    background:#ffffff;
+    border-bottom:1px solid #eeeeee;
 }
 
-.main-logo-link{
-    display:block;
-    text-decoration:none;
-}
+
+/* LOGO */
 
 .main-logo{
 
-    width:78px;
-    height:78px;
+    display:block;
+
+    width:100%;
+
+    max-width:500px;
+
+    height:255px;
 
     object-fit:contain;
 
-    display:block;
+    margin:0 auto;
 }
+
+
+/* SITE NAME */
 
 .site-name{
 
-    margin-top:2px;
+    margin-top:12px;
 
-    font-size:20px;
+    font-size:23px;
 
-    font-weight:800;
+    font-weight:600;
 
-    letter-spacing:.2px;
+    letter-spacing:1px;
+
+    color:#111;
 }
 
 
@@ -136,7 +145,11 @@ a{
 
     width:100%;
 
-    height:48px;
+    height:70px;
+
+    background:#f2f2f2;
+
+    border-bottom:1px solid #dddddd;
 
     display:flex;
 
@@ -144,23 +157,19 @@ a{
 
     justify-content:space-between;
 
-    padding:0 15px;
-
-    border-top:1px solid #e5e5e5;
-
-    border-bottom:1px solid #e5e5e5;
-
-    background:#fff;
+    padding:0 25px;
 
     position:relative;
 
     z-index:20;
 }
 
+
 .control-button{
 
-    width:42px;
-    height:40px;
+    width:48px;
+
+    height:48px;
 
     border:0;
 
@@ -172,15 +181,17 @@ a{
 
     justify-content:center;
 
-    font-size:21px;
+    font-size:30px;
+
+    color:#050505;
 
     cursor:pointer;
-
-    color:#111;
 }
 
+
 .control-button:active{
-    transform:scale(.92);
+
+    transform:scale(.90);
 }
 
 
@@ -193,20 +204,24 @@ a{
     position:fixed;
 
     top:0;
+
     left:-100%;
 
     width:82%;
-    max-width:330px;
+
+    max-width:350px;
 
     height:100vh;
 
     background:#fff;
 
-    z-index:1000;
+    z-index:2000;
 
-    padding:65px 20px 25px;
+    padding:75px 20px 25px;
 
-    box-shadow:5px 0 25px rgba(0,0,0,.18);
+    box-shadow:
+        5px 0 25px
+        rgba(0,0,0,.20);
 
     transition:.3s ease;
 
@@ -214,43 +229,51 @@ a{
 }
 
 .mobile-menu.show{
+
     left:0;
 }
+
 
 .close-menu{
 
     position:absolute;
 
-    top:15px;
-    right:15px;
+    top:18px;
 
-    width:40px;
-    height:40px;
+    right:18px;
+
+    width:42px;
+
+    height:42px;
 
     border:0;
 
-    background:#f0f0f0;
-
     border-radius:50%;
+
+    background:#eeeeee;
 
     font-size:20px;
 
     cursor:pointer;
 }
 
+
 .menu-title{
 
-    font-size:22px;
+    font-size:24px;
 
     font-weight:800;
 
     margin-bottom:20px;
 }
 
+
 .mobile-menu > a,
 .menu-dropdown > button{
 
     width:100%;
+
+    min-height:48px;
 
     display:flex;
 
@@ -258,17 +281,15 @@ a{
 
     justify-content:space-between;
 
-    padding:14px 5px;
+    padding:12px 5px;
 
     border:0;
 
     border-bottom:1px solid #eeeeee;
 
-    background:transparent;
+    background:#fff;
 
     text-decoration:none;
-
-    color:#111;
 
     font-size:16px;
 
@@ -279,24 +300,26 @@ a{
     cursor:pointer;
 }
 
+
 .submenu{
 
     display:none;
 
-    padding-left:15px;
+    background:#f3f3f3;
 
-    background:#f5f5f5;
+    padding-left:12px;
 }
 
 .submenu.show{
     display:block;
 }
 
+
 .submenu a{
 
     display:block;
 
-    padding:12px 8px;
+    padding:13px 8px;
 
     border-bottom:1px solid #ddd;
 
@@ -307,27 +330,29 @@ a{
 
 
 /* =====================================================
-   SEARCH BOX
+   TOP SEARCH
 ===================================================== */
 
 .top-search-box{
 
     width:100%;
 
-    padding:10px 12px;
+    padding:12px;
 
-    display:none;
-
-    background:#f5f5f5;
+    background:#f2f2f2;
 
     border-bottom:1px solid #ddd;
+
+    display:none;
 
     gap:7px;
 }
 
 .top-search-box.show{
+
     display:flex;
 }
+
 
 .top-search-box input{
 
@@ -335,46 +360,44 @@ a{
 
     min-width:0;
 
-    height:42px;
-
-    padding:0 12px;
+    height:45px;
 
     border:1px solid #bbb;
 
-    border-radius:4px;
+    border-radius:5px;
 
-    outline:none;
-
-    font-size:15px;
+    padding:0 13px;
 
     background:#fff;
+
+    font-size:16px;
+
+    outline:none;
 }
 
-.top-search-box input:focus{
-    border-color:#333;
-}
 
 .top-search-box button{
 
-    width:45px;
-    height:42px;
+    width:48px;
+
+    height:45px;
 
     border:0;
 
-    border-radius:4px;
+    border-radius:5px;
 
-    background:#222;
+    background:#111;
 
     color:#fff;
 
-    font-size:17px;
+    font-size:18px;
 
     cursor:pointer;
 }
 
 
 /* =====================================================
-   FIND AGENT
+   SUPER AGENT SECTION
 ===================================================== */
 
 .find-section{
@@ -383,111 +406,156 @@ a{
 
     max-width:680px;
 
-    margin:auto;
+    margin:0 auto;
 
-    padding:25px 15px 20px;
+    padding:75px 25px 35px;
 
     text-align:center;
 }
 
+
+/* TITLE */
+
 .find-section h1{
 
-    font-size:30px;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
-    font-weight:800;
+    font-size:45px;
 
-    margin-bottom:8px;
+    font-weight:400;
+
+    letter-spacing:.5px;
+
+    margin-bottom:72px;
+
+    line-height:1.2;
 }
+
+
+/* BANGLA TITLE */
 
 .find-section h2{
 
-    font-size:18px;
-
-    line-height:1.7;
+    font-size:30px;
 
     font-weight:600;
 
-    margin-bottom:18px;
+    line-height:1.65;
+
+    margin-bottom:35px;
 }
+
+
+/* =====================================================
+   SEARCH CARD
+===================================================== */
 
 .search-card{
 
     width:100%;
 
-    max-width:500px;
+    background:#fff;
 
-    margin:auto;
+    border:1px solid #dddddd;
 
-    padding:18px;
+    border-radius:10px;
 
-    background:#f5f5f5;
-
-    border:1px solid #ddd;
-
-    border-radius:8px;
+    padding:28px 30px 32px;
 
     text-align:left;
+
+    box-shadow:
+        0 1px 7px
+        rgba(0,0,0,.08);
 }
+
+
+/* FORM GROUP */
 
 .form-group{
-    margin-bottom:14px;
+
+    margin-bottom:27px;
 }
 
-.form-group label,
-.phone-card label{
+
+.form-group label{
 
     display:block;
 
-    margin-bottom:6px;
+    font-size:20px;
 
-    font-size:14px;
+    font-weight:400;
 
-    font-weight:700;
+    color:#555;
+
+    margin-bottom:10px;
 }
 
+
+/* SELECT + INPUT */
+
 .form-group input,
-.form-group select,
-.phone-card input{
+.form-group select{
 
     width:100%;
 
-    height:44px;
+    height:64px;
 
-    padding:0 12px;
+    padding:0 17px;
 
-    border:1px solid #bbb;
+    border:2px solid #e4e4e4;
 
-    border-radius:5px;
-
-    outline:none;
+    border-radius:8px;
 
     background:#fff;
 
-    font-size:15px;
+    color:#111;
+
+    font-size:20px;
+
+    outline:none;
 }
+
 
 .form-group input:focus,
-.form-group select:focus,
-.phone-card input:focus{
+.form-group select:focus{
 
-    border-color:#222;
+    border-color:#999;
 }
+
+
+/* SELECT */
+
+.form-group select{
+
+    appearance:auto;
+
+    cursor:pointer;
+}
+
+
+/* =====================================================
+   SUBMIT BUTTON
+===================================================== */
 
 .submit-btn{
 
     width:100%;
 
-    height:44px;
+    height:58px;
 
     border:0;
 
-    border-radius:5px;
+    border-radius:6px;
 
-    background:#222;
+    background:#111;
 
     color:#fff;
 
-    font-size:16px;
+    font-size:19px;
 
     font-weight:700;
 
@@ -495,12 +563,18 @@ a{
 }
 
 .submit-btn:active{
+
     transform:scale(.98);
 }
 
-#searchResult,
-#phoneResult{
-    margin-top:12px;
+
+/* =====================================================
+   SEARCH RESULT
+===================================================== */
+
+#searchResult{
+
+    margin-top:18px;
 }
 
 
@@ -514,9 +588,9 @@ a{
 
     max-width:650px;
 
-    margin:10px auto 25px;
+    margin:15px auto 35px;
 
-    padding:18px;
+    padding:20px;
 
     text-align:center;
 
@@ -527,18 +601,20 @@ a{
     border-radius:7px;
 }
 
+
 .notice-section h2{
 
-    font-size:19px;
+    font-size:20px;
 
     margin-bottom:8px;
 }
 
+
 .notice-section p{
 
-    font-size:14px;
+    font-size:15px;
 
-    line-height:1.7;
+    line-height:1.8;
 }
 
 
@@ -552,26 +628,29 @@ a{
 
     max-width:650px;
 
-    margin:25px auto;
+    margin:30px auto;
 
     padding:25px 15px;
 
     text-align:center;
 }
 
+
 .chat-online-section h2{
 
-    font-size:21px;
+    font-size:22px;
 
-    margin-bottom:8px;
+    margin-bottom:10px;
 }
+
 
 .chat-online-section p{
 
-    font-size:14px;
+    font-size:15px;
 
-    margin-bottom:15px;
+    margin-bottom:16px;
 }
+
 
 .online-chat-button{
 
@@ -581,67 +660,21 @@ a{
 
     justify-content:center;
 
-    gap:8px;
+    gap:9px;
 
-    padding:11px 20px;
+    padding:12px 22px;
 
     border-radius:5px;
 
-    background:#222;
+    background:#111;
 
     color:#fff;
 
     text-decoration:none;
 
-    font-size:15px;
+    font-size:16px;
 
     font-weight:700;
-}
-
-
-/* =====================================================
-   PHONE SEARCH
-===================================================== */
-
-.phone-section{
-
-    width:100%;
-
-    max-width:680px;
-
-    margin:20px auto;
-
-    padding:25px 15px;
-
-    text-align:center;
-}
-
-.phone-section h2{
-
-    font-size:20px;
-
-    line-height:1.7;
-
-    margin-bottom:15px;
-}
-
-.phone-card{
-
-    width:100%;
-
-    max-width:500px;
-
-    margin:auto;
-
-    padding:18px;
-
-    text-align:left;
-
-    background:#f5f5f5;
-
-    border:1px solid #ddd;
-
-    border-radius:8px;
 }
 
 
@@ -655,22 +688,21 @@ a{
 
     max-width:680px;
 
-    margin:25px auto 35px;
-
-    padding:0;
+    margin:30px auto 40px;
 
     background:#fff;
 }
+
 
 .agent-list-section h2{
 
     text-align:center;
 
-    font-size:25px;
+    font-size:27px;
 
     font-weight:800;
 
-    margin:20px 0 15px;
+    margin-bottom:18px;
 }
 
 
@@ -703,23 +735,20 @@ a{
     display:none;
 }
 
+
 .filter-btn{
 
     flex:1;
 
-    min-width:90px;
+    min-width:95px;
 
-    height:40px;
-
-    padding:0 8px;
+    height:42px;
 
     border:1px solid #ccc;
 
     border-radius:4px;
 
     background:#fff;
-
-    color:#111;
 
     font-size:14px;
 
@@ -730,27 +759,28 @@ a{
     white-space:nowrap;
 }
 
+
 .filter-btn.active{
 
-    background:#222;
+    background:#111;
 
     color:#fff;
 
-    border-color:#222;
+    border-color:#111;
 }
 
 
 /* =====================================================
-   AGENT LIST CONTAINER
+   AGENT CONTAINER
 ===================================================== */
 
 #agentListContainer{
 
     width:100%;
 
-    border-left:1px solid #222;
+    border-left:1px solid #111;
 
-    border-right:1px solid #222;
+    border-right:1px solid #111;
 }
 
 
@@ -762,7 +792,7 @@ a{
 
     width:100%;
 
-    min-height:145px;
+    min-height:150px;
 
     display:grid;
 
@@ -776,31 +806,28 @@ a{
 
     padding:10px 5px;
 
-    border-bottom:1px solid #e2e2e2;
-
-    font-family:
-        Arial,
-        "Noto Sans Bengali",
-        sans-serif;
+    border-bottom:1px solid #ddd;
 }
 
 
 /* LIGHT */
 
 .agent-row:nth-child(odd){
-    background:#fff;
+
+    background:#ffffff;
 }
 
 
 /* DEEP */
 
 .agent-row:nth-child(even){
+
     background:#eeeeee;
 }
 
 
 /* =====================================================
-   ID
+   AGENT ID
 ===================================================== */
 
 .agent-id-box{
@@ -816,6 +843,7 @@ a{
     overflow-wrap:anywhere;
 }
 
+
 .agent-id-box a{
 
     color:#111;
@@ -825,7 +853,7 @@ a{
 
 
 /* =====================================================
-   TYPE
+   AGENT INFO
 ===================================================== */
 
 .agent-info{
@@ -838,14 +866,15 @@ a{
 
     gap:2px;
 
+    min-width:0;
+
     font-size:18px;
 
     font-weight:700;
 
-    line-height:1.55;
-
-    min-width:0;
+    line-height:1.6;
 }
+
 
 .agent-type{
 
@@ -853,6 +882,7 @@ a{
 
     word-break:break-word;
 }
+
 
 .agent-brand{
 
@@ -882,11 +912,11 @@ a{
 
     margin-left:2px;
 
-    background:#65b45b;
+    border-radius:4px;
+
+    background:#66b65d;
 
     color:#fff;
-
-    border-radius:4px;
 
     font-size:16px;
 
@@ -915,6 +945,7 @@ a{
     overflow-wrap:anywhere;
 }
 
+
 .agent-phone a{
 
     color:#111;
@@ -938,6 +969,7 @@ a{
     line-height:1.7;
 }
 
+
 .agent-action a{
 
     display:block;
@@ -951,48 +983,25 @@ a{
 
 
 /* =====================================================
-   SEARCH RESULT AGENT
-===================================================== */
-
-.single-result{
-
-    width:100%;
-
-    margin-top:10px;
-
-    border:1px solid #222;
-
-    border-radius:5px;
-
-    overflow:hidden;
-}
-
-.single-result .agent-row{
-
-    min-height:130px;
-}
-
-
-/* =====================================================
    NO RESULT
 ===================================================== */
 
 .no-agent{
 
-    padding:25px 15px;
+    padding:28px 15px;
+
+    background:#f1f1f1;
 
     text-align:center;
 
     font-size:16px;
 
     font-weight:600;
-
-    background:#f1f1f1;
 }
 
 
 /* =====================================================
-   INFO SECTION
+   INFO SECTIONS
 ===================================================== */
 
 .info-section{
@@ -1012,12 +1021,14 @@ a{
     border-radius:7px;
 }
 
+
 .info-section h2{
 
-    font-size:20px;
+    font-size:21px;
 
     margin-bottom:10px;
 }
+
 
 .info-section p{
 
@@ -1026,16 +1037,16 @@ a{
     line-height:1.8;
 }
 
+
 .info-link{
 
     display:block;
 
     padding:10px 0;
 
-    color:#111;
+    text-decoration:none;
 
     font-weight:600;
-
 }
 
 
@@ -1047,27 +1058,29 @@ footer{
 
     width:100%;
 
-    margin-top:35px;
+    margin-top:40px;
 
-    padding:25px 15px;
+    padding:28px 15px;
 
     text-align:center;
 
-    background:#f1f1f1;
+    background:#f2f2f2;
 
     border-top:1px solid #ddd;
 }
 
+
 .footer-logo-image{
 
-    width:60px;
+    width:65px;
 
-    height:60px;
+    height:65px;
 
     object-fit:contain;
 
-    margin-bottom:7px;
+    margin-bottom:8px;
 }
+
 
 footer p{
 
@@ -1076,25 +1089,24 @@ footer p{
     margin-bottom:10px;
 }
 
+
 .admin-link{
 
-    color:#111;
+    font-size:13px;
 
     text-decoration:underline;
-
-    font-size:13px;
 }
 
 
 /* =====================================================
-   FLOATING CHAT
+   FLOATING WHATSAPP
 ===================================================== */
 
 .chat-button{
 
     position:fixed;
 
-    right:15px;
+    right:16px;
 
     bottom:25px;
 
@@ -1104,65 +1116,136 @@ footer p{
 
     border-radius:50%;
 
-    background:#111;
-
-    color:#fff;
-
     display:flex;
 
     align-items:center;
 
     justify-content:center;
 
+    background:#111;
+
+    color:#fff;
+
     text-decoration:none;
 
     font-size:28px;
 
-    box-shadow:0 4px 15px rgba(0,0,0,.25);
+    box-shadow:
+        0 4px 18px
+        rgba(0,0,0,.28);
 
     z-index:900;
 }
 
-.chat-button:active{
-    transform:scale(.92);
-}
-
 
 /* =====================================================
-   MOBILE SCREEN
+   MOBILE
 ===================================================== */
 
 @media(max-width:600px){
 
     .top-logo-area{
-        padding-top:13px;
-        padding-bottom:10px;
+
+        padding:24px 12px 27px;
     }
+
 
     .main-logo{
-        width:70px;
-        height:70px;
+
+        width:100%;
+
+        max-width:520px;
+
+        height:255px;
     }
 
+
     .site-name{
+
+        margin-top:10px;
+
+        font-size:21px;
+
+        letter-spacing:1px;
+    }
+
+
+    .control-bar{
+
+        height:70px;
+
+        padding:0 24px;
+    }
+
+
+    .control-button{
+
+        font-size:30px;
+    }
+
+
+    .find-section{
+
+        padding:
+            78px
+            25px
+            30px;
+    }
+
+
+    .find-section h1{
+
+        font-size:42px;
+
+        margin-bottom:70px;
+    }
+
+
+    .find-section h2{
+
+        font-size:28px;
+
+        line-height:1.7;
+
+        margin-bottom:34px;
+    }
+
+
+    .search-card{
+
+        padding:
+            27px
+            30px
+            32px;
+    }
+
+
+    .form-group label{
+
         font-size:19px;
     }
 
-    .find-section{
-        padding-top:20px;
+
+    .form-group input,
+    .form-group select{
+
+        height:63px;
+
+        font-size:19px;
     }
 
-    .find-section h1{
-        font-size:28px;
+
+    .submit-btn{
+
+        height:57px;
     }
 
-    .find-section h2{
-        font-size:17px;
-    }
 
     .agent-list-section h2{
+
         font-size:23px;
     }
+
 
     .agent-row{
 
@@ -1177,21 +1260,20 @@ footer p{
         padding:9px 4px;
     }
 
+
     .agent-id-box{
 
         font-size:16px;
-
-        line-height:1.85;
     }
+
 
     .agent-info{
 
         font-size:16px;
 
         line-height:1.65;
-
-        gap:1px;
     }
+
 
     .agent-check{
 
@@ -1202,6 +1284,7 @@ footer p{
         font-size:14px;
     }
 
+
     .agent-phone{
 
         font-size:16px;
@@ -1209,32 +1292,58 @@ footer p{
         line-height:1.8;
     }
 
+
     .agent-action{
 
         font-size:15px;
-
-        line-height:1.75;
     }
 
 }
 
 
 /* =====================================================
-   VERY SMALL MOBILE
+   SMALL MOBILE
 ===================================================== */
 
 @media(max-width:380px){
 
-    .agent-row{
+    .main-logo{
 
-        grid-template-columns:
-            17%
-            31%
-            36%
-            16%;
+        height:220px;
+    }
+
+
+    .find-section{
+
+        padding-left:18px;
+
+        padding-right:18px;
+    }
+
+
+    .find-section h1{
+
+        font-size:36px;
+    }
+
+
+    .find-section h2{
+
+        font-size:24px;
+    }
+
+
+    .search-card{
+
+        padding:22px;
+    }
+
+
+    .agent-row{
 
         min-height:135px;
     }
+
 
     .agent-id-box,
     .agent-info,
@@ -1243,9 +1352,12 @@ footer p{
         font-size:14px;
     }
 
+
     .agent-action{
+
         font-size:13px;
     }
+
 
     .agent-check{
 
@@ -1258,22 +1370,6 @@ footer p{
 
 }
 
-
-/* =====================================================
-   LOADING
-===================================================== */
-
-.loading{
-
-    padding:30px;
-
-    text-align:center;
-
-    font-size:16px;
-
-    font-weight:600;
-}
-
 </style>
 
 </head>
@@ -1283,19 +1379,21 @@ footer p{
 
 
 <!-- =====================================================
-     TOP LOGO
+     LOGO
 ===================================================== -->
 
 <section class="top-logo-area">
 
-    <a href="index.html" class="main-logo-link">
+    <a href="index.html">
 
+        <!-- আপনার logo.png এখানে -->
         <img
             src="images/logo.png"
-            alt="Velki.Com"
+            alt="Velki.Com Logo"
             class="main-logo">
 
     </a>
+
 
     <div class="site-name">
         Velki.Com
@@ -1313,8 +1411,7 @@ footer p{
 
     <button
         class="control-button"
-        id="menuBtn"
-        aria-label="Menu">
+        id="menuBtn">
 
         <i class="fa-solid fa-chevron-down"></i>
 
@@ -1323,8 +1420,7 @@ footer p{
 
     <button
         class="control-button"
-        id="topSearchBtn"
-        aria-label="Search">
+        id="topSearchBtn">
 
         <i class="fa-solid fa-magnifying-glass"></i>
 
@@ -1335,10 +1431,13 @@ footer p{
 
 
 <!-- =====================================================
-     MOBILE MENU
+     MENU
 ===================================================== -->
 
-<div class="mobile-menu" id="mobileMenu">
+<div
+    class="mobile-menu"
+    id="mobileMenu">
+
 
     <button
         class="close-menu"
@@ -1363,14 +1462,19 @@ footer p{
 
         <button id="agentMenuBtn">
 
-            <span>সকল এজেন্ট লিস্ট</span>
+            <span>
+                সকল এজেন্ট লিস্ট
+            </span>
 
             <i class="fa-solid fa-chevron-down"></i>
 
         </button>
 
 
-        <div class="submenu" id="agentSubmenu">
+        <div
+            class="submenu"
+            id="agentSubmenu">
+
 
             <a
                 href="#agentList"
@@ -1439,11 +1543,13 @@ footer p{
     class="top-search-box"
     id="topSearchBox">
 
+
     <input
         type="text"
         id="topSearchInput"
         placeholder="Agent ID লিখুন..."
         autocomplete="off">
+
 
     <button id="topSearchSubmit">
 
@@ -1456,15 +1562,16 @@ footer p{
 
 
 <!-- =====================================================
-     FIND AGENT
+     SUPER AGENT
 ===================================================== -->
 
 <section
     class="find-section"
     id="findAgent">
 
+
     <h1>
-        Find Agent
+        Super Agent List
     </h1>
 
 
@@ -1479,6 +1586,9 @@ footer p{
 
     <div class="search-card">
 
+
+        <!-- AGENT TYPE -->
+
         <div class="form-group">
 
             <label>
@@ -1492,9 +1602,11 @@ footer p{
                     মাস্টার এজেন্ট
                 </option>
 
-                <option value="super">
+
+                <option value="super" selected>
                     সুপার এজেন্ট
                 </option>
+
 
                 <option value="admin">
                     সাব এডমিন
@@ -1504,6 +1616,9 @@ footer p{
 
         </div>
 
+
+
+        <!-- AGENT ID -->
 
         <div class="form-group">
 
@@ -1515,11 +1630,14 @@ footer p{
             <input
                 type="text"
                 id="agentId"
-                placeholder="Agent ID লিখুন"
+                placeholder=""
                 autocomplete="off">
 
         </div>
 
+
+
+        <!-- SUBMIT -->
 
         <button
             class="submit-btn"
@@ -1568,6 +1686,7 @@ footer p{
     class="chat-online-section"
     id="customerService">
 
+
     <h2>
         CHAT WITH US ONLINE
     </h2>
@@ -1595,52 +1714,6 @@ footer p{
 
 
 <!-- =====================================================
-     PHONE SEARCH
-===================================================== -->
-
-<section class="phone-section">
-
-    <h2>
-
-        এজেন্ট কে ফোন নাম্বার দিয়ে<br>
-
-        খুঁজুনঃ
-
-    </h2>
-
-
-    <div class="phone-card">
-
-        <label>
-            PHONE NUMBER:
-        </label>
-
-
-        <input
-            type="tel"
-            id="phoneNumber"
-            placeholder="ফোন নাম্বার লিখুন"
-            autocomplete="off">
-
-
-        <button
-            class="submit-btn"
-            id="phoneSearchBtn">
-
-            Submit
-
-        </button>
-
-
-        <div id="phoneResult"></div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
      QUICK AGENT
 ===================================================== -->
 
@@ -1655,6 +1728,7 @@ footer p{
 
 
     <div class="filter-box">
+
 
         <button
             class="filter-btn active"
@@ -1694,13 +1768,7 @@ footer p{
     </div>
 
 
-    <div id="agentListContainer">
-
-        <div class="loading">
-            লোড হচ্ছে...
-        </div>
-
-    </div>
+    <div id="agentListContainer"></div>
 
 </section>
 
@@ -1713,6 +1781,7 @@ footer p{
 <section
     class="info-section"
     id="about">
+
 
     <h2>
         ভেলকি কি?
@@ -1739,6 +1808,7 @@ footer p{
     class="info-section"
     id="importantLinks">
 
+
     <h2>
         প্রয়োজনীয় লিংক
     </h2>
@@ -1764,6 +1834,7 @@ footer p{
     class="info-section"
     id="rules">
 
+
     <h2>
         নিয়ম কানুন
     </h2>
@@ -1788,6 +1859,7 @@ footer p{
     class="info-section"
     id="brands">
 
+
     <h2>
         ব্র্যান্ডস
     </h2>
@@ -1806,6 +1878,7 @@ footer p{
 ===================================================== -->
 
 <footer>
+
 
     <img
         src="images/logo.png"
@@ -1831,15 +1904,14 @@ footer p{
 
 
 <!-- =====================================================
-     FLOATING WHATSAPP
+     FLOATING CHAT
 ===================================================== -->
 
 <a
     href="https://wa.me/60108919892"
     target="_blank"
     rel="noopener"
-    class="chat-button"
-    aria-label="WhatsApp">
+    class="chat-button">
 
     <i class="fa-brands fa-whatsapp"></i>
 
@@ -1863,27 +1935,25 @@ const closeMenu =
     document.getElementById("closeMenu");
 
 
-menuBtn.addEventListener("click", function(){
+menuBtn.addEventListener("click",function(){
 
     mobileMenu.classList.add("show");
 
 });
 
 
-closeMenu.addEventListener("click", function(){
+closeMenu.addEventListener("click",function(){
 
     mobileMenu.classList.remove("show");
 
 });
 
 
-/* Close menu after clicking link */
-
 document
-.querySelectorAll(".mobile-menu a")
+.querySelectorAll(".mobile-menu > a")
 .forEach(function(link){
 
-    link.addEventListener("click", function(){
+    link.addEventListener("click",function(){
 
         mobileMenu.classList.remove("show");
 
@@ -1896,16 +1966,13 @@ document
    SUB MENU
 ===================================================== */
 
-const agentMenuBtn =
-    document.getElementById("agentMenuBtn");
+document
+.getElementById("agentMenuBtn")
+.addEventListener("click",function(){
 
-const agentSubmenu =
-    document.getElementById("agentSubmenu");
-
-
-agentMenuBtn.addEventListener("click", function(){
-
-    agentSubmenu.classList.toggle("show");
+    document
+    .getElementById("agentSubmenu")
+    .classList.toggle("show");
 
 });
 
@@ -1920,17 +1987,20 @@ const topSearchBtn =
 const topSearchBox =
     document.getElementById("topSearchBox");
 
-const topSearchInput =
-    document.getElementById("topSearchInput");
 
-
-topSearchBtn.addEventListener("click", function(){
+topSearchBtn.addEventListener("click",function(){
 
     topSearchBox.classList.toggle("show");
 
-    if(topSearchBox.classList.contains("show")){
+    if(
+        topSearchBox
+        .classList
+        .contains("show")
+    ){
 
-        topSearchInput.focus();
+        document
+        .getElementById("topSearchInput")
+        .focus();
 
     }
 
@@ -1939,94 +2009,64 @@ topSearchBtn.addEventListener("click", function(){
 
 /* =====================================================
    AGENT DATA
-   -----------------------------------------------------
-   আপনার Firebase / script.js থাকলে এই অংশের data
-   সেগুলো দিয়ে replace করা যাবে।
 ===================================================== */
 
 let agents = [
 
     {
-        id:"72",
-        type:"master",
-        typeName:"MASTER",
-        phone:"+85596519253"
+        id:"101",
+        type:"super",
+        typeName:"SUPER",
+        phone:"+855961234567"
     },
 
     {
-        id:"1493",
-        type:"master",
-        typeName:"MASTER",
-        phone:"+855966695471"
+        id:"102",
+        type:"super",
+        typeName:"SUPER",
+        phone:"+855969876543"
     },
 
     {
-        id:"2430",
-        type:"master",
-        typeName:"MASTER",
-        phone:"+855962986265"
+        id:"103",
+        type:"super",
+        typeName:"SUPER",
+        phone:"+855965555555"
     },
 
     {
-        id:"1609",
-        type:"master",
-        typeName:"MASTER",
-        phone:"+85586953027"
+        id:"104",
+        type:"super",
+        typeName:"SUPER",
+        phone:"+855966666666"
     },
 
     {
-        id:"1611",
-        type:"master",
-        typeName:"MASTER",
-        phone:"+855968937348"
+        id:"105",
+        type:"super",
+        typeName:"SUPER",
+        phone:"+855967777777"
     },
 
     {
-        id:"1851",
-        type:"master",
-        typeName:"MASTER",
-        phone:"+85515921786"
+        id:"106",
+        type:"super",
+        typeName:"SUPER",
+        phone:"+855968888888"
     },
 
     {
-        id:"1673",
-        type:"master",
-        typeName:"MASTER",
-        phone:"+855969609717"
-    },
-
-    {
-        id:"1224",
-        type:"master",
-        typeName:"MASTER",
-        phone:"+85515519254"
-    },
-
-    {
-        id:"2400",
-        type:"master",
-        typeName:"MASTER",
-        phone:"+85570519254"
+        id:"107",
+        type:"super",
+        typeName:"SUPER",
+        phone:"+855969999999"
     }
 
 ];
 
 
 /* =====================================================
-   FORMAT PHONE
-===================================================== */
-
-function formatPhone(phone){
-
-    if(!phone) return "";
-
-    return String(phone);
-
-}
-
-
-/* =====================================================
-   CREATE AGENT ROW
+   CREATE AGENT
 ===================================================== */
 
 function createAgentRow(agent){
@@ -2034,27 +2074,24 @@ function createAgentRow(agent){
     const row =
         document.createElement("div");
 
-    row.className = "agent-row";
+    row.className =
+        "agent-row";
 
-    const phone =
-        formatPhone(agent.phone);
 
     const type =
         agent.typeName ||
         (
+            agent.type === "master"
+            ? "MASTER"
+            :
             agent.type === "super"
             ? "SUPER"
             :
-            agent.type === "admin"
-            ? "ADMIN"
-            :
-            "MASTER"
+            "ADMIN"
         );
 
 
     row.innerHTML = `
-
-        <!-- ID -->
 
         <div class="agent-id-box">
 
@@ -2067,8 +2104,6 @@ function createAgentRow(agent){
 
         </div>
 
-
-        <!-- TYPE / BRANDS -->
 
         <div class="agent-info">
 
@@ -2117,26 +2152,25 @@ function createAgentRow(agent){
         </div>
 
 
-        <!-- PHONE -->
-
         <div class="agent-phone">
 
-            <a href="tel:${phone}">
+            <a href="tel:${agent.phone || ""}">
 
-                ${phone}
+                ${agent.phone || ""}
 
             </a>
 
         </div>
 
 
-        <!-- ACTION -->
-
         <div class="agent-action">
 
             <a
                 href="#"
-                onclick="showComplaint('${agent.id}');return false;">
+                onclick="
+                    complaint('${agent.id}');
+                    return false;
+                ">
 
                 অভিযোগ
 
@@ -2144,7 +2178,7 @@ function createAgentRow(agent){
 
 
             <a
-                href="tel:${phone}">
+                href="tel:${agent.phone || ""}">
 
                 যোগ
 
@@ -2175,7 +2209,7 @@ function renderAgents(filter="all"){
     container.innerHTML = "";
 
 
-    let filtered =
+    const filtered =
         agents.filter(function(agent){
 
             if(filter === "all"){
@@ -2216,14 +2250,14 @@ function renderAgents(filter="all"){
 
 
 /* =====================================================
-   FILTER BUTTONS
+   FILTER
 ===================================================== */
 
 document
 .querySelectorAll(".filter-btn")
 .forEach(function(button){
 
-    button.addEventListener("click", function(){
+    button.addEventListener("click",function(){
 
         document
         .querySelectorAll(".filter-btn")
@@ -2237,11 +2271,9 @@ document
         this.classList.add("active");
 
 
-        const filter =
-            this.dataset.filter;
-
-
-        renderAgents(filter);
+        renderAgents(
+            this.dataset.filter
+        );
 
     });
 
@@ -2249,7 +2281,7 @@ document
 
 
 /* =====================================================
-   FIND AGENT BY ID
+   AGENT SEARCH
 ===================================================== */
 
 function searchAgent(){
@@ -2321,20 +2353,18 @@ function searchAgent(){
 
     result.innerHTML = "";
 
-    
+
     const box =
         document.createElement("div");
 
+
     box.className =
-        "single-result";
+        "agent-row";
 
 
     box.appendChild(
         createAgentRow(found)
     );
-
-
-    result.appendChild(box);
 
 }
 
@@ -2345,24 +2375,30 @@ function searchAgent(){
 
 document
 .getElementById("searchAgentBtn")
-.addEventListener("click", searchAgent);
+.addEventListener(
+    "click",
+    searchAgent
+);
 
 
 /* =====================================================
-   ENTER ON AGENT ID
+   ENTER SEARCH
 ===================================================== */
 
 document
 .getElementById("agentId")
-.addEventListener("keydown", function(e){
+.addEventListener(
+    "keydown",
+    function(e){
 
-    if(e.key === "Enter"){
+        if(e.key === "Enter"){
 
-        searchAgent();
+            searchAgent();
+
+        }
 
     }
-
-});
+);
 
 
 /* =====================================================
@@ -2372,7 +2408,8 @@ document
 function topSearch(){
 
     const id =
-        topSearchInput
+        document
+        .getElementById("topSearchInput")
         .value
         .trim();
 
@@ -2409,7 +2446,8 @@ document
 );
 
 
-topSearchInput
+document
+.getElementById("topSearchInput")
 .addEventListener(
     "keydown",
     function(e){
@@ -2425,120 +2463,10 @@ topSearchInput
 
 
 /* =====================================================
-   PHONE SEARCH
-===================================================== */
-
-function searchPhone(){
-
-    const number =
-        document
-        .getElementById("phoneNumber")
-        .value
-        .replace(/\s+/g,"")
-        .trim();
-
-
-    const result =
-        document.getElementById(
-            "phoneResult"
-        );
-
-
-    if(!number){
-
-        result.innerHTML = `
-
-            <div class="no-agent">
-
-                ফোন নাম্বার লিখুন।
-
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    const found =
-        agents.filter(function(agent){
-
-            return String(agent.phone)
-                .replace(/\s+/g,"")
-                .includes(number);
-
-        });
-
-
-    if(found.length === 0){
-
-        result.innerHTML = `
-
-            <div class="no-agent">
-
-                এই ফোন নাম্বারের কোনো এজেন্ট পাওয়া যায়নি।
-
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    result.innerHTML = "";
-
-
-    found.forEach(function(agent){
-
-        const box =
-            document.createElement("div");
-
-        box.className =
-            "single-result";
-
-        box.appendChild(
-            createAgentRow(agent)
-        );
-
-        result.appendChild(box);
-
-    });
-
-}
-
-
-document
-.getElementById("phoneSearchBtn")
-.addEventListener(
-    "click",
-    searchPhone
-);
-
-
-document
-.getElementById("phoneNumber")
-.addEventListener(
-    "keydown",
-    function(e){
-
-        if(e.key === "Enter"){
-
-            searchPhone();
-
-        }
-
-    }
-);
-
-
-/* =====================================================
    COMPLAINT
 ===================================================== */
 
-function showComplaint(id){
+function complaint(id){
 
     alert(
         "Agent ID: " +
@@ -2550,14 +2478,14 @@ function showComplaint(id){
 
 
 /* =====================================================
-   MENU FILTER LINKS
+   MENU AGENT FILTER
 ===================================================== */
 
 document
 .querySelectorAll(".submenu a")
 .forEach(function(link){
 
-    link.addEventListener("click", function(){
+    link.addEventListener("click",function(){
 
         const type =
             this.dataset.type;
@@ -2569,7 +2497,10 @@ document
 
             btn.classList.remove("active");
 
-            if(btn.dataset.filter === type){
+
+            if(
+                btn.dataset.filter === type
+            ){
 
                 btn.classList.add("active");
 
@@ -2580,13 +2511,16 @@ document
 
         renderAgents(type);
 
+
+        mobileMenu.classList.remove("show");
+
     });
 
 });
 
 
 /* =====================================================
-   INITIAL LOAD
+   INITIAL
 ===================================================== */
 
 renderAgents("all");
