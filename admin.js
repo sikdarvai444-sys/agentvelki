@@ -1,62 +1,282 @@
-/* =========================================
-   SETTINGS
-========================================= */
-
-const AGENT_KEY = "velki_agents_v1";
-const PIN_KEY = "velki_admin_pin_v1";
-
-let editingId = null;
+"use strict";
 
 
-/* =========================================
-   DEFAULT PIN
-========================================= */
+/* =========================================================
+   VELKI.COM ADMIN SYSTEM
+========================================================= */
 
-function getPin(){
 
-    let pin = localStorage.getItem(PIN_KEY);
+/* =========================================================
+   STORAGE KEYS
+========================================================= */
 
-    if(!pin){
+const AGENT_KEY =
+    "velki_agents_v2";
 
-        pin = "123456";
 
-        localStorage.setItem(PIN_KEY,pin);
+const PIN_KEY =
+    "velki_admin_pin_v2";
 
+
+const DEFAULT_PIN =
+    "123456";
+
+
+/* =========================================================
+   DEFAULT DATA
+========================================================= */
+
+const DEFAULT_AGENTS = [
+
+    {
+        id:"101",
+        type:"super",
+        typeName:"SUPER",
+        phone:"+855961234567",
+        brands:[
+            "VELKI",
+            "9XBET",
+            "BAAJIWALA"
+        ],
+        status:"active"
+    },
+
+    {
+        id:"102",
+        type:"super",
+        typeName:"SUPER",
+        phone:"+855969876543",
+        brands:[
+            "VELKI",
+            "9XBET"
+        ],
+        status:"active"
+    },
+
+    {
+        id:"103",
+        type:"super",
+        typeName:"SUPER",
+        phone:"+855965555555",
+        brands:[
+            "VELKI",
+            "9XBET"
+        ],
+        status:"active"
+    },
+
+    {
+        id:"104",
+        type:"super",
+        typeName:"SUPER",
+        phone:"+855966666666",
+        brands:[
+            "VELKI",
+            "9XBET",
+            "BAAJIWALA"
+        ],
+        status:"active"
+    },
+
+    {
+        id:"105",
+        type:"super",
+        typeName:"SUPER",
+        phone:"+855967777777",
+        brands:[
+            "VELKI"
+        ],
+        status:"active"
+    },
+
+    {
+        id:"106",
+        type:"master",
+        typeName:"MASTER",
+        phone:"+855968888888",
+        brands:[
+            "VELKI",
+            "9XBET"
+        ],
+        status:"active"
+    },
+
+    {
+        id:"107",
+        type:"admin",
+        typeName:"SUB ADMIN",
+        phone:"+855969999999",
+        brands:[
+            "VELKI",
+            "9XBET"
+        ],
+        status:"active"
     }
 
-    return pin;
+];
+
+
+/* =========================================================
+   STATE
+========================================================= */
+
+let agents = [];
+
+let currentBrands = [];
+
+
+/* =========================================================
+   DOM
+========================================================= */
+
+const form =
+    document.getElementById(
+        "agentForm"
+    );
+
+
+const agentIdInput =
+    document.getElementById(
+        "agentId"
+    );
+
+
+const agentTypeInput =
+    document.getElementById(
+        "agentType"
+    );
+
+
+const agentPhoneInput =
+    document.getElementById(
+        "agentPhone"
+    );
+
+
+const agentStatusInput =
+    document.getElementById(
+        "agentStatus"
+    );
+
+
+const brandInput =
+    document.getElementById(
+        "brandInput"
+    );
+
+
+const brandsList =
+    document.getElementById(
+        "brandsList"
+    );
+
+
+const editOriginalId =
+    document.getElementById(
+        "editOriginalId"
+    );
+
+
+/* =========================================================
+   ESCAPE
+========================================================= */
+
+function escapeHTML(value){
+
+    return String(
+        value ?? ""
+    )
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
 }
 
 
-/* =========================================
-   GET AGENTS
-========================================= */
+/* =========================================================
+   TYPE NAME
+========================================================= */
 
-function getAgents(){
+function getTypeName(type){
 
-    const data = localStorage.getItem(AGENT_KEY);
-
-    if(!data){
-        return [];
+    if(type === "master"){
+        return "MASTER";
     }
+
+    if(type === "super"){
+        return "SUPER";
+    }
+
+    if(type === "admin"){
+        return "SUB ADMIN";
+    }
+
+    return "AGENT";
+
+}
+
+
+/* =========================================================
+   LOAD DATA
+========================================================= */
+
+function loadAgents(){
 
     try{
 
-        return JSON.parse(data);
+        const saved =
+            localStorage.getItem(
+                AGENT_KEY
+            );
+
+
+        if(saved){
+
+            const parsed =
+                JSON.parse(saved);
+
+
+            if(Array.isArray(parsed)){
+
+                agents = parsed;
+
+            }else{
+
+                agents =
+                    [...DEFAULT_AGENTS];
+
+                saveAgents();
+
+            }
+
+        }else{
+
+            agents =
+                [...DEFAULT_AGENTS];
+
+            saveAgents();
+
+        }
 
     }catch(error){
 
-        return [];
+        console.error(error);
+
+        agents =
+            [...DEFAULT_AGENTS];
 
     }
+
 }
 
 
-/* =========================================
-   SAVE AGENTS
-========================================= */
+/* =========================================================
+   SAVE DATA
+========================================================= */
 
-function saveAgents(agents){
+function saveAgents(){
 
     localStorage.setItem(
         AGENT_KEY,
@@ -66,457 +286,1378 @@ function saveAgents(agents){
 }
 
 
-/* =========================================
-   LOGIN
-========================================= */
+/* =========================================================
+   SHOW MESSAGE
+========================================================= */
 
-document.getElementById("loginBtn")
-.addEventListener("click",login);
+function showMessage(
+    message,
+    type="success"
+){
 
-
-document.getElementById("adminPin")
-.addEventListener("keydown",(e)=>{
-
-    if(e.key === "Enter"){
-        login();
-    }
-
-});
-
-
-function login(){
-
-    const pin =
-        document.getElementById("adminPin").value;
-
-    const error =
-        document.getElementById("loginError");
-
-
-    if(pin === getPin()){
-
-        sessionStorage.setItem(
-            "velki_admin_logged",
-            "yes"
+    const box =
+        document.getElementById(
+            "formMessage"
         );
 
-        document.getElementById("loginSection")
-            .style.display = "none";
 
-        document.getElementById("adminSection")
-            .style.display = "block";
+    box.style.display =
+        "block";
 
-        renderAdminAgents();
 
-    }else{
+    box.className =
+        "notice " +
+        (
+            type === "error"
+            ? "error-message"
+            : "success-message"
+        );
 
-        error.textContent =
-            "❌ ভুল PIN! আবার চেষ্টা করুন।";
 
-    }
+    box.textContent =
+        message;
+
+
+    setTimeout(function(){
+
+        box.style.display =
+            "none";
+
+    },3000);
 
 }
 
 
-/* =========================================
-   CHECK LOGIN
-========================================= */
+/* =========================================================
+   RENDER BRANDS
+========================================================= */
 
-document.addEventListener("DOMContentLoaded",()=>{
+function renderBrands(){
 
-    if(
-        sessionStorage.getItem(
-            "velki_admin_logged"
-        ) === "yes"
-    ){
-
-        document.getElementById("loginSection")
-            .style.display = "none";
-
-        document.getElementById("adminSection")
-            .style.display = "block";
-
-        renderAdminAgents();
-
-    }
-
-});
+    brandsList.innerHTML = "";
 
 
-/* =========================================
-   SAVE AGENT
-========================================= */
+    currentBrands.forEach(
+        function(brand,index){
 
-document.getElementById("saveAgentBtn")
-.addEventListener("click",saveAgent);
-
-
-function saveAgent(){
-
-    const type =
-        document.getElementById("formType").value;
-
-    const id =
-        document.getElementById("formId")
-        .value.trim();
-
-    const name =
-        document.getElementById("formName")
-        .value.trim();
-
-    const phone =
-        document.getElementById("formPhone")
-        .value.trim();
-
-    const status =
-        document.getElementById("formStatus").value;
+            const tag =
+                document.createElement(
+                    "div"
+                );
 
 
-    if(!id || !name || !phone){
-
-        showMessage(
-            "সব তথ্য পূরণ করুন।",
-            "error"
-        );
-
-        return;
-    }
+            tag.className =
+                "brand-tag";
 
 
-    let agents = getAgents();
+            tag.innerHTML = `
+
+                ${escapeHTML(brand)}
+
+                <button
+                    type="button"
+                    class="brand-remove"
+                    data-index="${index}">
+
+                    ×
+
+                </button>
+
+            `;
 
 
-    /* EDIT */
-
-    if(editingId !== null){
-
-        const index =
-            agents.findIndex(
-                agent => agent.id === editingId
+            brandsList.appendChild(
+                tag
             );
 
-
-        if(index !== -1){
-
-            agents[index] = {
-                id:id,
-                name:name,
-                phone:phone,
-                type:type,
-                status:status
-            };
-
         }
-
-        editingId = null;
-
-        document.getElementById("formTitle")
-            .textContent =
-            "নতুন Agent যোগ করুন";
-
-        document.getElementById("saveAgentBtn")
-            .innerHTML =
-            '<i class="fa-solid fa-plus"></i> Agent Save';
-
-        document.getElementById("cancelEditBtn")
-            .style.display = "none";
-
-    }
-
-    /* ADD */
-
-    else{
-
-        const exists =
-            agents.some(agent => agent.id === id);
-
-        if(exists){
-
-            showMessage(
-                "এই Agent ID ইতোমধ্যে আছে।",
-                "error"
-            );
-
-            return;
-        }
-
-
-        agents.push({
-
-            id:id,
-            name:name,
-            phone:phone,
-            type:type,
-            status:status
-
-        });
-
-    }
-
-
-    saveAgents(agents);
-
-    clearForm();
-
-    renderAdminAgents();
-
-    showMessage(
-        "Agent সফলভাবে Save হয়েছে।",
-        "success"
     );
 
-}
+
+    document
+    .querySelectorAll(
+        ".brand-remove"
+    )
+    .forEach(function(button){
+
+        button.addEventListener(
+            "click",
+            function(){
+
+                const index =
+                    Number(
+                        this.dataset.index
+                    );
 
 
-/* =========================================
-   RENDER ADMIN AGENTS
-========================================= */
-
-function renderAdminAgents(){
-
-    const container =
-        document.getElementById("adminAgentList");
-
-    const agents = getAgents();
+                currentBrands.splice(
+                    index,
+                    1
+                );
 
 
-    if(agents.length === 0){
+                renderBrands();
 
-        container.innerHTML = `
-            <div class="empty">
-                এখনো কোনো Agent যোগ করা হয়নি।
-            </div>
-        `;
+            }
+        );
 
-        return;
-    }
-
-
-    container.innerHTML =
-        agents.map(agent => `
-
-        <div class="agent-admin-card">
-
-            <h3>
-                ${escapeHTML(agent.name)}
-            </h3>
-
-            <div class="agent-admin-info">
-
-                <div>
-                    <strong>Agent ID:</strong>
-                    ${escapeHTML(agent.id)}
-                </div>
-
-                <div>
-                    <strong>Type:</strong>
-                    ${getTypeName(agent.type)}
-                </div>
-
-                <div>
-                    <strong>Phone:</strong>
-                    ${escapeHTML(agent.phone)}
-                </div>
-
-                <div>
-                    <strong>Status:</strong>
-                    ${escapeHTML(agent.status)}
-                </div>
-
-            </div>
-
-
-            <div class="admin-actions">
-
-                <button
-                    class="admin-btn edit"
-                    onclick="editAgent('${encodeURIComponent(agent.id)}')">
-
-                    <i class="fa-solid fa-pen"></i>
-                    Edit
-
-                </button>
-
-
-                <button
-                    class="admin-btn delete"
-                    onclick="deleteAgent('${encodeURIComponent(agent.id)}')">
-
-                    <i class="fa-solid fa-trash"></i>
-                    Delete
-
-                </button>
-
-            </div>
-
-        </div>
-
-    `).join("");
-
-}
-
-
-/* =========================================
-   EDIT
-========================================= */
-
-function editAgent(encodedId){
-
-    const id = decodeURIComponent(encodedId);
-
-    const agents = getAgents();
-
-    const agent =
-        agents.find(a => a.id === id);
-
-
-    if(!agent) return;
-
-
-    document.getElementById("formType").value =
-        agent.type;
-
-    document.getElementById("formId").value =
-        agent.id;
-
-    document.getElementById("formName").value =
-        agent.name;
-
-    document.getElementById("formPhone").value =
-        agent.phone;
-
-    document.getElementById("formStatus").value =
-        agent.status;
-
-
-    editingId = agent.id;
-
-
-    document.getElementById("formTitle")
-        .textContent =
-        "Agent Edit করুন";
-
-    document.getElementById("saveAgentBtn")
-        .innerHTML =
-        '<i class="fa-solid fa-save"></i> Update Agent';
-
-    document.getElementById("cancelEditBtn")
-        .style.display = "inline-block";
-
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
     });
 
 }
 
 
-/* =========================================
-   CANCEL EDIT
-========================================= */
+/* =========================================================
+   ADD BRAND
+========================================================= */
 
-document.getElementById("cancelEditBtn")
-.addEventListener("click",()=>{
+function addBrand(){
 
-    editingId = null;
-
-    clearForm();
-
-    document.getElementById("formTitle")
-        .textContent =
-        "নতুন Agent যোগ করুন";
-
-    document.getElementById("saveAgentBtn")
-        .innerHTML =
-        '<i class="fa-solid fa-plus"></i> Agent Save';
-
-    document.getElementById("cancelEditBtn")
-        .style.display = "none";
-
-});
+    const value =
+        brandInput.value.trim();
 
 
-/* =========================================
-   DELETE
-========================================= */
+    if(!value){
 
-function deleteAgent(encodedId){
-
-    const id = decodeURIComponent(encodedId);
-
-
-    if(!confirm(
-        "আপনি কি এই Agent Delete করতে চান?"
-    )){
         return;
+
     }
 
 
-    let agents = getAgents();
+    const exists =
+        currentBrands.some(
+            function(item){
 
-    agents =
-        agents.filter(agent => agent.id !== id);
+                return item.toLowerCase()
+                    === value.toLowerCase();
+
+            }
+        );
 
 
-    saveAgents(agents);
+    if(exists){
 
-    renderAdminAgents();
+        brandInput.value = "";
+
+        return;
+
+    }
+
+
+    currentBrands.push(
+        value.toUpperCase()
+    );
+
+
+    brandInput.value = "";
+
+    renderBrands();
+
+}
+
+
+/* =========================================================
+   CLEAR FORM
+========================================================= */
+
+function clearForm(){
+
+    form.reset();
+
+
+    editOriginalId.value =
+        "";
+
+
+    currentBrands = [];
+
+
+    renderBrands();
+
+
+    document
+    .getElementById(
+        "formTitle"
+    )
+    .textContent =
+        "নতুন Agent যোগ করুন";
+
+
+    document
+    .getElementById(
+        "saveButtonText"
+    )
+    .textContent =
+        "Save Agent";
+
+
+    agentTypeInput.value =
+        "master";
+
+
+    agentStatusInput.value =
+        "active";
+
+}
+
+
+/* =========================================================
+   ADD / UPDATE AGENT
+========================================================= */
+
+function saveAgent(event){
+
+    event.preventDefault();
+
+
+    const id =
+        agentIdInput.value.trim();
+
+
+    const type =
+        agentTypeInput.value;
+
+
+    const phone =
+        agentPhoneInput.value.trim();
+
+
+    const status =
+        agentStatusInput.value;
+
+
+    const oldId =
+        editOriginalId.value.trim();
+
+
+    if(!id){
+
+        showMessage(
+            "Agent ID দিন।",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    if(!phone){
+
+        showMessage(
+            "Phone Number দিন।",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    /* EDIT */
+
+    if(oldId){
+
+        const index =
+            agents.findIndex(
+                function(agent){
+
+                    return String(agent.id)
+                    .toLowerCase()
+                    ===
+                    oldId.toLowerCase();
+
+                }
+            );
+
+
+        if(index === -1){
+
+            showMessage(
+                "Agent পাওয়া যায়নি।",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        /* ID change হলে duplicate check */
+
+        if(
+            id.toLowerCase()
+            !==
+            oldId.toLowerCase()
+        ){
+
+            const duplicate =
+                agents.some(
+                    function(agent){
+
+                        return String(
+                            agent.id
+                        ).toLowerCase()
+                        ===
+                        id.toLowerCase();
+
+                    }
+                );
+
+
+            if(duplicate){
+
+                showMessage(
+                    "এই Agent ID আগে থেকেই আছে।",
+                    "error"
+                );
+
+                return;
+
+            }
+
+        }
+
+
+        agents[index] = {
+
+            ...agents[index],
+
+            id:id,
+
+            type:type,
+
+            typeName:
+                getTypeName(type),
+
+            phone:phone,
+
+            brands:[
+                ...currentBrands
+            ],
+
+            status:status
+
+        };
+
+
+        saveAgents();
+
+
+        showMessage(
+            "Agent সফলভাবে আপডেট হয়েছে।"
+        );
+
+
+        clearForm();
+
+        renderAll();
+
+        return;
+
+    }
+
+
+    /* ADD */
+
+    const exists =
+        agents.some(
+            function(agent){
+
+                return String(agent.id)
+                .toLowerCase()
+                ===
+                id.toLowerCase();
+
+            }
+        );
+
+
+    if(exists){
+
+        showMessage(
+            "এই Agent ID আগে থেকেই আছে।",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    const newAgent = {
+
+        id:id,
+
+        type:type,
+
+        typeName:
+            getTypeName(type),
+
+        phone:phone,
+
+        brands:[
+            ...currentBrands
+        ],
+
+        status:status
+
+    };
+
+
+    agents.push(
+        newAgent
+    );
+
+
+    saveAgents();
+
 
     showMessage(
-        "Agent Delete করা হয়েছে।",
-        "success"
+        "নতুন Agent সফলভাবে যোগ হয়েছে।"
+    );
+
+
+    clearForm();
+
+    renderAll();
+
+}
+
+
+/* =========================================================
+   EDIT AGENT
+========================================================= */
+
+function editAgent(id){
+
+    const agent =
+        agents.find(
+            function(item){
+
+                return String(item.id)
+                .toLowerCase()
+                ===
+                String(id)
+                .toLowerCase();
+
+            }
+        );
+
+
+    if(!agent){
+
+        return;
+
+    }
+
+
+    editOriginalId.value =
+        agent.id;
+
+
+    agentIdInput.value =
+        agent.id;
+
+
+    agentTypeInput.value =
+        agent.type || "super";
+
+
+    agentPhoneInput.value =
+        agent.phone || "";
+
+
+    agentStatusInput.value =
+        agent.status || "active";
+
+
+    currentBrands =
+        Array.isArray(agent.brands)
+        ? [...agent.brands]
+        : [];
+
+
+    renderBrands();
+
+
+    document
+    .getElementById(
+        "formTitle"
+    )
+    .textContent =
+        "Agent Edit করুন";
+
+
+    document
+    .getElementById(
+        "saveButtonText"
+    )
+    .textContent =
+        "Update Agent";
+
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+
+}
+
+
+/* =========================================================
+   DELETE AGENT
+========================================================= */
+
+function deleteAgent(id){
+
+    const agent =
+        agents.find(
+            function(item){
+
+                return String(item.id)
+                .toLowerCase()
+                ===
+                String(id)
+                .toLowerCase();
+
+            }
+        );
+
+
+    if(!agent){
+
+        return;
+
+    }
+
+
+    const confirmDelete =
+        confirm(
+            "Agent ID " +
+            agent.id +
+            " মুছে ফেলতে চান?"
+        );
+
+
+    if(!confirmDelete){
+
+        return;
+
+    }
+
+
+    agents =
+        agents.filter(
+            function(item){
+
+                return String(item.id)
+                .toLowerCase()
+                !==
+                String(id)
+                .toLowerCase();
+
+            }
+        );
+
+
+    saveAgents();
+
+
+    renderAll();
+
+
+    showMessage(
+        "Agent মুছে ফেলা হয়েছে।"
     );
 
 }
 
 
-/* =========================================
-   DELETE ALL
-========================================= */
+/* =========================================================
+   TOGGLE STATUS
+========================================================= */
 
-document.getElementById("deleteAllBtn")
-.addEventListener("click",()=>{
+function toggleStatus(id){
 
-    const agents = getAgents();
+    const agent =
+        agents.find(
+            function(item){
 
-    if(agents.length === 0){
+                return String(item.id)
+                .toLowerCase()
+                ===
+                String(id)
+                .toLowerCase();
 
-        alert("Delete করার মতো কোনো Agent নেই।");
-
-        return;
-    }
-
-
-    const confirmDelete =
-        prompt(
-            "সব Agent Delete করতে YES লিখুন:"
+            }
         );
 
 
-    if(confirmDelete === "YES"){
+    if(!agent){
 
-        localStorage.removeItem(AGENT_KEY);
-
-        renderAdminAgents();
-
-        alert("সব Agent Delete হয়েছে।");
+        return;
 
     }
 
-});
+
+    agent.status =
+        agent.status === "active"
+        ? "disabled"
+        : "active";
 
 
-/* =========================================
+    saveAgents();
+
+
+    renderAll();
+
+}
+
+
+/* =========================================================
+   FILTER DATA
+========================================================= */
+
+function getFilteredAgents(){
+
+    const search =
+        document
+        .getElementById(
+            "tableSearch"
+        )
+        .value
+        .trim()
+        .toLowerCase();
+
+
+    const filter =
+        document
+        .getElementById(
+            "tableFilter"
+        )
+        .value;
+
+
+    return agents.filter(
+        function(agent){
+
+            const brands =
+                Array.isArray(
+                    agent.brands
+                )
+                ? agent.brands.join(" ")
+                : "";
+
+
+            const searchable =
+                (
+                    String(
+                        agent.id || ""
+                    )
+                    + " " +
+                    String(
+                        agent.phone || ""
+                    )
+                    + " " +
+                    brands
+                    + " " +
+                    String(
+                        agent.typeName || ""
+                    )
+                )
+                .toLowerCase();
+
+
+            const matchesSearch =
+                !search ||
+                searchable.includes(search);
+
+
+            let matchesFilter =
+                true;
+
+
+            if(
+                filter === "master" ||
+                filter === "super" ||
+                filter === "admin"
+            ){
+
+                matchesFilter =
+                    agent.type === filter;
+
+            }
+
+
+            if(filter === "active"){
+
+                matchesFilter =
+                    (
+                        !agent.status ||
+                        agent.status === "active"
+                    );
+
+            }
+
+
+            if(filter === "disabled"){
+
+                matchesFilter =
+                    agent.status === "disabled";
+
+            }
+
+
+            return (
+                matchesSearch &&
+                matchesFilter
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   RENDER TABLE
+========================================================= */
+
+function renderTable(){
+
+    const tbody =
+        document.getElementById(
+            "agentTableBody"
+        );
+
+
+    const filtered =
+        getFilteredAgents();
+
+
+    tbody.innerHTML = "";
+
+
+    document
+    .getElementById(
+        "visibleCount"
+    )
+    .textContent =
+        filtered.length +
+        " জন";
+
+
+    if(!filtered.length){
+
+        tbody.innerHTML = `
+
+            <tr>
+
+                <td
+                    colspan="6"
+                    style="
+                    text-align:center;
+                    padding:30px;">
+
+                    কোনো Agent পাওয়া যায়নি।
+
+                </td>
+
+            </tr>
+
+        `;
+
+        return;
+
+    }
+
+
+    filtered.forEach(
+        function(agent){
+
+            const tr =
+                document.createElement(
+                    "tr"
+                );
+
+
+            const brands =
+                Array.isArray(
+                    agent.brands
+                )
+                ? agent.brands
+                : [];
+
+
+            const brandHTML =
+                brands.length
+                ? brands
+                    .map(
+                        function(brand){
+
+                            return `
+                                <span
+                                    style="
+                                    display:inline-block;
+                                    margin:2px;
+                                    padding:4px 6px;
+                                    background:#eee;
+                                    border-radius:4px;
+                                    font-size:11px;">
+
+                                    ${escapeHTML(
+                                        brand
+                                    )}
+
+                                </span>
+                            `;
+
+                        }
+                    )
+                    .join("")
+                : "-";
+
+
+            const status =
+                (
+                    !agent.status ||
+                    agent.status === "active"
+                )
+                ? "Active"
+                : "Disabled";
+
+
+            const statusClass =
+                status === "Active"
+                ? "status-active"
+                : "status-disabled";
+
+
+            tr.innerHTML = `
+
+                <td>
+                    <strong>
+                        ${escapeHTML(
+                            agent.id
+                        )}
+                    </strong>
+                </td>
+
+
+                <td>
+
+                    <span
+                        class="type-badge">
+
+                        ${escapeHTML(
+                            agent.typeName ||
+                            getTypeName(
+                                agent.type
+                            )
+                        )}
+
+                    </span>
+
+                </td>
+
+
+                <td>
+
+                    <a
+                        href="tel:${escapeHTML(
+                            agent.phone
+                        )}">
+
+                        ${escapeHTML(
+                            agent.phone
+                        )}
+
+                    </a>
+
+                </td>
+
+
+                <td>
+                    ${brandHTML}
+                </td>
+
+
+                <td>
+
+                    <span
+                        class="status-badge
+                        ${statusClass}">
+
+                        ${status}
+
+                    </span>
+
+                </td>
+
+
+                <td>
+
+                    <div
+                        class="action-buttons">
+
+
+                        <button
+                            class="edit-btn"
+                            onclick="editAgent('${escapeHTML(agent.id)}')">
+
+                            <i
+                                class="fa-solid
+                                fa-pen">
+                            </i>
+
+                        </button>
+
+
+                        <button
+                            class="toggle-btn"
+                            onclick="toggleStatus('${escapeHTML(agent.id)}')">
+
+                            <i
+                                class="fa-solid
+                                fa-power-off">
+                            </i>
+
+                        </button>
+
+
+                        <button
+                            class="delete-btn"
+                            onclick="deleteAgent('${escapeHTML(agent.id)}')">
+
+                            <i
+                                class="fa-solid
+                                fa-trash">
+                            </i>
+
+                        </button>
+
+
+                    </div>
+
+                </td>
+
+            `;
+
+
+            tbody.appendChild(tr);
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   STATISTICS
+========================================================= */
+
+function renderStats(){
+
+    const total =
+        agents.length;
+
+
+    const master =
+        agents.filter(
+            a => a.type === "master"
+        ).length;
+
+
+    const superCount =
+        agents.filter(
+            a => a.type === "super"
+        ).length;
+
+
+    const admin =
+        agents.filter(
+            a => a.type === "admin"
+        ).length;
+
+
+    document
+    .getElementById(
+        "totalCount"
+    )
+    .textContent =
+        total;
+
+
+    document
+    .getElementById(
+        "masterCount"
+    )
+    .textContent =
+        master;
+
+
+    document
+    .getElementById(
+        "superCount"
+    )
+    .textContent =
+        superCount;
+
+
+    document
+    .getElementById(
+        "adminCount"
+    )
+    .textContent =
+        admin;
+
+}
+
+
+/* =========================================================
+   RENDER ALL
+========================================================= */
+
+function renderAll(){
+
+    renderStats();
+
+    renderTable();
+
+}
+
+
+/* =========================================================
+   EXPORT JSON
+========================================================= */
+
+function exportData(){
+
+    const data = {
+
+        version:2,
+
+        exportedAt:
+            new Date()
+            .toISOString(),
+
+        agents:[
+            ...agents
+        ]
+
+    };
+
+
+    const blob =
+        new Blob(
+            [
+                JSON.stringify(
+                    data,
+                    null,
+                    2
+                )
+            ],
+            {
+                type:
+                    "application/json"
+            }
+        );
+
+
+    const url =
+        URL.createObjectURL(
+            blob
+        );
+
+
+    const a =
+        document.createElement(
+            "a"
+        );
+
+
+    const date =
+        new Date()
+        .toISOString()
+        .slice(0,10);
+
+
+    a.href = url;
+
+    a.download =
+        "velki-agent-backup-" +
+        date +
+        ".json";
+
+
+    document.body.appendChild(a);
+
+    a.click();
+
+    a.remove();
+
+
+    URL.revokeObjectURL(url);
+
+}
+
+
+/* =========================================================
+   IMPORT JSON
+========================================================= */
+
+function importData(event){
+
+    const file =
+        event.target.files[0];
+
+
+    if(!file){
+
+        return;
+
+    }
+
+
+    const reader =
+        new FileReader();
+
+
+    reader.onload =
+        function(){
+
+            try{
+
+                const parsed =
+                    JSON.parse(
+                        reader.result
+                    );
+
+
+                let imported;
+
+
+                if(
+                    Array.isArray(
+                        parsed
+                    )
+                ){
+
+                    imported =
+                        parsed;
+
+                }else if(
+                    Array.isArray(
+                        parsed.agents
+                    )
+                ){
+
+                    imported =
+                        parsed.agents;
+
+                }else{
+
+                    throw new Error(
+                        "Invalid data"
+                    );
+
+                }
+
+
+                const valid =
+                    imported.filter(
+                        function(agent){
+
+                            return (
+                                agent &&
+                                agent.id
+                            );
+
+                        }
+                    )
+                    .map(
+                        function(agent){
+
+                            return {
+
+                                id:String(
+                                    agent.id
+                                ),
+
+                                type:
+                                    agent.type ||
+                                    "super",
+
+                                typeName:
+                                    agent.typeName ||
+                                    getTypeName(
+                                        agent.type ||
+                                        "super"
+                                    ),
+
+                                phone:
+                                    agent.phone ||
+                                    "",
+
+                                brands:
+                                    Array.isArray(
+                                        agent.brands
+                                    )
+                                    ? agent.brands
+                                    : [],
+
+                                status:
+                                    agent.status ===
+                                    "disabled"
+                                    ? "disabled"
+                                    : "active"
+
+                            };
+
+                        }
+                    );
+
+
+                if(!valid.length){
+
+                    throw new Error(
+                        "No valid agents"
+                    );
+
+                }
+
+
+                const ok =
+                    confirm(
+                        valid.length +
+                        " জন Agent Import হবে।\n\n" +
+                        "বর্তমান data replace করবেন?"
+                    );
+
+
+                if(!ok){
+
+                    return;
+
+                }
+
+
+                agents =
+                    valid;
+
+
+                saveAgents();
+
+                renderAll();
+
+
+                showMessage(
+                    "Agent data সফলভাবে Import হয়েছে।"
+                );
+
+
+            }catch(error){
+
+                console.error(error);
+
+
+                showMessage(
+                    "ভুল JSON ফাইল।",
+                    "error"
+                );
+
+            }
+
+        };
+
+
+    reader.readAsText(file);
+
+
+    event.target.value = "";
+
+}
+
+
+/* =========================================================
+   RESET DATA
+========================================================= */
+
+function resetData(){
+
+    const ok =
+        confirm(
+            "সতর্কতা!\n\n" +
+            "বর্তমান Agent data মুছে Default data ফিরিয়ে আনা হবে।\n\n" +
+            "আপনি কি নিশ্চিত?"
+        );
+
+
+    if(!ok){
+
+        return;
+
+    }
+
+
+    agents =
+        JSON.parse(
+            JSON.stringify(
+                DEFAULT_AGENTS
+            )
+        );
+
+
+    saveAgents();
+
+    renderAll();
+
+    clearForm();
+
+
+    showMessage(
+        "Default Agent data ফিরিয়ে আনা হয়েছে।"
+    );
+
+}
+
+
+/* =========================================================
    CHANGE PIN
-========================================= */
+========================================================= */
 
-document.getElementById("changePinBtn")
-.addEventListener("click",()=>{
+function changePin(){
 
     const newPin =
-        document.getElementById("newPin")
-        .value.trim();
+        document
+        .getElementById(
+            "newPin"
+        )
+        .value
+        .trim();
+
+
+    const confirmPin =
+        document
+        .getElementById(
+            "confirmPin"
+        )
+        .value
+        .trim();
+
+
+    if(!newPin){
+
+        alert(
+            "নতুন PIN দিন।"
+        );
+
+        return;
+
+    }
 
 
     if(newPin.length < 4){
@@ -526,6 +1667,18 @@ document.getElementById("changePinBtn")
         );
 
         return;
+
+    }
+
+
+    if(newPin !== confirmPin){
+
+        alert(
+            "দুইটি PIN একই নয়।"
+        );
+
+        return;
+
     }
 
 
@@ -535,236 +1688,225 @@ document.getElementById("changePinBtn")
     );
 
 
-    document.getElementById("newPin")
-        .value = "";
+    document
+    .getElementById(
+        "newPin"
+    )
+    .value = "";
 
 
-    alert("নতুন PIN সফলভাবে সেট হয়েছে।");
-
-});
-
-
-/* =========================================
-   BACKUP
-========================================= */
-
-document.getElementById("backupBtn")
-.addEventListener("click",()=>{
-
-    const data = {
-
-        agents:getAgents(),
-
-        backupDate:
-            new Date().toISOString()
-
-    };
+    document
+    .getElementById(
+        "confirmPin"
+    )
+    .value = "";
 
 
-    const blob =
-        new Blob(
-            [JSON.stringify(data,null,2)],
-            {type:"application/json"}
+    alert(
+        "Admin PIN সফলভাবে পরিবর্তন হয়েছে।"
+    );
+
+}
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+function logout(){
+
+    sessionStorage.removeItem(
+        "velki_admin_logged_in"
+    );
+
+
+    sessionStorage.removeItem(
+        "velki_admin_login_time"
+    );
+
+
+    window.location.href =
+        "admin.html";
+
+}
+
+
+/* =========================================================
+   AUTH CHECK
+========================================================= */
+
+function checkLogin(){
+
+    const logged =
+        sessionStorage.getItem(
+            "velki_admin_logged_in"
         );
 
 
-    const url =
-        URL.createObjectURL(blob);
+    if(logged !== "yes"){
+
+        window.location.href =
+            "admin.html";
+
+        return false;
+
+    }
 
 
-    const a =
-        document.createElement("a");
+    return true;
 
-    a.href = url;
-
-    a.download =
-        "velki-agent-backup.json";
-
-    a.click();
+}
 
 
-    URL.revokeObjectURL(url);
+/* =========================================================
+   EVENT LISTENERS
+========================================================= */
 
-});
-
-
-/* =========================================
-   RESTORE
-========================================= */
-
-document.getElementById("restoreBtn")
-.addEventListener("click",()=>{
-
-    document.getElementById("restoreFile")
-        .click();
-
-});
+document
+.getElementById(
+    "addBrandBtn"
+)
+.addEventListener(
+    "click",
+    addBrand
+);
 
 
-document.getElementById("restoreFile")
-.addEventListener("change",(event)=>{
+brandInput
+.addEventListener(
+    "keydown",
+    function(event){
 
-    const file =
-        event.target.files[0];
+        if(event.key === "Enter"){
 
-    if(!file) return;
+            event.preventDefault();
 
-
-    const reader = new FileReader();
-
-
-    reader.onload = function(e){
-
-        try{
-
-            const data =
-                JSON.parse(e.target.result);
-
-
-            if(!Array.isArray(data.agents)){
-
-                alert(
-                    "Backup file সঠিক নয়।"
-                );
-
-                return;
-            }
-
-
-            saveAgents(data.agents);
-
-            renderAdminAgents();
-
-
-            alert(
-                "Backup সফলভাবে Restore হয়েছে।"
-            );
-
-
-        }catch(error){
-
-            alert(
-                "Backup file পড়া যায়নি।"
-            );
+            addBrand();
 
         }
 
-    };
+    }
+);
 
 
-    reader.readAsText(file);
-
-});
-
-
-/* =========================================
-   LOGOUT
-========================================= */
-
-document.getElementById("logoutBtn")
-.addEventListener("click",()=>{
-
-    sessionStorage.removeItem(
-        "velki_admin_logged"
-    );
-
-    location.reload();
-
-});
+form.addEventListener(
+    "submit",
+    saveAgent
+);
 
 
-/* =========================================
-   CLEAR FORM
-========================================= */
-
-function clearForm(){
-
-    document.getElementById("formId").value = "";
-
-    document.getElementById("formName").value = "";
-
-    document.getElementById("formPhone").value = "";
-
-    document.getElementById("formStatus").value =
-        "Active";
-
-}
+document
+.getElementById(
+    "clearFormBtn"
+)
+.addEventListener(
+    "click",
+    clearForm
+);
 
 
-/* =========================================
-   MESSAGE
-========================================= */
+document
+.getElementById(
+    "tableSearch"
+)
+.addEventListener(
+    "input",
+    renderTable
+);
 
-function showMessage(text,type){
 
-    const box =
-        document.getElementById("adminMessage");
+document
+.getElementById(
+    "tableFilter"
+)
+.addEventListener(
+    "change",
+    renderTable
+);
 
-    box.textContent = text;
 
-    box.className =
-        "admin-message show";
+document
+.getElementById(
+    "exportBtn"
+)
+.addEventListener(
+    "click",
+    exportData
+);
 
-    if(type === "error"){
 
-        box.style.background = "#ffecec";
-        box.style.color = "#b00000";
+document
+.getElementById(
+    "importFile"
+)
+.addEventListener(
+    "change",
+    importData
+);
 
-    }else{
 
-        box.style.background = "#e9fff0";
-        box.style.color = "#08752b";
+document
+.getElementById(
+    "resetDataBtn"
+)
+.addEventListener(
+    "click",
+    resetData
+);
+
+
+document
+.getElementById(
+    "changePinBtn"
+)
+.addEventListener(
+    "click",
+    changePin
+);
+
+
+document
+.getElementById(
+    "logoutBtn"
+)
+.addEventListener(
+    "click",
+    logout
+);
+
+
+/* =========================================================
+   STORAGE EVENT
+========================================================= */
+
+window.addEventListener(
+    "storage",
+    function(event){
+
+        if(
+            event.key === AGENT_KEY
+        ){
+
+            loadAgents();
+
+            renderAll();
+
+        }
 
     }
+);
 
 
-    setTimeout(()=>{
+/* =========================================================
+   INITIALIZE
+========================================================= */
 
-        box.classList.remove("show");
+if(checkLogin()){
 
-    },3000);
+    loadAgents();
 
-}
+    renderAll();
 
-
-/* =========================================
-   TYPE
-========================================= */
-
-function getTypeName(type){
-
-    if(type === "master"){
-        return "মাস্টার এজেন্ট";
-    }
-
-    if(type === "super"){
-        return "সুপার এজেন্ট";
-    }
-
-    if(type === "admin"){
-        return "সাব এডমিন";
-    }
-
-    return "এজেন্ট";
-}
-
-
-/* =========================================
-   ESCAPE HTML
-========================================= */
-
-function escapeHTML(value){
-
-    return String(value)
-
-        .replace(/&/g,"&amp;")
-
-        .replace(/</g,"&lt;")
-
-        .replace(/>/g,"&gt;")
-
-        .replace(/"/g,"&quot;")
-
-        .replace(/'/g,"&#039;");
+    renderBrands();
 
 }
