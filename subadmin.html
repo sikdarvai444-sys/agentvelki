@@ -1,19 +1,271 @@
 <!DOCTYPE html>
 <html lang="bn">
+
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SubAdmin List</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-<style>body{font-family:"Noto Sans Bengali";background:#ffd817;margin:0;padding:15px}.header{background:#292929;color:#fff;padding:15px;text-align:center;font-size:24px;font-weight:800}table{width:100%;background:#fff;border-collapse:collapse;margin-top:15px}th,td{border:1px solid #ddd;padding:8px;text-align:center}th{background:#353535;color:#fff}</style>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0">
+
+<title>Velki.Com - Sub Admin</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<link rel="stylesheet"
+href="style.css">
+
 </head>
+
 <body>
-<div class="header"><i class="fa-solid fa-gear"></i> SUB ADMIN LIST</div>
-<table>
-<tr><th>ID</th><th>Under Admin</th><th>Super Count</th></tr>
-<tr><td>5</td><td>Admin 01</td><td>3 জন</td></tr>
-<tr><td>12</td><td>Admin 01</td><td>5 জন</td></tr>
-<tr><td>18</td><td>Admin 02</td><td>4 জন</td></tr>
-</table>
-<a href="index.html" style="display:block;text-align:center;margin-top:15px;color:#000">← Back to Home</a>
-</body></html>
+
+<section class="top-logo-area">
+
+<a href="index.html">
+
+<img src="logo.png"
+class="main-logo"
+alt="Velki.Com">
+
+</a>
+
+<div class="site-name">
+Velki.Com
+</div>
+
+</section>
+
+
+<section class="find-section">
+
+<h1>
+Sub Admin List
+</h1>
+
+<h2>
+সকল সাব এডমিন লিস্ট
+</h2>
+
+</section>
+
+
+<section class="agent-list-section">
+
+<h2>
+ALL SUB ADMIN
+</h2>
+
+<div class="filter-box">
+
+<button class="filter-btn active">
+সকল সাব এডমিন
+</button>
+
+</div>
+
+<div id="agentListContainer"></div>
+
+</section>
+
+
+<footer>
+
+<img src="logo.png"
+class="footer-logo-image">
+
+<p>
+© 2026 Velki.Com
+</p>
+
+<a href="index.html"
+class="admin-link">
+Home
+</a>
+
+</footer>
+
+
+<script>
+
+const KEY="velki_agents_v2";
+
+
+function esc(v){
+
+return String(v ?? "")
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+
+function getAgents(){
+
+try{
+
+const data=
+localStorage.getItem(KEY);
+
+return data
+?JSON.parse(data)
+:[];
+
+}catch(e){
+
+return [];
+
+}
+
+}
+
+
+function render(){
+
+const box=
+document.getElementById(
+"agentListContainer"
+);
+
+const agents=
+getAgents().filter(a=>
+a.type==="admin" &&
+(!a.status || a.status==="active")
+);
+
+
+box.innerHTML="";
+
+
+if(!agents.length){
+
+box.innerHTML=
+`<div class="no-agent">
+কোনো Sub Admin পাওয়া যায়নি।
+</div>`;
+
+return;
+
+}
+
+
+agents.forEach(agent=>{
+
+const row=
+document.createElement("div");
+
+row.className="agent-row";
+
+const brands=
+Array.isArray(agent.brands)
+?agent.brands
+:[];
+
+row.innerHTML=`
+
+<div class="agent-id-box">
+
+<a href="#">
+${esc(agent.id)}
+</a>
+
+</div>
+
+
+<div class="agent-info">
+
+<div class="agent-type">
+SUB ADMIN
+</div>
+
+${brands.map(b=>`
+
+<div>
+
+<a href="#"
+class="agent-brand">
+
+${esc(b)}
+
+</a>
+
+<span class="agent-check">
+✓
+</span>
+
+</div>
+
+`).join("")}
+
+</div>
+
+
+<div class="agent-phone">
+
+<a href="tel:${esc(agent.phone)}">
+
+${esc(agent.phone)}
+
+</a>
+
+</div>
+
+
+<div class="agent-action">
+
+<a href="#"
+onclick="complaint('${esc(agent.id)}');return false;">
+
+অভিযোগ
+
+</a>
+
+<a href="tel:${esc(agent.phone)}">
+যোগ
+</a>
+
+</div>
+
+`;
+
+box.appendChild(row);
+
+});
+
+}
+
+
+function complaint(id){
+
+alert(
+"Agent ID: "+id+
+"\n\nCustomer Service-এর সাথে যোগাযোগ করুন।"
+);
+
+}
+
+
+render();
+
+window.addEventListener(
+"storage",
+render
+);
+
+</script>
+
+</body>
+</html>
