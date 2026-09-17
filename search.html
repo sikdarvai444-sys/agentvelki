@@ -1,66 +1,301 @@
 <!DOCTYPE html>
 <html lang="bn">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agent Search</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;700;800&display=swap" rel="stylesheet">
-<style>
-body{font-family:"Noto Sans Bengali";background:#f1f1f1;margin:0;padding:15px}
-.box{background:#fff;padding:20px;border-radius:5px;max-width:500px;margin:0 auto}
-input,select{width:100%;padding:10px;margin:10px 0;border:1px solid #ccc;border-radius:4px;font-size:16px}
-button{width:100%;padding:12px;background:#24d866;color:#fff;border:none;border-radius:4px;font-size:18px;font-weight:700}
-.result{margin-top:20px;padding:15px;background:#fffde7;border:2px solid #f1a04a;display:none}
-.chain{font-size:16px;line-height:2}
-</style>
-</head>
-<body>
-<div class="box">
-<h2 style="text-align:center">এজেন্ট এর আইডি নাম্বার দিয়ে খুজুনঃ</h2>
-<label>Agent Type:</label>
-<select id="type">
-  <option value="master">মাস্টার এজেন্ট</option>
-  <option value="super">সুপার এজেন্ট</option>
-</select>
-<label>Agent ID:</label>
-<input type="number" id="agentId" placeholder="যেমন: 03">
-<button onclick="searchAgent()">Submit</button>
 
-<div class="result" id="result">
-  <h3>ফলাফলঃ</h3>
-  <div class="chain" id="chain"></div>
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0">
+
+<title>Velki.Com - Search Agent</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<link rel="stylesheet"
+href="style.css">
+
+</head>
+
+<body>
+
+<section class="top-logo-area">
+
+<a href="index.html">
+
+<img src="logo.png"
+class="main-logo"
+alt="Velki.Com">
+
+</a>
+
+<div class="site-name">
+Velki.Com
 </div>
+
+</section>
+
+
+<section class="find-section">
+
+<h1>
+Find Agent
+</h1>
+
+<h2>
+এজেন্টের তথ্য খুঁজুন
+</h2>
+
+
+<div class="search-card">
+
+<div class="form-group">
+
+<label>
+Agent Type:
+</label>
+
+<select id="type">
+
+<option value="all">
+সকল এজেন্ট
+</option>
+
+<option value="master">
+মাস্টার এজেন্ট
+</option>
+
+<option value="super">
+সুপার এজেন্ট
+</option>
+
+<option value="admin">
+সাব এডমিন
+</option>
+
+</select>
+
 </div>
+
+
+<div class="form-group">
+
+<label>
+Agent ID:
+</label>
+
+<input
+id="id"
+type="text"
+placeholder="Agent ID লিখুন"
+autocomplete="off">
+
+</div>
+
+
+<button
+class="submit-btn"
+onclick="findAgent()">
+
+Search
+
+</button>
+
+
+<div id="result"></div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<img src="logo.png"
+class="footer-logo-image">
+
+<p>
+© 2026 Velki.Com
+</p>
+
+<a href="index.html"
+class="admin-link">
+Home
+</a>
+
+</footer>
+
 
 <script>
-const data = {
-  "03": {master:"03", super:"249", subadmin:"18", admin:"02", phone:"+13435008121"},
-  "655": {master:"655", super:"243", subadmin:"5", admin:"01", phone:"+601124133383"},
-  "326": {master:"326", super:"287", subadmin:"12", admin:"01", phone:"+601174744722"}
-};
 
-function searchAgent(){
-  const id = document.getElementById('agentId').value;
-  const type = document.getElementById('type').value;
-  const res = document.getElementById('result');
-  const chain = document.getElementById('chain');
-  
-  if(data[id]){
-    const d = data[id];
-    chain.innerHTML = `
-      মাস্টার এজেন্ট ID: <b>${d.master}</b> <br>
-      ↓ এর আন্ডারে <br>
-      সুপার এজেন্ট ID: <b>${d.super}</b> <br>
-      ↓ এর আন্ডারে <br>
-      সাব এডমিন ID: <b>${d.subadmin}</b> <br>
-      ↓ এর আন্ডারে <br>
-      এডমিন ID: <b>${d.admin}</b> <br><br>
-      WhatsApp: <a href="https://wa.me/${d.phone.replace('+','')}">${d.phone}</a>
-    `;
-    res.style.display = 'block';
-  } else {
-    chain.innerHTML = "এই ID এর এজেন্ট পাওয়া যায়নি";
-    res.style.display = 'block';
-  }
+const KEY="velki_agents_v2";
+
+
+function esc(v){
+
+return String(v ?? "")
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
 }
+
+
+function getAgents(){
+
+try{
+
+return JSON.parse(
+localStorage.getItem(KEY)
+)||[];
+
+}catch(e){
+
+return [];
+
+}
+
+}
+
+
+function findAgent(){
+
+const id=
+document.getElementById("id")
+.value.trim().toLowerCase();
+
+const type=
+document.getElementById("type")
+.value;
+
+const result=
+document.getElementById("result");
+
+
+if(!id){
+
+result.innerHTML=
+`<div class="no-agent">
+Agent ID লিখুন।
+</div>`;
+
+return;
+
+}
+
+
+const agent=
+getAgents().find(a=>
+
+String(a.id)
+.toLowerCase()===id &&
+
+(type==="all" || a.type===type) &&
+
+(!a.status || a.status==="active")
+
+);
+
+
+if(!agent){
+
+result.innerHTML=
+`<div class="no-agent">
+এই Agent ID পাওয়া যায়নি।
+</div>`;
+
+return;
+
+}
+
+
+const brands=
+Array.isArray(agent.brands)
+?agent.brands
+:[];
+
+
+result.innerHTML=`
+
+<div class="agent-row"
+style="margin-top:18px">
+
+<div class="agent-id-box">
+${esc(agent.id)}
+</div>
+
+
+<div class="agent-info">
+
+<div class="agent-type">
+${esc(agent.typeName || agent.type)}
+</div>
+
+${brands.map(b=>`
+
+<div>
+
+<a class="agent-brand"
+href="#">
+
+${esc(b)}
+
+</a>
+
+<span class="agent-check">
+✓
+</span>
+
+</div>
+
+`).join("")}
+
+</div>
+
+
+<div class="agent-phone">
+
+<a href="tel:${esc(agent.phone)}">
+${esc(agent.phone)}
+</a>
+
+</div>
+
+
+<div class="agent-action">
+
+<a href="tel:${esc(agent.phone)}">
+যোগ
+</a>
+
+</div>
+
+</div>
+
+`;
+
+}
+
+
+document
+.getElementById("id")
+.addEventListener("keydown",e=>{
+
+if(e.key==="Enter"){
+
+findAgent();
+
+}
+
+});
+
 </script>
-</body></html>
+
+</body>
+</html>
