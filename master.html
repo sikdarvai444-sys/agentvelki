@@ -1,51 +1,311 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Master Agent List</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Velki.Com - Master Agent</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<link rel="stylesheet" href="style.css">
+
 <style>
-body{font-family:"Noto Sans Bengali";background:#ffd817;margin:0;padding:15px}
-.header{background:#292929;color:#fff;padding:15px;text-align:center;font-size:24px;font-weight:800}
-.group{margin-top:20px;background:#fff;padding:15px;border-radius:5px}
-h3{font-size:16px;margin-bottom:10px}
-table{width:100%;border-collapse:collapse;font-size:13px}
-th,td{border:1px solid #ddd;padding:6px;text-align:center}
-th{background:#353535;color:#fff}
-.wa{color:#24d866;font-size:20px}
-.complain{color:red;font-weight:700}
+
+.page-wrap{
+    width:100%;
+    max-width:680px;
+    margin:auto;
+    padding:35px 15px 50px;
+}
+
+.page-title{
+    text-align:center;
+    font-family:Georgia,serif;
+    font-size:40px;
+    font-weight:400;
+    margin:20px 0 12px;
+}
+
+.page-subtitle{
+    text-align:center;
+    font-size:20px;
+    font-weight:700;
+    margin-bottom:30px;
+}
+
+.back-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:11px 18px;
+    background:#111;
+    color:#fff;
+    text-decoration:none;
+    border-radius:6px;
+    font-weight:700;
+}
+
+.page-card{
+    margin-top:25px;
+    border:1px solid #ddd;
+    border-radius:9px;
+    overflow:hidden;
+    background:#fff;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.list-head{
+    padding:18px;
+    text-align:center;
+    background:#f1f1f1;
+    border-bottom:1px solid #ddd;
+    font-size:21px;
+    font-weight:800;
+}
+
+#masterList{
+    width:100%;
+}
+
+.master-row{
+    display:grid;
+    grid-template-columns:18% 30% 35% 17%;
+    min-height:135px;
+    align-items:center;
+    padding:10px 5px;
+    border-bottom:1px solid #ddd;
+}
+
+.master-row:nth-child(even){
+    background:#eee;
+}
+
+.cell{
+    font-size:16px;
+    font-weight:700;
+    overflow-wrap:anywhere;
+}
+
+.cell.center{
+    text-align:center;
+}
+
+.cell a{
+    color:#111;
+}
+
+.phone a{
+    text-decoration:underline;
+}
+
+.check{
+    display:inline-flex;
+    width:22px;
+    height:22px;
+    align-items:center;
+    justify-content:center;
+    background:#66b65d;
+    color:#fff;
+    border-radius:4px;
+    margin-left:3px;
+}
+
+.empty{
+    text-align:center;
+    padding:35px 15px;
+    font-weight:700;
+}
+
 </style>
 </head>
+
 <body>
-<div class="header"><i class="fa-solid fa-gear"></i> VELKI MASTER AGENT LIST</div>
 
-<div class="group">
-<h3>সাব এডমিন 5 এর অধীনে সুপার এজেন্ট 243 এর অধীনে সর্বমোট মাস্টার এজেন্ট আছে 1 জন</h3>
-<table>
-<tr><th>ID NO</th><th>AGENT</th><th>APP</th><th>PHONE NUMBER</th><th>COMPLAIN</th></tr>
-<tr><td>655</td><td>মাস্টার</td><td><a href="https://wa.me/601124133383" class="wa"><i class="fa-brands fa-whatsapp"></i></a></td><td>+6011-24133383</td><td class="complain">অভিযোগ</td></tr>
-</table>
+<header class="top-logo-area">
+
+<a href="index.html">
+
+<img src="logo.png"
+     alt="Velki.Com"
+     class="main-logo">
+
+</a>
+
+<div class="site-name">
+Velki.Com
 </div>
 
-<div class="group">
-<h3>সাব এডমিন 12 এর অধীনে সুপার এজেন্ট 287 এর অধীনে সর্বমোট মাস্টার এজেন্ট আছে 13 জন</h3>
-<table>
-<tr><th>ID NO</th><th>AGENT</th><th>APP</th><th>PHONE NUMBER</th><th>COMPLAIN</th></tr>
-<tr><td>326</td><td>মাস্টার</td><td><a href="https://wa.me/601174744722" class="wa"><i class="fa-brands fa-whatsapp"></i></a></td><td>+601174744722</td><td class="complain">অভিযোগ</td></tr>
-<tr><td>187</td><td>মাস্টার</td><td><a href="https://wa.me/16722078123" class="wa"><i class="fa-brands fa-whatsapp"></i></a></td><td>+1(672)2078123</td><td class="complain">অভিযোগ</td></tr>
-<tr><td>306</td><td>মাস্টার</td><td><a href="https://wa.me/601173509340" class="wa"><i class="fa-brands fa-whatsapp"></i></a></td><td>+6011-73509340</td><td class="complain">অভিযোগ</td></tr>
-</table>
+</header>
+
+
+<div class="page-wrap">
+
+<a href="index.html" class="back-btn">
+<i class="fa-solid fa-arrow-left"></i>
+হোম
+</a>
+
+
+<h1 class="page-title">
+Master Agent List
+</h1>
+
+<div class="page-subtitle">
+মাস্টার এজেন্ট লিস্ট
 </div>
 
-<div class="group">
-<h3>সাব এডমিন 18 এর অধীনে সুপার এজেন্ট 249 এর অধীনে সর্বমোট মাস্টার এজেন্ট আছে 6 জন</h3>
-<table>
-<tr><th>ID NO</th><th>AGENT</th><th>APP</th><th>PHONE NUMBER</th><th>COMPLAIN</th></tr>
-<tr><td>2021</td><td>মাস্টার</td><td><a href="https://wa.me/971544919937" class="wa"><i class="fa-brands fa-whatsapp"></i></a></td><td>+971544919937</td><td class="complain">অভিযোগ</td></tr>
-<tr><td>1060</td><td>মাস্টার</td><td><a href="https://wa.me/601175761964" class="wa"><i class="fa-brands fa-whatsapp"></i></a></td><td>+601175761964</td><td class="complain">অভিযোগ</td></tr>
-</table>
+
+<div class="page-card">
+
+<div class="list-head">
+ALL MASTER AGENT
 </div>
 
-<a href="index.html" style="display:block;text-align:center;margin-top:15px;color:#000">← Back to Home</a>
-</body></html>
+<div id="masterList"></div>
+
+</div>
+
+</div>
+
+
+<script>
+
+const KEY = "velki_agents_v2";
+
+const defaults = [
+
+{
+id:"106",
+type:"master",
+typeName:"MASTER",
+phone:"+855968888888",
+brands:["VELKI","9XBET"],
+status:"active"
+}
+
+];
+
+
+function load(){
+
+let data = localStorage.getItem(KEY);
+
+try{
+
+return data
+? JSON.parse(data)
+: defaults;
+
+}catch(e){
+
+return defaults;
+
+}
+
+}
+
+
+function render(){
+
+const list =
+document.getElementById("masterList");
+
+const agents = load();
+
+const filtered =
+agents.filter(a =>
+a.type === "master" &&
+(!a.status || a.status === "active")
+);
+
+if(!filtered.length){
+
+list.innerHTML =
+`<div class="empty">
+কোনো Master Agent পাওয়া যায়নি।
+</div>`;
+
+return;
+
+}
+
+
+list.innerHTML = "";
+
+filtered.forEach(agent => {
+
+const brands =
+Array.isArray(agent.brands)
+? agent.brands
+: [];
+
+const brandHTML =
+brands.map(b => `
+<div>
+<a href="#">${escapeHTML(b)}</a>
+<span class="check">✓</span>
+</div>
+`).join("");
+
+const row =
+document.createElement("div");
+
+row.className="master-row";
+
+row.innerHTML=`
+
+<div class="cell center">
+<a href="#">${escapeHTML(agent.id)}</a>
+</div>
+
+<div class="cell">
+MASTER
+</div>
+
+<div class="cell">
+${brandHTML}
+</div>
+
+<div class="cell phone">
+<a href="tel:${escapeHTML(agent.phone)}">
+${escapeHTML(agent.phone)}
+</a>
+</div>
+
+`;
+
+list.appendChild(row);
+
+});
+
+}
+
+
+function escapeHTML(value){
+
+return String(value ?? "")
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+
+render();
+
+
+window.addEventListener("storage",render);
+
+</script>
+
+</body>
+</html>
