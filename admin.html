@@ -1,475 +1,412 @@
 <!DOCTYPE html>
 <html lang="bn">
+
 <head>
 
 <meta charset="UTF-8">
 
 <meta name="viewport"
-content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+      content="width=device-width,
+      initial-scale=1.0,
+      maximum-scale=1.0">
 
-<title>Admin Panel - Velki.Com</title>
+<meta name="theme-color"
+      content="#111111">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<title>Velki.Com - Admin Login</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect"
+      href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet">
 
 <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-<link rel="stylesheet" href="style.css">
 
 <style>
 
-.admin-page{
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
     min-height:100vh;
-    background:#f5f5f5;
-    padding:30px 15px 60px;
+
+    background:#f3f3f3;
+
+    font-family:
+        Arial,
+        "Noto Sans Bengali",
+        sans-serif;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
 }
 
-.admin-container{
+
+.login-box{
+
     width:100%;
-    max-width:900px;
-    margin:auto;
-}
 
-.admin-header{
-    background:#111;
-    color:#fff;
-    padding:25px;
-    border-radius:12px;
-    margin-bottom:20px;
-    text-align:center;
-}
-
-.admin-header h1{
-    font-size:27px;
-    margin-bottom:5px;
-}
-
-.admin-header p{
-    color:#bbb;
-}
-
-.admin-box{
-    background:#fff;
-    padding:25px;
-    border-radius:12px;
-    margin-bottom:20px;
-    box-shadow:0 5px 20px rgba(0,0,0,.07);
-}
-
-.admin-box h2{
-    font-size:22px;
-    margin-bottom:20px;
-}
-
-.form-group{
-    margin-bottom:16px;
-}
-
-.form-group label{
-    display:block;
-    margin-bottom:7px;
-    font-weight:600;
-}
-
-.form-group input,
-.form-group select{
-    width:100%;
-    height:48px;
-    border:1px solid #ddd;
-    border-radius:7px;
-    padding:0 13px;
-    font-size:16px;
-    outline:none;
-}
-
-.admin-btn{
-    border:0;
-    border-radius:7px;
-    padding:12px 18px;
-    cursor:pointer;
-    font-size:16px;
-    margin:4px;
-    background:#111;
-    color:#fff;
-}
-
-.admin-btn.delete{
-    background:#c00;
-}
-
-.admin-btn.edit{
-    background:#555;
-}
-
-.admin-btn.logout{
-    background:#777;
-}
-
-.admin-message{
-    padding:12px;
-    margin-bottom:15px;
-    border-radius:7px;
-    display:none;
-}
-
-.admin-message.show{
-    display:block;
-}
-
-.agent-admin-card{
-    border:1px solid #ddd;
-    border-radius:9px;
-    padding:17px;
-    margin-bottom:12px;
-    background:#fff;
-}
-
-.agent-admin-card h3{
-    margin-bottom:7px;
-}
-
-.agent-admin-info{
-    color:#555;
-    line-height:1.8;
-}
-
-.admin-actions{
-    margin-top:10px;
-}
-
-.login-screen{
     max-width:420px;
-    margin:80px auto;
-}
 
-.login-screen h1{
-    text-align:center;
-    font-family:Georgia,serif;
-    font-size:35px;
-    margin-bottom:30px;
-}
+    background:#fff;
 
-.login-screen input{
-    width:100%;
-    height:55px;
     border:1px solid #ddd;
-    border-radius:8px;
-    padding:0 15px;
-    font-size:18px;
+
+    border-radius:14px;
+
+    padding:35px 28px;
+
+    box-shadow:
+        0 8px 30px
+        rgba(0,0,0,.10);
+
     text-align:center;
-    outline:none;
+
 }
+
+
+.login-logo{
+
+    width:130px;
+
+    height:130px;
+
+    object-fit:contain;
+
+    margin-bottom:10px;
+
+}
+
+
+.login-title{
+
+    font-size:28px;
+
+    font-weight:800;
+
+    margin-bottom:5px;
+
+}
+
+
+.login-subtitle{
+
+    color:#666;
+
+    font-size:15px;
+
+    margin-bottom:30px;
+
+}
+
+
+.input-box{
+
+    position:relative;
+
+    margin-bottom:18px;
+
+}
+
+
+.input-box i{
+
+    position:absolute;
+
+    left:16px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:#777;
+
+}
+
+
+.input-box input{
+
+    width:100%;
+
+    height:55px;
+
+    border:1px solid #ccc;
+
+    border-radius:7px;
+
+    padding:0 48px;
+
+    font-size:17px;
+
+    outline:none;
+
+}
+
+
+.input-box input:focus{
+
+    border-color:#111;
+
+}
+
 
 .login-btn{
+
     width:100%;
-    height:52px;
-    margin-top:15px;
+
+    height:55px;
+
     border:0;
-    border-radius:8px;
+
+    border-radius:7px;
+
     background:#111;
+
     color:#fff;
-    font-size:18px;
+
+    font-size:17px;
+
+    font-weight:800;
+
     cursor:pointer;
+
 }
 
-.login-error{
-    color:#c00;
-    text-align:center;
-    margin-top:12px;
-    min-height:25px;
+
+.login-btn:active{
+
+    transform:scale(.98);
+
 }
+
+
+.error{
+
+    min-height:24px;
+
+    margin-top:12px;
+
+    color:#d00000;
+
+    font-size:14px;
+
+    font-weight:700;
+
+}
+
 
 .back-home{
-    display:block;
-    text-align:center;
+
+    display:inline-block;
+
     margin-top:20px;
-    color:#555;
+
+    color:#111;
+
+    text-decoration:underline;
+
+    font-size:14px;
+
 }
 
 </style>
 
 </head>
 
+
 <body>
 
 
-<div class="admin-page">
+<div class="login-box">
 
 
-<!-- LOGIN -->
+<img
+    src="logo.png"
+    class="login-logo"
+    alt="Velki.Com">
 
-<div class="admin-container" id="loginSection">
 
-    <div class="login-screen">
+<div class="login-title">
 
-        <h1>Admin Login</h1>
-
-        <div class="admin-box">
-
-            <input
-                type="password"
-                id="adminPin"
-                placeholder="গোপন PIN লিখুন"
-                maxlength="20"
-            >
-
-            <button class="login-btn" id="loginBtn">
-                <i class="fa-solid fa-lock"></i>
-                Login
-            </button>
-
-            <div class="login-error" id="loginError"></div>
-
-        </div>
-
-        <a href="index.html" class="back-home">
-            ← ওয়েবসাইটে ফিরে যান
-        </a>
-
-    </div>
+Velki.Com
 
 </div>
 
 
-<!-- ADMIN PANEL -->
+<div class="login-subtitle">
 
-<div class="admin-container" id="adminSection" style="display:none;">
-
-
-    <div class="admin-header">
-
-        <h1>Admin Panel</h1>
-
-        <p>Velki.Com Agent Management</p>
-
-    </div>
-
-
-    <!-- ADD AGENT -->
-
-    <div class="admin-box">
-
-        <h2 id="formTitle">
-            নতুন Agent যোগ করুন
-        </h2>
-
-        <div class="admin-message" id="adminMessage"></div>
-
-
-        <div class="form-group">
-
-            <label>Agent Type</label>
-
-            <select id="formType">
-
-                <option value="master">
-                    মাস্টার এজেন্ট
-                </option>
-
-                <option value="super">
-                    সুপার এজেন্ট
-                </option>
-
-                <option value="admin">
-                    সাব এডমিন
-                </option>
-
-            </select>
-
-        </div>
-
-
-        <div class="form-group">
-
-            <label>Agent ID</label>
-
-            <input
-                type="text"
-                id="formId"
-                placeholder="যেমন: 1005"
-            >
-
-        </div>
-
-
-        <div class="form-group">
-
-            <label>Agent Name</label>
-
-            <input
-                type="text"
-                id="formName"
-                placeholder="Agent-এর নাম"
-            >
-
-        </div>
-
-
-        <div class="form-group">
-
-            <label>Phone Number</label>
-
-            <input
-                type="tel"
-                id="formPhone"
-                placeholder="017xxxxxxxx"
-            >
-
-        </div>
-
-
-        <div class="form-group">
-
-            <label>Status</label>
-
-            <select id="formStatus">
-
-                <option value="Active">
-                    Active
-                </option>
-
-                <option value="Inactive">
-                    Inactive
-                </option>
-
-            </select>
-
-        </div>
-
-
-        <button class="admin-btn"
-                id="saveAgentBtn">
-
-            <i class="fa-solid fa-plus"></i>
-            Agent Save
-
-        </button>
-
-
-        <button class="admin-btn edit"
-                id="cancelEditBtn"
-                style="display:none;">
-
-            Cancel Edit
-
-        </button>
-
-    </div>
-
-
-    <!-- AGENT LIST -->
-
-    <div class="admin-box">
-
-        <h2>Agent Management</h2>
-
-        <div id="adminAgentList"></div>
-
-    </div>
-
-
-    <!-- PIN -->
-
-    <div class="admin-box">
-
-        <h2>PIN পরিবর্তন</h2>
-
-        <div class="form-group">
-
-            <label>নতুন PIN</label>
-
-            <input
-                type="password"
-                id="newPin"
-                placeholder="নতুন PIN"
-                maxlength="20"
-            >
-
-        </div>
-
-        <button class="admin-btn"
-                id="changePinBtn">
-
-            PIN পরিবর্তন করুন
-
-        </button>
-
-    </div>
-
-
-    <!-- DATA -->
-
-    <div class="admin-box">
-
-        <h2>Data Backup</h2>
-
-        <button class="admin-btn"
-                id="backupBtn">
-
-            <i class="fa-solid fa-download"></i>
-            Backup Download
-
-        </button>
-
-        <button class="admin-btn"
-                id="restoreBtn">
-
-            <i class="fa-solid fa-upload"></i>
-            Restore
-
-        </button>
-
-        <input
-            type="file"
-            id="restoreFile"
-            accept=".json"
-            style="display:none;"
-        >
-
-    </div>
-
-
-    <!-- DANGER -->
-
-    <div class="admin-box">
-
-        <h2>Danger Zone</h2>
-
-        <button class="admin-btn delete"
-                id="deleteAllBtn">
-
-            <i class="fa-solid fa-trash"></i>
-            সব Agent Delete
-
-        </button>
-
-        <button class="admin-btn logout"
-                id="logoutBtn">
-
-            Logout
-
-        </button>
-
-    </div>
-
-
-    <a href="index.html"
-       class="back-home">
-
-        ← Main Website
-
-    </a>
-
-
-</div>
+Administrator Login
 
 </div>
 
 
-<script src="admin.js"></script>
+<form id="loginForm">
+
+
+<div class="input-box">
+
+<i class="fa-solid fa-lock"></i>
+
+<input
+    type="password"
+    id="adminPin"
+    placeholder="Admin PIN"
+    inputmode="numeric"
+    autocomplete="off"
+    required>
+
+</div>
+
+
+<button
+    type="submit"
+    class="login-btn">
+
+<i class="fa-solid fa-right-to-bracket"></i>
+
+&nbsp; Login
+
+</button>
+
+
+</form>
+
+
+<div
+    id="error"
+    class="error">
+</div>
+
+
+<a
+    href="index.html"
+    class="back-home">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+&nbsp; Back to Home
+
+</a>
+
+
+</div>
+
+
+<script>
+
+"use strict";
+
+
+/* =====================================================
+   ADMIN PIN
+=====================================================
+
+   প্রথমবারের PIN:
+   123456
+
+   চাইলে নিচের PIN পরিবর্তন করবেন।
+
+===================================================== */
+
+const ADMIN_PIN_KEY =
+    "velki_admin_pin_v2";
+
+
+const DEFAULT_PIN =
+    "123456";
+
+
+/* =====================================================
+   LOGIN
+===================================================== */
+
+document
+.getElementById("loginForm")
+.addEventListener(
+    "submit",
+    function(event){
+
+        event.preventDefault();
+
+
+        const pin =
+            document
+            .getElementById("adminPin")
+            .value
+            .trim();
+
+
+        const error =
+            document
+            .getElementById("error");
+
+
+        const savedPin =
+            localStorage.getItem(
+                ADMIN_PIN_KEY
+            ) || DEFAULT_PIN;
+
+
+        if(pin !== savedPin){
+
+            error.textContent =
+                "ভুল PIN! আবার চেষ্টা করুন।";
+
+
+            document
+            .getElementById("adminPin")
+            .value = "";
+
+
+            document
+            .getElementById("adminPin")
+            .focus();
+
+
+            return;
+
+        }
+
+
+        /* Login session */
+
+        sessionStorage.setItem(
+            "velki_admin_logged_in",
+            "yes"
+        );
+
+
+        sessionStorage.setItem(
+            "velki_admin_login_time",
+            Date.now().toString()
+        );
+
+
+        window.location.href =
+            "admin-panel.html";
+
+    }
+);
+
+</script>
 
 </body>
+
 </html>
