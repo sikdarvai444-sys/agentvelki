@@ -1,40 +1,40 @@
-/* =====================================================
+/* =========================================================
+   VELKI.COM — MAIN STYLE
+   Responsive Agent List System
+========================================================= */
+
+
+/* =========================================================
    RESET
-===================================================== */
+========================================================= */
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
 }
-
 
 html{
     scroll-behavior:smooth;
 }
 
-
 body{
-
+    width:100%;
+    min-height:100vh;
+    margin:0;
+    background:#fff;
+    color:#111;
     font-family:
-        "Noto Sans Bengali",
         Arial,
+        "Noto Sans Bengali",
         sans-serif;
-
-    background:#ffffff;
-
-    color:#111111;
-
     overflow-x:hidden;
-
 }
 
-
-a{
-    text-decoration:none;
-    color:inherit;
+body.menu-open{
+    overflow:hidden;
 }
-
 
 button,
 input,
@@ -42,1459 +42,1528 @@ select{
     font-family:inherit;
 }
 
+button{
+    cursor:pointer;
+}
+
+a{
+    color:inherit;
+}
 
 
-/* =====================================================
-   TOP LOGO
-===================================================== */
+/* =========================================================
+   HEADER / LOGO
+========================================================= */
 
 .top-logo-area{
-
     width:100%;
-
-    background:#ffffff;
-
+    background:#fff;
     text-align:center;
-
-    padding-top:30px;
-
-    padding-bottom:28px;
-
+    padding:26px 15px 28px;
+    border-bottom:1px solid #eee;
 }
 
-
-.main-logo-link{
-
+.logo-link{
     display:block;
-
     width:100%;
-
+    text-decoration:none;
 }
-
 
 .main-logo{
-
     display:block;
-
-    width:380px;
-
-    max-width:88%;
-
-    height:auto;
-
-    margin:0 auto;
-
+    width:100%;
+    max-width:500px;
+    height:255px;
     object-fit:contain;
-
+    margin:0 auto;
 }
-
 
 .site-name{
-
-    margin-top:8px;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:25px;
-
-    font-weight:400;
-
-    letter-spacing:2px;
-
-    color:#111111;
-
+    margin-top:10px;
+    font-size:23px;
+    font-weight:600;
+    letter-spacing:1px;
+    color:#111;
 }
 
 
-
-/* =====================================================
+/* =========================================================
    CONTROL BAR
-===================================================== */
+========================================================= */
 
 .control-bar{
-
-    width:100%;
-
-    height:88px;
-
-    background:#f5f5f5;
-
-    border-top:1px solid #eeeeee;
-
-    border-bottom:1px solid #e5e5e5;
-
     position:relative;
-
+    z-index:100;
+    width:100%;
+    height:70px;
     display:flex;
-
     align-items:center;
-
-    justify-content:center;
-
+    justify-content:space-between;
+    padding:0 25px;
+    background:#f2f2f2;
+    border-bottom:1px solid #ddd;
 }
-
 
 .control-button{
-
-    border:0;
-
-    background:transparent;
-
-    color:#050505;
-
-    cursor:pointer;
-
-    position:absolute;
-
-    width:60px;
-
-    height:60px;
-
+    width:48px;
+    height:48px;
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
-    font-size:31px;
-
-}
-
-
-.menu-control{
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-}
-
-
-.menu-control i{
-
-    font-size:31px;
-
-}
-
-
-.search-control{
-
-    right:38px;
-
-}
-
-
-.search-control i{
-
-    font-size:29px;
-
-}
-
-
-
-/* =====================================================
-   SEARCH BOX
-===================================================== */
-
-.top-search-box{
-
-    position:absolute;
-
-    z-index:900;
-
-    top:250px;
-
-    right:25px;
-
-    width:300px;
-
-    max-width:calc(100% - 40px);
-
-    background:#ffffff;
-
-    padding:10px;
-
-    border:1px solid #dddddd;
-
-    box-shadow:
-        0 8px 25px rgba(0,0,0,.15);
-
-    display:none;
-
-}
-
-
-.top-search-box.show{
-
-    display:flex;
-
-}
-
-
-.top-search-box input{
-
-    flex:1;
-
-    height:45px;
-
-    border:1px solid #dddddd;
-
-    outline:none;
-
-    padding:0 12px;
-
-    font-size:16px;
-
-}
-
-
-.top-search-box button{
-
-    width:50px;
-
-    height:45px;
-
     border:0;
+    background:transparent;
+    color:#111;
+    font-size:29px;
+    transition:.2s ease;
+}
 
-    background:#111111;
-
-    color:#ffffff;
-
-    cursor:pointer;
-
+.control-button:active{
+    transform:scale(.88);
 }
 
 
+/* =========================================================
+   MENU OVERLAY
+========================================================= */
 
-/* =====================================================
+.menu-overlay{
+    position:fixed;
+    inset:0;
+    z-index:1999;
+    background:rgba(0,0,0,.38);
+    opacity:0;
+    visibility:hidden;
+    transition:.3s ease;
+}
+
+.menu-overlay.show{
+    opacity:1;
+    visibility:visible;
+}
+
+
+/* =========================================================
    MOBILE MENU
-===================================================== */
+========================================================= */
 
 .mobile-menu{
-
     position:fixed;
-
     top:0;
+    left:-100%;
+    z-index:2000;
 
-    right:-100%;
-
-    width:100%;
-
-    max-width:430px;
-
+    width:82%;
+    max-width:360px;
     height:100vh;
 
-    background:#ffffff;
+    padding:76px 20px 30px;
 
-    z-index:5000;
+    background:#fff;
 
-    padding:
-        85px 25px 30px;
+    box-shadow:
+        8px 0 30px rgba(0,0,0,.20);
 
     overflow-y:auto;
 
-    box-shadow:
-        -8px 0 25px rgba(0,0,0,.18);
-
-    transition:
-        right .35s ease;
-
+    transition:left .3s ease;
 }
-
 
 .mobile-menu.show{
-
-    right:0;
-
+    left:0;
 }
-
 
 .close-menu{
-
     position:absolute;
+    top:17px;
+    right:17px;
 
-    top:22px;
-
-    right:22px;
-
-    width:45px;
-
-    height:45px;
+    width:42px;
+    height:42px;
 
     border:0;
+    border-radius:50%;
 
-    background:transparent;
+    background:#eee;
+    color:#111;
 
-    font-size:28px;
-
-    cursor:pointer;
-
+    font-size:20px;
 }
 
+.close-menu:active{
+    transform:scale(.9);
+}
 
 .menu-title{
-
-    text-align:center;
-
-    font-family:
-        Georgia,
-        serif;
-
-    font-size:26px;
-
-    margin-bottom:25px;
-
+    margin-bottom:20px;
+    font-size:25px;
+    font-weight:800;
 }
-
 
 .mobile-menu > a,
 .menu-dropdown > button{
-
     width:100%;
+    min-height:51px;
 
-    display:block;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:13px 5px;
 
     border:0;
+    border-bottom:1px solid #eee;
 
-    background:transparent;
+    background:#fff;
 
+    color:#111;
+
+    text-decoration:none;
+
+    font-size:16px;
+    font-weight:600;
+
+    text-align:left;
+}
+
+.mobile-menu > a span,
+.menu-dropdown button span{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.mobile-menu > a i,
+.menu-dropdown button i{
+    width:22px;
     text-align:center;
-
-    padding:17px 5px;
-
-    font-size:20px;
-
-    font-weight:500;
-
-    cursor:pointer;
-
-    color:#111111;
-
 }
 
-
-.mobile-menu > a:hover,
-.menu-dropdown > button:hover{
-
+.mobile-menu > a:active,
+.menu-dropdown > button:active{
     background:#f5f5f5;
-
 }
 
 
-.menu-dropdown > button i{
-
-    margin-left:7px;
-
-    font-size:14px;
-
-}
-
+/* =========================================================
+   SUB MENU
+========================================================= */
 
 .submenu{
-
     display:none;
-
-    background:#f5f5f5;
-
-    border-top:1px solid #eeeeee;
-
-    border-bottom:1px solid #eeeeee;
-
+    padding:5px 0 5px 12px;
+    background:#f4f4f4;
 }
-
 
 .submenu.show{
-
     display:block;
-
 }
-
 
 .submenu a{
+    display:flex;
+    align-items:center;
+    gap:10px;
 
-    display:block;
+    min-height:45px;
 
-    text-align:center;
+    padding:11px 8px;
 
-    padding:13px;
+    border-bottom:1px solid #ddd;
 
-    font-size:18px;
+    text-decoration:none;
 
-    border-bottom:1px solid #e5e5e5;
+    font-size:15px;
+    font-weight:600;
+}
 
+.submenu a:active{
+    background:#e9e9e9;
 }
 
 
-.submenu a:last-child{
+/* =========================================================
+   TOP SEARCH
+========================================================= */
 
-    border-bottom:0;
-
-}
-
-
-
-/* =====================================================
-   FIND AGENT
-===================================================== */
-
-.find-section{
-
+.top-search-box{
     width:100%;
 
-    max-width:900px;
+    display:none;
+    gap:7px;
+
+    padding:12px;
+
+    background:#f2f2f2;
+    border-bottom:1px solid #ddd;
+}
+
+.top-search-box.show{
+    display:flex;
+}
+
+.top-search-box input{
+    flex:1;
+    min-width:0;
+
+    height:46px;
+
+    padding:0 13px;
+
+    border:1px solid #bbb;
+    border-radius:5px;
+
+    background:#fff;
+    color:#111;
+
+    font-size:16px;
+
+    outline:none;
+}
+
+.top-search-box input:focus{
+    border-color:#111;
+}
+
+.top-search-box button{
+    flex:0 0 50px;
+
+    width:50px;
+    height:46px;
+
+    border:0;
+    border-radius:5px;
+
+    background:#111;
+    color:#fff;
+
+    font-size:18px;
+}
+
+.top-search-box button:active{
+    transform:scale(.95);
+}
+
+
+/* =========================================================
+   MAIN FIND SECTION
+========================================================= */
+
+.find-section{
+    width:100%;
+    max-width:680px;
 
     margin:0 auto;
 
-    padding:
-        85px 20px
-        80px;
-
-}
-
-
-.find-section h1{
+    padding:76px 25px 40px;
 
     text-align:center;
+}
+
+.find-section h1{
+    margin-bottom:70px;
 
     font-family:
         Georgia,
         "Times New Roman",
         serif;
 
-    font-size:55px;
+    font-size:45px;
+    line-height:1.2;
 
     font-weight:400;
 
-    line-height:1.2;
-
-    margin-bottom:70px;
-
-    color:#111111;
-
+    letter-spacing:.5px;
 }
-
 
 .find-section h2{
-
-    text-align:center;
-
-    font-size:29px;
-
-    font-weight:500;
-
-    line-height:1.9;
-
     margin-bottom:35px;
 
-    color:#111111;
+    font-size:30px;
+    line-height:1.65;
 
+    font-weight:600;
 }
 
 
-
-/* =====================================================
+/* =========================================================
    SEARCH CARD
-===================================================== */
+========================================================= */
 
 .search-card{
-
     width:100%;
 
-    max-width:640px;
+    padding:28px 30px 32px;
 
-    margin:0 auto;
+    background:#fff;
 
-    background:#ffffff;
-
-    border:1px solid #d9d9d9;
-
+    border:1px solid #ddd;
     border-radius:10px;
 
-    padding:
-        32px 32px
-        35px;
-
     box-shadow:
-        0 2px 8px rgba(0,0,0,.04);
+        0 1px 7px rgba(0,0,0,.08);
 
+    text-align:left;
 }
-
 
 .form-group{
-
     margin-bottom:27px;
-
 }
 
-
-.search-card label{
-
+.form-group label{
     display:block;
 
     margin-bottom:10px;
 
-    font-family:Arial,sans-serif;
+    color:#555;
 
-    font-size:18px;
-
-    color:#444444;
-
+    font-size:20px;
+    font-weight:400;
 }
 
-
-.search-card select,
-.search-card input{
-
+.form-group input,
+.form-group select{
     width:100%;
+    height:64px;
 
-    height:55px;
+    padding:0 17px;
 
-    background:#ffffff;
+    border:2px solid #e4e4e4;
+    border-radius:8px;
 
-    border:1px solid #dedede;
+    background:#fff;
+    color:#111;
 
-    border-radius:7px;
-
-    padding:0 16px;
+    font-size:19px;
 
     outline:none;
 
-    font-size:18px;
-
-    color:#222222;
-
-    box-shadow:
-        inset 0 1px 3px rgba(0,0,0,.03);
-
+    transition:.2s ease;
 }
 
-
-.search-card select:focus,
-.search-card input:focus{
-
-    border-color:#999999;
-
+.form-group input:focus,
+.form-group select:focus{
+    border-color:#999;
 }
 
-
-.search-card select{
-
+.form-group select{
     cursor:pointer;
-
 }
 
 
-
-/* =====================================================
-   SUBMIT
-===================================================== */
+/* =========================================================
+   SUBMIT BUTTON
+========================================================= */
 
 .submit-btn{
-
-    display:block;
-
-    margin:8px auto 0;
-
-    padding:8px 25px;
+    width:100%;
+    height:58px;
 
     border:0;
+    border-radius:6px;
 
-    background:transparent;
+    background:#111;
+    color:#fff;
 
-    color:#111111;
+    font-size:19px;
+    font-weight:700;
 
-    font-size:22px;
-
-    font-weight:600;
-
-    cursor:pointer;
-
+    transition:.2s ease;
 }
-
 
 .submit-btn:hover{
+    background:#222;
+}
 
-    opacity:.6;
-
+.submit-btn:active{
+    transform:scale(.98);
 }
 
 
-
-/* =====================================================
+/* =========================================================
    SEARCH RESULT
-===================================================== */
+========================================================= */
 
-.result-card{
+.search-result{
+    width:100%;
+    margin-top:18px;
+}
 
-    margin-top:25px;
-
-    padding:20px;
-
-    background:#fafafa;
-
-    border:1px solid #dddddd;
-
-    border-radius:8px;
-
+.search-result .agent-row{
+    border:1px solid #ddd;
 }
 
 
-.result-card h3{
+/* =========================================================
+   SECTION DIVIDER
+========================================================= */
 
-    margin-bottom:12px;
-
-    font-size:21px;
-
+.section-divider{
+    width:100%;
+    height:1px;
+    background:#eee;
 }
 
 
-.result-row{
+/* =========================================================
+   AGENT LIST SECTION
+========================================================= */
+
+.agent-list-section{
+    width:100%;
+    max-width:760px;
+
+    margin:35px auto 45px;
+
+    padding:0 12px;
+}
+
+.agent-list-box{
+    width:100%;
+    background:#fff;
+}
+
+.agent-list-title{
+    padding:15px 10px;
+
+    text-align:center;
+
+    font-size:25px;
+    font-weight:800;
+    letter-spacing:.5px;
+}
+
+
+/* =========================================================
+   FILTER
+========================================================= */
+
+.filter-box{
+    width:100%;
 
     display:flex;
+    gap:6px;
 
-    justify-content:space-between;
+    padding:8px;
 
-    gap:15px;
+    background:#fff;
 
-    padding:9px 0;
+    border-top:1px solid #ddd;
+    border-bottom:1px solid #ddd;
 
-    border-bottom:1px solid #eeeeee;
+    overflow-x:auto;
 
+    scrollbar-width:none;
+}
+
+.filter-box::-webkit-scrollbar{
+    display:none;
+}
+
+.filter-btn{
+    flex:1;
+
+    min-width:95px;
+    height:43px;
+
+    padding:0 10px;
+
+    border:1px solid #ccc;
+    border-radius:4px;
+
+    background:#fff;
+    color:#111;
+
+    font-size:13px;
+    font-weight:700;
+
+    white-space:nowrap;
+
+    transition:.2s ease;
+}
+
+.filter-btn.active{
+    background:#111;
+    color:#fff;
+    border-color:#111;
+}
+
+.filter-btn:active{
+    transform:scale(.97);
 }
 
 
-.result-row:last-child{
+/* =========================================================
+   AGENT TABLE HEADER
+========================================================= */
 
-    border-bottom:0;
+.agent-table-header{
+    display:grid;
 
-}
+    grid-template-columns:
+        14%
+        17%
+        29%
+        25%
+        15%;
 
-
-.not-found{
-
-    margin-top:20px;
-
-    padding:15px;
-
-    text-align:center;
-
-    background:#f5f5f5;
-
-    border:1px solid #dddddd;
-
-    color:#333333;
-
-    border-radius:7px;
-
-}
-
-
-
-/* =====================================================
-   NOTICE
-===================================================== */
-
-.notice-section{
-
-    width:100%;
-
-    max-width:900px;
-
-    margin:0 auto;
-
-    padding:
-        40px 20px
-        70px;
-
-    text-align:center;
-
-}
-
-
-.notice-section h2{
-
-    font-family:
-        Georgia,
-        serif;
-
-    font-size:29px;
-
-    font-weight:400;
-
-    margin-bottom:20px;
-
-}
-
-
-.notice-section p{
-
-    color:#555555;
-
-    line-height:2;
-
-    font-size:17px;
-
-}
-
-
-
-/* =====================================================
-   CHAT ONLINE
-===================================================== */
-
-.chat-online-section{
-
-    width:100%;
-
-    max-width:900px;
-
-    margin:0 auto;
-
-    padding:
-        55px 20px
-        65px;
-
-    text-align:center;
-
-    border-top:1px solid #eeeeee;
-
-}
-
-
-.chat-online-section h2{
-
-    font-family:
-        Georgia,
-        serif;
-
-    font-size:30px;
-
-    font-weight:400;
-
-    margin-bottom:15px;
-
-}
-
-
-.chat-online-section p{
-
-    color:#555555;
-
-    margin-bottom:25px;
-
-}
-
-
-.online-chat-button{
-
-    display:inline-flex;
+    min-height:44px;
 
     align-items:center;
 
-    justify-content:center;
+    background:#111;
+    color:#fff;
 
-    gap:9px;
-
-    background:#071d48;
-
-    color:#ffffff;
-
-    padding:12px 25px;
-
-    border-radius:5px;
-
-    font-size:17px;
-
-}
-
-
-.online-chat-button:hover{
-
-    opacity:.9;
-
-}
-
-
-
-/* =====================================================
-   PHONE SEARCH
-===================================================== */
-
-.phone-section{
-
-    width:calc(100% - 40px);
-
-    max-width:900px;
-
-    margin:
-        0 auto
-        70px;
-
-    padding:
-        50px 20px;
-
-    border:1px solid #222222;
-
-    background:#ffffff;
-
-}
-
-
-.phone-section h2{
+    border-left:1px solid #111;
+    border-right:1px solid #111;
 
     text-align:center;
 
-    font-size:27px;
+    font-size:12px;
+    font-weight:800;
+}
 
-    line-height:1.8;
-
-    font-weight:500;
-
-    margin-bottom:30px;
-
+.agent-table-header > div{
+    min-width:0;
+    padding:5px 2px;
 }
 
 
-.phone-card{
+/* =========================================================
+   AGENT LIST CONTAINER
+========================================================= */
 
-    max-width:620px;
-
-    margin:auto;
-
-}
-
-
-.phone-card label{
-
-    display:block;
-
-    font-family:Arial,sans-serif;
-
-    color:#444444;
-
-    font-size:17px;
-
-    margin-bottom:9px;
-
-}
-
-
-.phone-card input{
-
+.agent-list-container{
     width:100%;
 
-    height:55px;
-
-    border:1px solid #dddddd;
-
-    border-radius:7px;
-
-    padding:0 15px;
-
-    outline:none;
-
-    font-size:17px;
-
+    border-left:1px solid #111;
+    border-right:1px solid #111;
 }
 
 
-.phone-card input:focus{
+/* =========================================================
+   AGENT ROW
+========================================================= */
 
-    border-color:#999999;
-
-}
-
-
-
-/* =====================================================
-   QUICK AGENT
-===================================================== */
-
-.agent-list-section{
-
+.agent-row{
     width:100%;
 
-    max-width:1000px;
-
-    margin:0 auto;
-
-    padding:
-        55px 20px
-        80px;
-
-}
-
-
-.agent-list-section > h2{
-
-    text-align:center;
-
-    font-family:
-        Georgia,
-        serif;
-
-    font-size:38px;
-
-    font-weight:400;
-
-    margin-bottom:30px;
-
-}
-
-
-.filter-box{
-
-    display:flex;
-
-    justify-content:center;
-
-    flex-wrap:wrap;
-
-    gap:7px;
-
-    margin-bottom:30px;
-
-}
-
-
-.filter-btn{
-
-    padding:9px 16px;
-
-    background:#ffffff;
-
-    border:1px solid #dddddd;
-
-    border-radius:5px;
-
-    color:#222222;
-
-    cursor:pointer;
-
-}
-
-
-.filter-btn.active{
-
-    background:#111111;
-
-    color:#ffffff;
-
-}
-
-
-
-/* =====================================================
-   AGENT GRID
-===================================================== */
-
-.agent-grid{
+    min-height:145px;
 
     display:grid;
 
     grid-template-columns:
-        repeat(2,1fr);
+        14%
+        17%
+        29%
+        25%
+        15%;
 
-    gap:14px;
+    align-items:center;
 
+    padding:10px 4px;
+
+    border-bottom:1px solid #ddd;
+
+    text-align:center;
+}
+
+.agent-row:nth-child(odd){
+    background:#fff;
+}
+
+.agent-row:nth-child(even){
+    background:#eee;
 }
 
 
-.agent-card{
+/* =========================================================
+   AGENT ID
+========================================================= */
 
-    background:#ffffff;
+.agent-id-box{
+    min-width:0;
 
-    border:1px solid #dddddd;
+    padding:3px;
 
-    border-radius:6px;
+    font-size:16px;
+    font-weight:600;
 
-    padding:18px;
+    line-height:1.7;
 
+    overflow-wrap:anywhere;
+}
+
+.agent-id-box a{
+    color:#111;
+    text-decoration:underline;
 }
 
 
-.agent-card:nth-child(even){
+/* =========================================================
+   AGENT TYPE
+========================================================= */
 
-    background:#f7f7f7;
+.agent-type-box{
+    min-width:0;
 
+    padding:3px;
+
+    font-size:15px;
+    font-weight:700;
+
+    line-height:1.55;
+
+    overflow-wrap:anywhere;
 }
 
 
-.agent-card h3{
-
-    font-size:19px;
-
-    margin-bottom:10px;
-
-}
-
-
-.agent-type{
-
-    display:inline-block;
-
-    background:#eeeeee;
-
-    padding:4px 9px;
-
-    border-radius:20px;
-
-    font-size:13px;
-
-    margin-bottom:10px;
-
-}
-
+/* =========================================================
+   AGENT INFO / BRANDS
+========================================================= */
 
 .agent-info{
+    min-width:0;
 
-    color:#555555;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:flex-start;
 
-    line-height:1.8;
+    gap:4px;
 
+    padding:3px;
+
+    font-size:15px;
+    font-weight:700;
+
+    line-height:1.5;
 }
 
+.agent-type{
+    font-weight:800;
+    word-break:break-word;
+}
 
-.call-btn,
-.whatsapp-btn{
+.agent-brand-row{
+    display:flex;
+    align-items:center;
+    gap:3px;
+
+    max-width:100%;
+}
+
+.agent-brand{
+    color:#111;
+
+    text-decoration:underline;
+
+    font-weight:700;
+
+    overflow-wrap:anywhere;
+}
+
+.agent-check{
+    flex:0 0 auto;
 
     display:inline-flex;
 
     align-items:center;
+    justify-content:center;
 
-    gap:6px;
+    width:22px;
+    height:22px;
 
-    margin-top:12px;
+    border-radius:4px;
 
-    padding:8px 12px;
-
-    border-radius:5px;
+    background:#66b65d;
+    color:#fff;
 
     font-size:14px;
-
+    font-weight:800;
 }
 
 
-.call-btn{
+/* =========================================================
+   PHONE
+========================================================= */
 
-    background:#111111;
+.agent-phone{
+    min-width:0;
 
-    color:#ffffff;
+    padding:3px;
 
+    text-align:left;
+
+    font-size:15px;
+    font-weight:600;
+
+    line-height:1.65;
+
+    overflow-wrap:anywhere;
+}
+
+.agent-phone a{
+    color:#111;
+    text-decoration:underline;
 }
 
 
-.whatsapp-btn{
+/* =========================================================
+   ACTION
+========================================================= */
 
-    background:#25d366;
+.agent-action{
+    min-width:0;
 
-    color:#ffffff;
-
-}
-
-
-.empty{
+    padding:3px;
 
     text-align:center;
 
-    padding:40px 15px;
+    font-size:14px;
+    font-weight:600;
 
-    color:#777777;
+    line-height:1.7;
+}
 
+.agent-action a{
+    display:block;
+
+    color:#111;
+
+    text-decoration:underline;
+
+    white-space:nowrap;
+}
+
+.agent-action a:first-child{
+    margin-bottom:5px;
 }
 
 
+/* =========================================================
+   LOADING
+========================================================= */
 
-/* =====================================================
-   INFO SECTIONS
-===================================================== */
+.loading-agent{
+    width:100%;
 
-.info-section{
-
-    max-width:900px;
-
-    margin:0 auto;
-
-    padding:
-        55px 20px;
-
-    text-align:center;
-
-}
-
-
-.info-section h2{
-
-    font-family:
-        Georgia,
-        serif;
-
-    font-size:30px;
-
-    font-weight:400;
-
-    margin-bottom:20px;
-
-}
-
-
-.info-section p{
-
-    color:#555555;
-
-    line-height:2;
-
-}
-
-
-.info-link{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    gap:8px;
-
-    padding:11px 20px;
-
-    border:1px solid #dddddd;
-
-    border-radius:5px;
-
-}
-
-
-
-/* =====================================================
-   FOOTER
-===================================================== */
-
-footer{
+    padding:35px 15px;
 
     text-align:center;
 
     background:#f5f5f5;
 
-    color:#111111;
-
-    padding:
-        35px 20px
-        40px;
-
-    border-top:1px solid #e5e5e5;
-
+    font-size:16px;
+    font-weight:600;
 }
 
+.loading-agent i{
+    margin-right:7px;
+}
+
+
+/* =========================================================
+   NO AGENT
+========================================================= */
+
+.no-agent{
+    width:100%;
+
+    padding:28px 15px;
+
+    background:#f1f1f1;
+
+    text-align:center;
+
+    font-size:16px;
+    font-weight:600;
+}
+
+
+/* =========================================================
+   NOTICE
+========================================================= */
+
+.notice-section{
+    width:calc(100% - 30px);
+    max-width:650px;
+
+    margin:15px auto 35px;
+
+    padding:20px;
+
+    background:#f1f1f1;
+
+    border:1px solid #ddd;
+    border-radius:7px;
+
+    text-align:center;
+}
+
+.notice-section h2{
+    margin-bottom:9px;
+
+    font-size:20px;
+    font-weight:800;
+}
+
+.notice-section h2 i{
+    margin-right:5px;
+}
+
+.notice-section p{
+    font-size:15px;
+    line-height:1.8;
+}
+
+
+/* =========================================================
+   CUSTOMER SERVICE
+========================================================= */
+
+.chat-online-section{
+    width:100%;
+    max-width:650px;
+
+    margin:30px auto;
+
+    padding:25px 15px;
+
+    text-align:center;
+}
+
+.chat-online-section h2{
+    margin-bottom:10px;
+
+    font-size:22px;
+    font-weight:800;
+}
+
+.chat-online-section p{
+    margin-bottom:16px;
+
+    font-size:15px;
+    line-height:1.7;
+}
+
+.online-chat-button{
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:9px;
+
+    min-width:190px;
+
+    padding:12px 22px;
+
+    border-radius:5px;
+
+    background:#111;
+    color:#fff;
+
+    text-decoration:none;
+
+    font-size:16px;
+    font-weight:700;
+
+    transition:.2s ease;
+}
+
+.online-chat-button:active{
+    transform:scale(.97);
+}
+
+
+/* =========================================================
+   INFO SECTION
+========================================================= */
+
+.info-section{
+    width:calc(100% - 30px);
+    max-width:650px;
+
+    margin:25px auto;
+
+    padding:20px;
+
+    background:#f5f5f5;
+
+    border:1px solid #ddd;
+    border-radius:7px;
+}
+
+.info-section h2{
+    margin-bottom:11px;
+
+    font-size:21px;
+    font-weight:800;
+}
+
+.info-section h2 i{
+    margin-right:5px;
+}
+
+.info-section p{
+    font-size:15px;
+    line-height:1.8;
+}
+
+.info-link{
+    display:flex;
+    align-items:center;
+    gap:9px;
+
+    padding:10px 0;
+
+    border-bottom:1px solid #ddd;
+
+    text-decoration:none;
+
+    font-weight:600;
+}
+
+.info-link:last-child{
+    border-bottom:0;
+}
+
+
+/* =========================================================
+   BRAND LIST
+========================================================= */
+
+.brand-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.brand-list span{
+    display:inline-flex;
+    align-items:center;
+
+    padding:9px 13px;
+
+    background:#fff;
+
+    border:1px solid #ddd;
+    border-radius:5px;
+
+    font-size:14px;
+    font-weight:700;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    width:100%;
+
+    margin-top:40px;
+
+    padding:28px 15px;
+
+    background:#f2f2f2;
+
+    border-top:1px solid #ddd;
+
+    text-align:center;
+}
 
 .footer-logo-image{
+    width:65px;
+    height:65px;
 
-    width:190px;
+    object-fit:contain;
 
-    max-width:75%;
-
-    height:auto;
-
-    display:block;
-
-    margin:0 auto 12px;
-
+    margin-bottom:8px;
 }
-
 
 footer p{
+    margin-bottom:12px;
 
-    color:#666666;
-
-    margin-bottom:15px;
-
+    font-size:14px;
 }
 
+.footer-links{
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+
+    gap:15px;
+
+    margin-bottom:14px;
+}
+
+.footer-links a{
+    font-size:13px;
+    text-decoration:underline;
+}
 
 .admin-link{
-
     font-size:13px;
-
-    color:#888888;
-
+    text-decoration:underline;
 }
 
 
-
-/* =====================================================
-   FLOATING CHAT
-===================================================== */
+/* =========================================================
+   FLOATING WHATSAPP
+========================================================= */
 
 .chat-button{
-
     position:fixed;
 
-    right:18px;
-
+    right:16px;
     bottom:25px;
 
-    width:65px;
+    z-index:900;
 
-    height:65px;
+    width:58px;
+    height:58px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
     border-radius:50%;
 
-    background:#071d48;
+    background:#111;
+    color:#fff;
 
-    color:#ffffff;
+    text-decoration:none;
 
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-size:31px;
-
-    z-index:4000;
+    font-size:28px;
 
     box-shadow:
-        0 5px 18px rgba(0,0,0,.25);
+        0 4px 18px rgba(0,0,0,.28);
+
+    transition:.2s ease;
+}
+
+.chat-button:active{
+    transform:scale(.9);
+}
+
+.online-dot{
+    position:absolute;
+
+    top:-3px;
+    right:-2px;
+
+    width:20px;
+    height:20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#e00000;
+    color:#fff;
+
+    border:2px solid #fff;
+
+    font-size:11px;
+    font-weight:800;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (min-width:601px) and (max-width:900px){
+
+    .agent-list-section{
+        max-width:820px;
+    }
+
+    .agent-row{
+        min-height:150px;
+    }
+
+    .agent-table-header{
+        font-size:13px;
+    }
+
+    .agent-id-box,
+    .agent-info,
+    .agent-phone{
+        font-size:16px;
+    }
+
+    .agent-action{
+        font-size:15px;
+    }
 
 }
 
 
-.chat-button:hover{
-
-    transform:scale(1.05);
-
-}
-
-
-
-/* =====================================================
+/* =========================================================
    MOBILE
-===================================================== */
+========================================================= */
 
-@media(max-width:650px){
-
+@media(max-width:600px){
 
     .top-logo-area{
-
-        padding-top:25px;
-
-        padding-bottom:25px;
-
+        padding:24px 12px 27px;
     }
-
 
     .main-logo{
-
-        width:350px;
-
-        max-width:92%;
-
+        width:100%;
+        max-width:520px;
+        height:255px;
     }
-
 
     .site-name{
-
-        font-size:24px;
-
-        margin-top:7px;
-
+        margin-top:10px;
+        font-size:21px;
     }
-
 
     .control-bar{
+        height:70px;
+        padding:0 24px;
+    }
 
-        height:82px;
-
+    .control-button{
+        font-size:29px;
     }
 
 
-    .menu-control{
-
-        left:50%;
-
-    }
-
-
-    .search-control{
-
-        right:23px;
-
-    }
-
-
-    .top-search-box{
-
-        top:205px;
-
-        right:20px;
-
-    }
-
+    /* FIND */
 
     .find-section{
-
         padding:
-            78px 20px
-            60px;
-
+            78px
+            25px
+            35px;
     }
-
 
     .find-section h1{
-
-        font-size:48px;
-
-        margin-bottom:60px;
-
+        font-size:42px;
+        margin-bottom:70px;
     }
-
 
     .find-section h2{
-
-        font-size:24px;
-
-        line-height:1.9;
-
-        margin-bottom:30px;
-
+        font-size:28px;
+        line-height:1.7;
+        margin-bottom:34px;
     }
 
+
+    /* CARD */
 
     .search-card{
-
         padding:
-            28px 28px
+            27px
+            30px
             32px;
-
     }
 
-
-    .search-card label{
-
-        font-size:17px;
-
+    .form-group label{
+        font-size:19px;
     }
 
-
-    .search-card select,
-    .search-card input{
-
-        height:54px;
-
-        font-size:17px;
-
+    .form-group input,
+    .form-group select{
+        height:63px;
+        font-size:19px;
     }
-
 
     .submit-btn{
-
-        font-size:21px;
-
+        height:57px;
     }
 
+
+    /* AGENT LIST */
+
+    .agent-list-section{
+        padding:0 8px;
+        margin-top:30px;
+    }
+
+    .agent-list-title{
+        font-size:22px;
+    }
+
+    .agent-table-header{
+        grid-template-columns:
+            14%
+            17%
+            29%
+            25%
+            15%;
+
+        min-height:43px;
+
+        font-size:10px;
+    }
+
+    .agent-row{
+        grid-template-columns:
+            14%
+            17%
+            29%
+            25%
+            15%;
+
+        min-height:145px;
+
+        padding:9px 3px;
+    }
+
+    .agent-id-box{
+        font-size:14px;
+        line-height:1.6;
+    }
+
+    .agent-info{
+        font-size:14px;
+        line-height:1.55;
+    }
+
+    .agent-type-box{
+        font-size:14px;
+    }
+
+    .agent-phone{
+        font-size:14px;
+        line-height:1.7;
+    }
+
+    .agent-action{
+        font-size:13px;
+        line-height:1.7;
+    }
+
+    .agent-check{
+        width:20px;
+        height:20px;
+        font-size:12px;
+    }
+
+
+    /* NOTICE */
 
     .notice-section{
-
-        padding:
-            30px 20px
-            60px;
-
+        margin-top:20px;
     }
 
 
-    .chat-online-section{
+    /* CHAT */
 
-        padding:
-            45px 20px
-            60px;
-
+    .chat-online-section h2{
+        font-size:21px;
     }
 
 
-    .phone-section{
-
-        width:calc(100% - 40px);
-
-        padding:
-            40px 20px;
-
-    }
-
-
-    .phone-section h2{
-
-        font-size:23px;
-
-    }
-
-
-    .agent-grid{
-
-        grid-template-columns:1fr;
-
-    }
-
-
-    .agent-list-section > h2{
-
-        font-size:34px;
-
-    }
-
+    /* FLOATING */
 
     .chat-button{
-
-        width:62px;
-
-        height:62px;
-
-        right:16px;
-
+        right:14px;
         bottom:20px;
 
+        width:56px;
+        height:56px;
+
+        font-size:27px;
     }
 
 }
 
 
-
-/* =====================================================
-   VERY SMALL PHONE
-===================================================== */
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
 
 @media(max-width:380px){
 
-
     .main-logo{
-
-        width:310px;
-
+        height:220px;
     }
 
+    .site-name{
+        font-size:20px;
+    }
+
+    .find-section{
+        padding-left:18px;
+        padding-right:18px;
+    }
 
     .find-section h1{
-
-        font-size:43px;
-
+        font-size:36px;
+        margin-bottom:60px;
     }
-
 
     .find-section h2{
-
-        font-size:22px;
-
+        font-size:24px;
+        margin-bottom:30px;
     }
-
 
     .search-card{
-
-        padding:
-            24px 20px
-            28px;
-
+        padding:22px;
     }
 
+    .form-group{
+        margin-bottom:22px;
+    }
+
+    .form-group label{
+        font-size:17px;
+    }
+
+    .form-group input,
+    .form-group select{
+        height:58px;
+        font-size:17px;
+    }
+
+    .submit-btn{
+        height:54px;
+        font-size:18px;
+    }
+
+    .agent-list-section{
+        padding:0 4px;
+    }
+
+    .agent-list-title{
+        font-size:19px;
+    }
+
+    .agent-table-header{
+        font-size:8px;
+    }
+
+    .agent-row{
+        min-height:135px;
+    }
+
+    .agent-id-box,
+    .agent-info,
+    .agent-type-box,
+    .agent-phone{
+        font-size:12px;
+    }
+
+    .agent-action{
+        font-size:11px;
+    }
+
+    .agent-check{
+        width:18px;
+        height:18px;
+        font-size:10px;
+    }
+
+    .filter-btn{
+        min-width:85px;
+        font-size:11px;
+    }
+
+    .notice-section{
+        width:calc(100% - 20px);
+        padding:16px;
+    }
+
+    .info-section{
+        width:calc(100% - 20px);
+        padding:17px;
+    }
+
+    .footer-links{
+        gap:10px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL DEVICES
+========================================================= */
+
+@media(max-width:330px){
+
+    .control-bar{
+        padding:0 15px;
+    }
+
+    .find-section{
+        padding-left:12px;
+        padding-right:12px;
+    }
+
+    .search-card{
+        padding:17px;
+    }
+
+    .agent-row{
+        min-height:128px;
+        padding:7px 2px;
+    }
+
+    .agent-id-box,
+    .agent-info,
+    .agent-type-box,
+    .agent-phone{
+        font-size:11px;
+    }
+
+    .agent-action{
+        font-size:10px;
+    }
+
+    .agent-check{
+        width:16px;
+        height:16px;
+        font-size:9px;
+    }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+a:focus-visible{
+    outline:2px solid #111;
+    outline-offset:2px;
+}
+
+
+/* =========================================================
+   PRINT
+========================================================= */
+
+@media print{
+
+    .control-bar,
+    .mobile-menu,
+    .menu-overlay,
+    .top-search-box,
+    .chat-button,
+    .filter-box,
+    .online-chat-button,
+    .admin-link{
+        display:none !important;
+    }
+
+    body{
+        background:#fff;
+    }
+
+    .agent-row{
+        break-inside:avoid;
+    }
 
 }
