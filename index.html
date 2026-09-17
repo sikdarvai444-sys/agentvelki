@@ -2,7 +2,6 @@
 <html lang="bn">
 
 <head>
-
 <meta charset="UTF-8">
 
 <meta name="viewport"
@@ -13,12 +12,14 @@
 
 <meta name="theme-color" content="#ffffff">
 
-<title>Velki.Com - Super Agent List</title>
+<meta name="description"
+      content="Velki.Com Agent List - Master, Super Agent এবং Sub Admin খুঁজুন।">
 
+<title>Velki.Com - Agent List</title>
 
-<!-- =====================================================
-     GOOGLE FONT
-===================================================== -->
+<link rel="icon"
+      type="image/png"
+      href="logo.png">
 
 <link rel="preconnect"
       href="https://fonts.googleapis.com">
@@ -30,1347 +31,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap"
       rel="stylesheet">
 
-
-<!-- =====================================================
-     FONT AWESOME
-===================================================== -->
-
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-
-<style>
-
-/* =====================================================
-   RESET
-===================================================== */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    -webkit-tap-highlight-color:transparent;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-
-    margin:0;
-
-    width:100%;
-
-    overflow-x:hidden;
-
-    background:#ffffff;
-
-    color:#111;
-
-    font-family:
-        Arial,
-        "Noto Sans Bengali",
-        sans-serif;
-}
-
-button,
-input,
-select{
-    font-family:inherit;
-}
-
-a{
-    color:inherit;
-}
-
-
-/* =====================================================
-   LOGO AREA
-===================================================== */
-
-.top-logo-area{
-
-    width:100%;
-
-    background:#fff;
-
-    text-align:center;
-
-    padding:26px 15px 28px;
-
-    border-bottom:1px solid #eeeeee;
-}
-
-
-/* LOGO */
-
-.main-logo{
-
-    display:block;
-
-    width:100%;
-
-    max-width:500px;
-
-    height:255px;
-
-    object-fit:contain;
-
-    margin:0 auto;
-}
-
-
-/* SITE NAME */
-
-.site-name{
-
-    margin-top:12px;
-
-    font-size:23px;
-
-    font-weight:600;
-
-    letter-spacing:1px;
-
-    color:#111;
-}
-
-
-/* =====================================================
-   CONTROL BAR
-===================================================== */
-
-.control-bar{
-
-    width:100%;
-
-    height:70px;
-
-    background:#f2f2f2;
-
-    border-bottom:1px solid #dddddd;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    padding:0 25px;
-
-    position:relative;
-
-    z-index:20;
-}
-
-
-.control-button{
-
-    width:48px;
-
-    height:48px;
-
-    border:0;
-
-    background:transparent;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-size:30px;
-
-    color:#050505;
-
-    cursor:pointer;
-}
-
-
-.control-button:active{
-
-    transform:scale(.90);
-}
-
-
-/* =====================================================
-   MOBILE MENU
-===================================================== */
-
-.mobile-menu{
-
-    position:fixed;
-
-    top:0;
-
-    left:-100%;
-
-    width:82%;
-
-    max-width:350px;
-
-    height:100vh;
-
-    background:#fff;
-
-    z-index:2000;
-
-    padding:75px 20px 25px;
-
-    box-shadow:
-        5px 0 25px
-        rgba(0,0,0,.20);
-
-    transition:.3s ease;
-
-    overflow-y:auto;
-}
-
-.mobile-menu.show{
-
-    left:0;
-}
-
-
-.close-menu{
-
-    position:absolute;
-
-    top:18px;
-
-    right:18px;
-
-    width:42px;
-
-    height:42px;
-
-    border:0;
-
-    border-radius:50%;
-
-    background:#eeeeee;
-
-    font-size:20px;
-
-    cursor:pointer;
-}
-
-
-.menu-title{
-
-    font-size:24px;
-
-    font-weight:800;
-
-    margin-bottom:20px;
-}
-
-
-.mobile-menu > a,
-.menu-dropdown > button{
-
-    width:100%;
-
-    min-height:48px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    padding:12px 5px;
-
-    border:0;
-
-    border-bottom:1px solid #eeeeee;
-
-    background:#fff;
-
-    text-decoration:none;
-
-    font-size:16px;
-
-    font-weight:600;
-
-    text-align:left;
-
-    cursor:pointer;
-}
-
-
-.submenu{
-
-    display:none;
-
-    background:#f3f3f3;
-
-    padding-left:12px;
-}
-
-.submenu.show{
-    display:block;
-}
-
-
-.submenu a{
-
-    display:block;
-
-    padding:13px 8px;
-
-    border-bottom:1px solid #ddd;
-
-    text-decoration:none;
-
-    font-size:15px;
-}
-
-
-/* =====================================================
-   TOP SEARCH
-===================================================== */
-
-.top-search-box{
-
-    width:100%;
-
-    padding:12px;
-
-    background:#f2f2f2;
-
-    border-bottom:1px solid #ddd;
-
-    display:none;
-
-    gap:7px;
-}
-
-.top-search-box.show{
-
-    display:flex;
-}
-
-
-.top-search-box input{
-
-    flex:1;
-
-    min-width:0;
-
-    height:45px;
-
-    border:1px solid #bbb;
-
-    border-radius:5px;
-
-    padding:0 13px;
-
-    background:#fff;
-
-    font-size:16px;
-
-    outline:none;
-}
-
-
-.top-search-box button{
-
-    width:48px;
-
-    height:45px;
-
-    border:0;
-
-    border-radius:5px;
-
-    background:#111;
-
-    color:#fff;
-
-    font-size:18px;
-
-    cursor:pointer;
-}
-
-
-/* =====================================================
-   SUPER AGENT SECTION
-===================================================== */
-
-.find-section{
-
-    width:100%;
-
-    max-width:680px;
-
-    margin:0 auto;
-
-    padding:75px 25px 35px;
-
-    text-align:center;
-}
-
-
-/* TITLE */
-
-.find-section h1{
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:45px;
-
-    font-weight:400;
-
-    letter-spacing:.5px;
-
-    margin-bottom:72px;
-
-    line-height:1.2;
-}
-
-
-/* BANGLA TITLE */
-
-.find-section h2{
-
-    font-size:30px;
-
-    font-weight:600;
-
-    line-height:1.65;
-
-    margin-bottom:35px;
-}
-
-
-/* =====================================================
-   SEARCH CARD
-===================================================== */
-
-.search-card{
-
-    width:100%;
-
-    background:#fff;
-
-    border:1px solid #dddddd;
-
-    border-radius:10px;
-
-    padding:28px 30px 32px;
-
-    text-align:left;
-
-    box-shadow:
-        0 1px 7px
-        rgba(0,0,0,.08);
-}
-
-
-/* FORM GROUP */
-
-.form-group{
-
-    margin-bottom:27px;
-}
-
-
-.form-group label{
-
-    display:block;
-
-    font-size:20px;
-
-    font-weight:400;
-
-    color:#555;
-
-    margin-bottom:10px;
-}
-
-
-/* SELECT + INPUT */
-
-.form-group input,
-.form-group select{
-
-    width:100%;
-
-    height:64px;
-
-    padding:0 17px;
-
-    border:2px solid #e4e4e4;
-
-    border-radius:8px;
-
-    background:#fff;
-
-    color:#111;
-
-    font-size:20px;
-
-    outline:none;
-}
-
-
-.form-group input:focus,
-.form-group select:focus{
-
-    border-color:#999;
-}
-
-
-/* SELECT */
-
-.form-group select{
-
-    appearance:auto;
-
-    cursor:pointer;
-}
-
-
-/* =====================================================
-   SUBMIT BUTTON
-===================================================== */
-
-.submit-btn{
-
-    width:100%;
-
-    height:58px;
-
-    border:0;
-
-    border-radius:6px;
-
-    background:#111;
-
-    color:#fff;
-
-    font-size:19px;
-
-    font-weight:700;
-
-    cursor:pointer;
-}
-
-.submit-btn:active{
-
-    transform:scale(.98);
-}
-
-
-/* =====================================================
-   SEARCH RESULT
-===================================================== */
-
-#searchResult{
-
-    margin-top:18px;
-}
-
-
-/* =====================================================
-   NOTICE
-===================================================== */
-
-.notice-section{
-
-    width:calc(100% - 30px);
-
-    max-width:650px;
-
-    margin:15px auto 35px;
-
-    padding:20px;
-
-    text-align:center;
-
-    background:#f1f1f1;
-
-    border:1px solid #ddd;
-
-    border-radius:7px;
-}
-
-
-.notice-section h2{
-
-    font-size:20px;
-
-    margin-bottom:8px;
-}
-
-
-.notice-section p{
-
-    font-size:15px;
-
-    line-height:1.8;
-}
-
-
-/* =====================================================
-   CHAT ONLINE
-===================================================== */
-
-.chat-online-section{
-
-    width:100%;
-
-    max-width:650px;
-
-    margin:30px auto;
-
-    padding:25px 15px;
-
-    text-align:center;
-}
-
-
-.chat-online-section h2{
-
-    font-size:22px;
-
-    margin-bottom:10px;
-}
-
-
-.chat-online-section p{
-
-    font-size:15px;
-
-    margin-bottom:16px;
-}
-
-
-.online-chat-button{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:9px;
-
-    padding:12px 22px;
-
-    border-radius:5px;
-
-    background:#111;
-
-    color:#fff;
-
-    text-decoration:none;
-
-    font-size:16px;
-
-    font-weight:700;
-}
-
-
-/* =====================================================
-   QUICK AGENT
-===================================================== */
-
-.agent-list-section{
-
-    width:100%;
-
-    max-width:680px;
-
-    margin:30px auto 40px;
-
-    background:#fff;
-}
-
-
-.agent-list-section h2{
-
-    text-align:center;
-
-    font-size:27px;
-
-    font-weight:800;
-
-    margin-bottom:18px;
-}
-
-
-/* =====================================================
-   FILTER
-===================================================== */
-
-.filter-box{
-
-    width:100%;
-
-    display:flex;
-
-    gap:6px;
-
-    padding:8px;
-
-    background:#fff;
-
-    border-top:1px solid #ddd;
-
-    border-bottom:1px solid #ddd;
-
-    overflow-x:auto;
-
-    scrollbar-width:none;
-}
-
-.filter-box::-webkit-scrollbar{
-    display:none;
-}
-
-
-.filter-btn{
-
-    flex:1;
-
-    min-width:95px;
-
-    height:42px;
-
-    border:1px solid #ccc;
-
-    border-radius:4px;
-
-    background:#fff;
-
-    font-size:14px;
-
-    font-weight:700;
-
-    cursor:pointer;
-
-    white-space:nowrap;
-}
-
-
-.filter-btn.active{
-
-    background:#111;
-
-    color:#fff;
-
-    border-color:#111;
-}
-
-
-/* =====================================================
-   AGENT CONTAINER
-===================================================== */
-
-#agentListContainer{
-
-    width:100%;
-
-    border-left:1px solid #111;
-
-    border-right:1px solid #111;
-}
-
-
-/* =====================================================
-   AGENT ROW
-===================================================== */
-
-.agent-row{
-
-    width:100%;
-
-    min-height:150px;
-
-    display:grid;
-
-    grid-template-columns:
-        17%
-        31%
-        36%
-        16%;
-
-    align-items:center;
-
-    padding:10px 5px;
-
-    border-bottom:1px solid #ddd;
-}
-
-
-/* LIGHT */
-
-.agent-row:nth-child(odd){
-
-    background:#ffffff;
-}
-
-
-/* DEEP */
-
-.agent-row:nth-child(even){
-
-    background:#eeeeee;
-}
-
-
-/* =====================================================
-   AGENT ID
-===================================================== */
-
-.agent-id-box{
-
-    text-align:center;
-
-    font-size:18px;
-
-    font-weight:600;
-
-    line-height:1.8;
-
-    overflow-wrap:anywhere;
-}
-
-
-.agent-id-box a{
-
-    color:#111;
-
-    text-decoration:underline;
-}
-
-
-/* =====================================================
-   AGENT INFO
-===================================================== */
-
-.agent-info{
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    gap:2px;
-
-    min-width:0;
-
-    font-size:18px;
-
-    font-weight:700;
-
-    line-height:1.6;
-}
-
-
-.agent-type{
-
-    font-weight:700;
-
-    word-break:break-word;
-}
-
-
-.agent-brand{
-
-    color:#111;
-
-    text-decoration:underline;
-
-    font-weight:700;
-}
-
-
-/* =====================================================
-   GREEN CHECK
-===================================================== */
-
-.agent-check{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    width:25px;
-
-    height:25px;
-
-    margin-left:2px;
-
-    border-radius:4px;
-
-    background:#66b65d;
-
-    color:#fff;
-
-    font-size:16px;
-
-    font-weight:800;
-
-    vertical-align:middle;
-}
-
-
-/* =====================================================
-   PHONE
-===================================================== */
-
-.agent-phone{
-
-    min-width:0;
-
-    text-align:left;
-
-    font-size:18px;
-
-    font-weight:600;
-
-    line-height:1.75;
-
-    overflow-wrap:anywhere;
-}
-
-
-.agent-phone a{
-
-    color:#111;
-
-    text-decoration:underline;
-}
-
-
-/* =====================================================
-   ACTION
-===================================================== */
-
-.agent-action{
-
-    text-align:center;
-
-    font-size:17px;
-
-    font-weight:600;
-
-    line-height:1.7;
-}
-
-
-.agent-action a{
-
-    display:block;
-
-    color:#111;
-
-    text-decoration:underline;
-
-    cursor:pointer;
-}
-
-
-/* =====================================================
-   NO RESULT
-===================================================== */
-
-.no-agent{
-
-    padding:28px 15px;
-
-    background:#f1f1f1;
-
-    text-align:center;
-
-    font-size:16px;
-
-    font-weight:600;
-}
-
-
-/* =====================================================
-   INFO SECTIONS
-===================================================== */
-
-.info-section{
-
-    width:calc(100% - 30px);
-
-    max-width:650px;
-
-    margin:25px auto;
-
-    padding:20px;
-
-    background:#f5f5f5;
-
-    border:1px solid #ddd;
-
-    border-radius:7px;
-}
-
-
-.info-section h2{
-
-    font-size:21px;
-
-    margin-bottom:10px;
-}
-
-
-.info-section p{
-
-    font-size:15px;
-
-    line-height:1.8;
-}
-
-
-.info-link{
-
-    display:block;
-
-    padding:10px 0;
-
-    text-decoration:none;
-
-    font-weight:600;
-}
-
-
-/* =====================================================
-   FOOTER
-===================================================== */
-
-footer{
-
-    width:100%;
-
-    margin-top:40px;
-
-    padding:28px 15px;
-
-    text-align:center;
-
-    background:#f2f2f2;
-
-    border-top:1px solid #ddd;
-}
-
-
-.footer-logo-image{
-
-    width:65px;
-
-    height:65px;
-
-    object-fit:contain;
-
-    margin-bottom:8px;
-}
-
-
-footer p{
-
-    font-size:14px;
-
-    margin-bottom:10px;
-}
-
-
-.admin-link{
-
-    font-size:13px;
-
-    text-decoration:underline;
-}
-
-
-/* =====================================================
-   FLOATING WHATSAPP
-===================================================== */
-
-.chat-button{
-
-    position:fixed;
-
-    right:16px;
-
-    bottom:25px;
-
-    width:58px;
-
-    height:58px;
-
-    border-radius:50%;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    background:#111;
-
-    color:#fff;
-
-    text-decoration:none;
-
-    font-size:28px;
-
-    box-shadow:
-        0 4px 18px
-        rgba(0,0,0,.28);
-
-    z-index:900;
-}
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media(max-width:600px){
-
-    .top-logo-area{
-
-        padding:24px 12px 27px;
-    }
-
-
-    .main-logo{
-
-        width:100%;
-
-        max-width:520px;
-
-        height:255px;
-    }
-
-
-    .site-name{
-
-        margin-top:10px;
-
-        font-size:21px;
-
-        letter-spacing:1px;
-    }
-
-
-    .control-bar{
-
-        height:70px;
-
-        padding:0 24px;
-    }
-
-
-    .control-button{
-
-        font-size:30px;
-    }
-
-
-    .find-section{
-
-        padding:
-            78px
-            25px
-            30px;
-    }
-
-
-    .find-section h1{
-
-        font-size:42px;
-
-        margin-bottom:70px;
-    }
-
-
-    .find-section h2{
-
-        font-size:28px;
-
-        line-height:1.7;
-
-        margin-bottom:34px;
-    }
-
-
-    .search-card{
-
-        padding:
-            27px
-            30px
-            32px;
-    }
-
-
-    .form-group label{
-
-        font-size:19px;
-    }
-
-
-    .form-group input,
-    .form-group select{
-
-        height:63px;
-
-        font-size:19px;
-    }
-
-
-    .submit-btn{
-
-        height:57px;
-    }
-
-
-    .agent-list-section h2{
-
-        font-size:23px;
-    }
-
-
-    .agent-row{
-
-        grid-template-columns:
-            17%
-            31%
-            36%
-            16%;
-
-        min-height:145px;
-
-        padding:9px 4px;
-    }
-
-
-    .agent-id-box{
-
-        font-size:16px;
-    }
-
-
-    .agent-info{
-
-        font-size:16px;
-
-        line-height:1.65;
-    }
-
-
-    .agent-check{
-
-        width:23px;
-
-        height:23px;
-
-        font-size:14px;
-    }
-
-
-    .agent-phone{
-
-        font-size:16px;
-
-        line-height:1.8;
-    }
-
-
-    .agent-action{
-
-        font-size:15px;
-    }
-
-}
-
-
-/* =====================================================
-   SMALL MOBILE
-===================================================== */
-
-@media(max-width:380px){
-
-    .main-logo{
-
-        height:220px;
-    }
-
-
-    .find-section{
-
-        padding-left:18px;
-
-        padding-right:18px;
-    }
-
-
-    .find-section h1{
-
-        font-size:36px;
-    }
-
-
-    .find-section h2{
-
-        font-size:24px;
-    }
-
-
-    .search-card{
-
-        padding:22px;
-    }
-
-
-    .agent-row{
-
-        min-height:135px;
-    }
-
-
-    .agent-id-box,
-    .agent-info,
-    .agent-phone{
-
-        font-size:14px;
-    }
-
-
-    .agent-action{
-
-        font-size:13px;
-    }
-
-
-    .agent-check{
-
-        width:20px;
-
-        height:20px;
-
-        font-size:12px;
-    }
-
-}
-
-</style>
+<link rel="stylesheet"
+      href="style.css">
 
 </head>
 
@@ -1379,39 +44,39 @@ footer p{
 
 
 <!-- =====================================================
-     LOGO
+     HEADER LOGO
 ===================================================== -->
 
-<section class="top-logo-area">
+<header class="top-logo-area">
 
-    <a href="index.html">
+    <a href="index.html"
+       class="logo-link">
 
-        <!-- আপনার logo.png এখানে -->
         <img
-            src="images/logo.png"
-            alt="Velki.Com Logo"
+            src="logo.png"
+            alt="Velki.Com"
             class="main-logo">
 
     </a>
-
 
     <div class="site-name">
         Velki.Com
     </div>
 
-</section>
-
+</header>
 
 
 <!-- =====================================================
      CONTROL BAR
 ===================================================== -->
 
-<div class="control-bar">
+<nav class="control-bar">
 
     <button
+        type="button"
         class="control-button"
-        id="menuBtn">
+        id="menuBtn"
+        aria-label="Menu">
 
         <i class="fa-solid fa-chevron-down"></i>
 
@@ -1419,27 +84,35 @@ footer p{
 
 
     <button
+        type="button"
         class="control-button"
-        id="topSearchBtn">
+        id="topSearchBtn"
+        aria-label="Search">
 
         <i class="fa-solid fa-magnifying-glass"></i>
 
     </button>
 
-</div>
-
+</nav>
 
 
 <!-- =====================================================
-     MENU
+     MOBILE MENU
 ===================================================== -->
 
 <div
+    class="menu-overlay"
+    id="menuOverlay">
+</div>
+
+
+<aside
     class="mobile-menu"
     id="mobileMenu">
 
 
     <button
+        type="button"
         class="close-menu"
         id="closeMenu">
 
@@ -1453,20 +126,34 @@ footer p{
     </div>
 
 
-    <a href="#findAgent">
-        এজেন্ট কে খুঁজুন
+    <a href="#findAgent"
+       class="menu-link">
+
+        <span>
+            <i class="fa-solid fa-magnifying-glass"></i>
+            এজেন্ট কে খুঁজুন
+        </span>
+
     </a>
 
 
+    <!-- AGENT MENU -->
+
     <div class="menu-dropdown">
 
-        <button id="agentMenuBtn">
+        <button
+            type="button"
+            id="agentMenuBtn">
 
             <span>
+                <i class="fa-solid fa-users"></i>
                 সকল এজেন্ট লিস্ট
             </span>
 
-            <i class="fa-solid fa-chevron-down"></i>
+            <i
+                class="fa-solid fa-chevron-down"
+                id="agentMenuArrow">
+            </i>
 
         </button>
 
@@ -1476,27 +163,27 @@ footer p{
             id="agentSubmenu">
 
 
-            <a
-                href="#agentList"
-                data-type="master">
+            <a href="master.html">
+
+                <i class="fa-solid fa-crown"></i>
 
                 মাস্টার এজেন্ট লিস্ট
 
             </a>
 
 
-            <a
-                href="#agentList"
-                data-type="super">
+            <a href="super.html">
+
+                <i class="fa-solid fa-star"></i>
 
                 সুপার এজেন্ট লিস্ট
 
             </a>
 
 
-            <a
-                href="#agentList"
-                data-type="admin">
+            <a href="subadmin.html">
+
+                <i class="fa-solid fa-user-shield"></i>
 
                 সাব এডমিন লিস্ট
 
@@ -1507,32 +194,77 @@ footer p{
     </div>
 
 
-    <a href="#customerService">
-        কাস্টমার সার্ভিস
+    <a href="customer-service.html"
+       class="menu-link">
+
+        <span>
+
+            <i class="fa-solid fa-headset"></i>
+
+            কাস্টমার সার্ভিস
+
+        </span>
+
     </a>
 
 
-    <a href="#importantLinks">
-        প্রয়োজনীয় লিংক
+    <a href="#importantLinks"
+       class="menu-link">
+
+        <span>
+
+            <i class="fa-solid fa-link"></i>
+
+            প্রয়োজনীয় লিংক
+
+        </span>
+
     </a>
 
 
-    <a href="#about">
-        ভেলকি কি?
+    <a href="#about"
+       class="menu-link">
+
+        <span>
+
+            <i class="fa-solid fa-circle-info"></i>
+
+            ভেলকি কি?
+
+        </span>
+
     </a>
 
 
-    <a href="#rules">
-        নিয়ম কানুন
+    <a href="#rules"
+       class="menu-link">
+
+        <span>
+
+            <i class="fa-solid fa-file-lines"></i>
+
+            নিয়ম কানুন
+
+        </span>
+
     </a>
 
 
-    <a href="#brands">
-        ব্র্যান্ডস
+    <a href="#brands"
+       class="menu-link">
+
+        <span>
+
+            <i class="fa-solid fa-building"></i>
+
+            ব্র্যান্ডস
+
+        </span>
+
     </a>
 
-</div>
 
+</aside>
 
 
 <!-- =====================================================
@@ -1551,7 +283,9 @@ footer p{
         autocomplete="off">
 
 
-    <button id="topSearchSubmit">
+    <button
+        type="button"
+        id="topSearchSubmit">
 
         <i class="fa-solid fa-magnifying-glass"></i>
 
@@ -1560,10 +294,12 @@ footer p{
 </div>
 
 
-
 <!-- =====================================================
-     SUPER AGENT
+     FIND AGENT
 ===================================================== -->
+
+<main>
+
 
 <section
     class="find-section"
@@ -1571,13 +307,15 @@ footer p{
 
 
     <h1>
-        Super Agent List
+        Agent List
     </h1>
 
 
     <h2>
 
-        এজেন্ট এর আইডি নাম্বার দিয়ে<br>
+        এজেন্ট এর আইডি নাম্বার দিয়ে
+
+        <br>
 
         খুঁজুনঃ
 
@@ -1591,55 +329,71 @@ footer p{
 
         <div class="form-group">
 
-            <label>
+            <label for="agentType">
+
                 Agent Type:
+
             </label>
 
 
-            <select id="agentType">
+            <select
+                id="agentType"
+                aria-label="Agent Type">
+
 
                 <option value="master">
+
                     মাস্টার এজেন্ট
+
                 </option>
 
 
-                <option value="super" selected>
+                <option
+                    value="super"
+                    selected>
+
                     সুপার এজেন্ট
+
                 </option>
 
 
                 <option value="admin">
+
                     সাব এডমিন
+
                 </option>
+
 
             </select>
 
         </div>
 
 
-
         <!-- AGENT ID -->
 
         <div class="form-group">
 
-            <label>
+            <label for="agentId">
+
                 Agent ID:
+
             </label>
 
 
             <input
                 type="text"
                 id="agentId"
-                placeholder=""
-                autocomplete="off">
+                placeholder="Agent ID লিখুন"
+                autocomplete="off"
+                inputmode="numeric">
 
         </div>
-
 
 
         <!-- SUBMIT -->
 
         <button
+            type="button"
             class="submit-btn"
             id="searchAgentBtn">
 
@@ -1648,12 +402,149 @@ footer p{
         </button>
 
 
-        <div id="searchResult"></div>
+        <!-- RESULT -->
+
+        <div
+            id="searchResult"
+            class="search-result">
+        </div>
+
 
     </div>
 
 </section>
 
+
+<!-- =====================================================
+     DIVIDER
+===================================================== -->
+
+<div class="section-divider"></div>
+
+
+<!-- =====================================================
+     QUICK AGENT
+===================================================== -->
+
+<section
+    class="agent-list-section"
+    id="agentList">
+
+
+    <div class="agent-list-box">
+
+
+        <div class="agent-list-title">
+
+            <span id="agentListTitle">
+                ALL AGENT LIST
+            </span>
+
+        </div>
+
+
+        <!-- FILTER -->
+
+        <div class="filter-box">
+
+
+            <button
+                type="button"
+                class="filter-btn active"
+                data-filter="all">
+
+                ALL AGENT
+
+            </button>
+
+
+            <button
+                type="button"
+                class="filter-btn"
+                data-filter="master">
+
+                MASTER
+
+            </button>
+
+
+            <button
+                type="button"
+                class="filter-btn"
+                data-filter="super">
+
+                SUPER
+
+            </button>
+
+
+            <button
+                type="button"
+                class="filter-btn"
+                data-filter="admin">
+
+                SUB ADMIN
+
+            </button>
+
+
+        </div>
+
+
+        <!-- AGENT TABLE HEADER -->
+
+        <div
+            class="agent-table-header">
+
+
+            <div>
+                ID
+            </div>
+
+
+            <div>
+                TYPE
+            </div>
+
+
+            <div>
+                BRAND
+            </div>
+
+
+            <div>
+                PHONE
+            </div>
+
+
+            <div>
+                ACTION
+            </div>
+
+
+        </div>
+
+
+        <!-- AGENT DATA -->
+
+        <div
+            id="agentListContainer"
+            class="agent-list-container">
+
+            <div class="loading-agent">
+
+                <i class="fa-solid fa-spinner fa-spin"></i>
+
+                এজেন্ট লোড হচ্ছে...
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
 
 
 <!-- =====================================================
@@ -1662,8 +553,13 @@ footer p{
 
 <section class="notice-section">
 
+
     <h2>
+
+        <i class="fa-solid fa-triangle-exclamation"></i>
+
         লেনদেনের আগে জানার বিষয়
+
     </h2>
 
 
@@ -1672,14 +568,17 @@ footer p{
         লেনদেন করার পূর্বে অবশ্যই এজেন্টের
         তথ্য ভালোভাবে যাচাই করে নিন।
 
+        ভুল এজেন্টের সাথে লেনদেনের জন্য
+        কর্তৃপক্ষ দায়ী থাকবে না।
+
     </p>
+
 
 </section>
 
 
-
 <!-- =====================================================
-     CHAT
+     CUSTOMER SERVICE
 ===================================================== -->
 
 <section
@@ -1693,14 +592,16 @@ footer p{
 
 
     <p>
-        যেকোনো প্রয়োজনে আমাদের সাথে যোগাযোগ করুন
+
+        যেকোনো প্রয়োজনে আমাদের সাথে যোগাযোগ করুন।
+
     </p>
 
 
     <a
         href="https://wa.me/60108919892"
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
         class="online-chat-button">
 
         <i class="fa-brands fa-whatsapp"></i>
@@ -1709,69 +610,8 @@ footer p{
 
     </a>
 
-</section>
-
-
-
-<!-- =====================================================
-     QUICK AGENT
-===================================================== -->
-
-<section
-    class="agent-list-section"
-    id="agentList">
-
-
-    <h2>
-        QUICK AGENT
-    </h2>
-
-
-    <div class="filter-box">
-
-
-        <button
-            class="filter-btn active"
-            data-filter="all">
-
-            সকল এজেন্ট
-
-        </button>
-
-
-        <button
-            class="filter-btn"
-            data-filter="master">
-
-            মাস্টার
-
-        </button>
-
-
-        <button
-            class="filter-btn"
-            data-filter="super">
-
-            সুপার
-
-        </button>
-
-
-        <button
-            class="filter-btn"
-            data-filter="admin">
-
-            সাব এডমিন
-
-        </button>
-
-    </div>
-
-
-    <div id="agentListContainer"></div>
 
 </section>
-
 
 
 <!-- =====================================================
@@ -1784,20 +624,24 @@ footer p{
 
 
     <h2>
+
+        <i class="fa-solid fa-circle-info"></i>
+
         ভেলকি কি?
+
     </h2>
 
 
     <p>
 
-        আমাদের ওয়েবসাইটের মাধ্যমে সহজেই
-        এজেন্টের তথ্য যাচাই ও প্রয়োজনীয়
-        যোগাযোগ করতে পারবেন।
+        Velki.Com এর মাধ্যমে Master Agent,
+        Super Agent এবং Sub Admin-এর
+        তথ্য সহজে খুঁজে পাওয়া ও যাচাই করা যায়।
 
     </p>
 
-</section>
 
+</section>
 
 
 <!-- =====================================================
@@ -1810,20 +654,37 @@ footer p{
 
 
     <h2>
-        প্রয়োজনীয় লিংক
-    </h2>
-
-
-    <a href="#" class="info-link">
 
         <i class="fa-solid fa-link"></i>
 
         প্রয়োজনীয় লিংক
 
+    </h2>
+
+
+    <a
+        href="home.html"
+        class="info-link">
+
+        <i class="fa-solid fa-house"></i>
+
+        Home
+
     </a>
 
-</section>
 
+    <a
+        href="customer-service.html"
+        class="info-link">
+
+        <i class="fa-solid fa-headset"></i>
+
+        Customer Service
+
+    </a>
+
+
+</section>
 
 
 <!-- =====================================================
@@ -1836,19 +697,26 @@ footer p{
 
 
     <h2>
+
+        <i class="fa-solid fa-scale-balanced"></i>
+
         নিয়ম কানুন
+
     </h2>
 
 
     <p>
 
-        এজেন্টের সাথে লেনদেন করার পূর্বে
-        অবশ্যই এজেন্টের তথ্য যাচাই করুন।
+        Agent-এর সাথে যোগাযোগ বা লেনদেনের
+        আগে Agent ID এবং ফোন নম্বর যাচাই করুন।
+
+        কোনো সন্দেহজনক তথ্য পেলে Customer
+        Service-এর সাথে যোগাযোগ করুন।
 
     </p>
 
-</section>
 
+</section>
 
 
 <!-- =====================================================
@@ -1861,16 +729,39 @@ footer p{
 
 
     <h2>
+
+        <i class="fa-solid fa-building"></i>
+
         ব্র্যান্ডস
+
     </h2>
 
 
-    <p>
-        Velki.Com
-    </p>
+    <div class="brand-list">
+
+
+        <span>
+            VELKI ✓
+        </span>
+
+
+        <span>
+            9XBET ✓
+        </span>
+
+
+        <span>
+            BAAJIWALA ✓
+        </span>
+
+
+    </div>
+
 
 </section>
 
+
+</main>
 
 
 <!-- =====================================================
@@ -1881,7 +772,7 @@ footer p{
 
 
     <img
-        src="images/logo.png"
+        src="logo.png"
         alt="Velki.Com"
         class="footer-logo-image">
 
@@ -1889,6 +780,32 @@ footer p{
     <p>
         © 2026 Velki.Com
     </p>
+
+
+    <div class="footer-links">
+
+
+        <a href="master.html">
+            Master
+        </a>
+
+
+        <a href="super.html">
+            Super
+        </a>
+
+
+        <a href="subadmin.html">
+            Sub Admin
+        </a>
+
+
+        <a href="customer-service.html">
+            Customer Service
+        </a>
+
+
+    </div>
 
 
     <a
@@ -1899,24 +816,38 @@ footer p{
 
     </a>
 
+
 </footer>
 
 
-
 <!-- =====================================================
-     FLOATING CHAT
+     FLOATING CUSTOMER SERVICE
 ===================================================== -->
 
 <a
     href="https://wa.me/60108919892"
     target="_blank"
-    rel="noopener"
-    class="chat-button">
+    rel="noopener noreferrer"
+    class="chat-button"
+    aria-label="Customer Service">
+
 
     <i class="fa-brands fa-whatsapp"></i>
 
+
+    <span class="online-dot">
+        1
+    </span>
+
+
 </a>
 
+
+<!-- =====================================================
+     SCRIPT
+===================================================== -->
+
+<script src="script.js"></script>
 
 
 <script>
@@ -1928,51 +859,133 @@ footer p{
 const menuBtn =
     document.getElementById("menuBtn");
 
-const mobileMenu =
-    document.getElementById("mobileMenu");
-
 const closeMenu =
     document.getElementById("closeMenu");
 
+const mobileMenu =
+    document.getElementById("mobileMenu");
 
-menuBtn.addEventListener("click",function(){
+const menuOverlay =
+    document.getElementById("menuOverlay");
+
+
+function openMenu(){
 
     mobileMenu.classList.add("show");
 
-});
+    menuOverlay.classList.add("show");
+
+    document.body.classList.add("menu-open");
+
+}
 
 
-closeMenu.addEventListener("click",function(){
+function closeMobileMenu(){
 
     mobileMenu.classList.remove("show");
 
-});
+    menuOverlay.classList.remove("show");
+
+    document.body.classList.remove("menu-open");
+
+}
 
 
-document
-.querySelectorAll(".mobile-menu > a")
-.forEach(function(link){
+if(menuBtn){
 
-    link.addEventListener("click",function(){
+    menuBtn.addEventListener(
+        "click",
+        openMenu
+    );
 
-        mobileMenu.classList.remove("show");
+}
 
-    });
 
-});
+if(closeMenu){
+
+    closeMenu.addEventListener(
+        "click",
+        closeMobileMenu
+    );
+
+}
+
+
+if(menuOverlay){
+
+    menuOverlay.addEventListener(
+        "click",
+        closeMobileMenu
+    );
+
+}
 
 
 /* =====================================================
    SUB MENU
 ===================================================== */
 
-document
-.getElementById("agentMenuBtn")
-.addEventListener("click",function(){
+const agentMenuBtn =
+    document.getElementById(
+        "agentMenuBtn"
+    );
 
-    document
-    .getElementById("agentSubmenu")
-    .classList.toggle("show");
+const agentSubmenu =
+    document.getElementById(
+        "agentSubmenu"
+    );
+
+const agentMenuArrow =
+    document.getElementById(
+        "agentMenuArrow"
+    );
+
+
+if(agentMenuBtn){
+
+    agentMenuBtn.addEventListener(
+        "click",
+        function(){
+
+            agentSubmenu.classList.toggle(
+                "show"
+            );
+
+
+            if(
+                agentSubmenu.classList.contains(
+                    "show"
+                )
+            ){
+
+                agentMenuArrow.style.transform =
+                    "rotate(180deg)";
+
+            }else{
+
+                agentMenuArrow.style.transform =
+                    "rotate(0deg)";
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   CLOSE MENU WHEN LINK CLICKED
+===================================================== */
+
+document
+.querySelectorAll(".mobile-menu a")
+.forEach(function(link){
+
+    link.addEventListener(
+        "click",
+        closeMobileMenu
+    );
 
 });
 
@@ -1982,548 +995,225 @@ document
 ===================================================== */
 
 const topSearchBtn =
-    document.getElementById("topSearchBtn");
+    document.getElementById(
+        "topSearchBtn"
+    );
 
 const topSearchBox =
-    document.getElementById("topSearchBox");
+    document.getElementById(
+        "topSearchBox"
+    );
 
+const topSearchInput =
+    document.getElementById(
+        "topSearchInput"
+    );
 
-topSearchBtn.addEventListener("click",function(){
 
-    topSearchBox.classList.toggle("show");
+if(topSearchBtn){
 
-    if(
-        topSearchBox
-        .classList
-        .contains("show")
-    ){
+    topSearchBtn.addEventListener(
+        "click",
+        function(){
 
-        document
-        .getElementById("topSearchInput")
-        .focus();
+            topSearchBox.classList.toggle(
+                "show"
+            );
 
-    }
 
-});
+            if(
+                topSearchBox.classList.contains(
+                    "show"
+                )
+            ){
 
+                setTimeout(
+                    function(){
 
-/* =====================================================
-   AGENT DATA
-===================================================== */
+                        topSearchInput.focus();
 
-let agents = [
+                    },
+                    100
+                );
 
-    {
-        id:"101",
-        type:"super",
-        typeName:"SUPER",
-        phone:"+855961234567"
-    },
-
-    {
-        id:"102",
-        type:"super",
-        typeName:"SUPER",
-        phone:"+855969876543"
-    },
-
-    {
-        id:"103",
-        type:"super",
-        typeName:"SUPER",
-        phone:"+855965555555"
-    },
-
-    {
-        id:"104",
-        type:"super",
-        typeName:"SUPER",
-        phone:"+855966666666"
-    },
-
-    {
-        id:"105",
-        type:"super",
-        typeName:"SUPER",
-        phone:"+855967777777"
-    },
-
-    {
-        id:"106",
-        type:"super",
-        typeName:"SUPER",
-        phone:"+855968888888"
-    },
-
-    {
-        id:"107",
-        type:"super",
-        typeName:"SUPER",
-        phone:"+855969999999"
-    }
-
-];
-
-
-/* =====================================================
-   CREATE AGENT
-===================================================== */
-
-function createAgentRow(agent){
-
-    const row =
-        document.createElement("div");
-
-    row.className =
-        "agent-row";
-
-
-    const type =
-        agent.typeName ||
-        (
-            agent.type === "master"
-            ? "MASTER"
-            :
-            agent.type === "super"
-            ? "SUPER"
-            :
-            "ADMIN"
-        );
-
-
-    row.innerHTML = `
-
-        <div class="agent-id-box">
-
-            <a href="#"
-               onclick="return false;">
-
-                ${agent.id || ""}
-
-            </a>
-
-        </div>
-
-
-        <div class="agent-info">
-
-            <div class="agent-type">
-
-                ${type}
-
-            </div>
-
-
-            <div>
-
-                <a
-                    href="#"
-                    class="agent-brand"
-                    onclick="return false;">
-
-                    VELKI
-
-                </a>
-
-                <span class="agent-check">
-                    ✓
-                </span>
-
-            </div>
-
-
-            <div>
-
-                <a
-                    href="#"
-                    class="agent-brand"
-                    onclick="return false;">
-
-                    9XBET
-
-                </a>
-
-                <span class="agent-check">
-                    ✓
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <div class="agent-phone">
-
-            <a href="tel:${agent.phone || ""}">
-
-                ${agent.phone || ""}
-
-            </a>
-
-        </div>
-
-
-        <div class="agent-action">
-
-            <a
-                href="#"
-                onclick="
-                    complaint('${agent.id}');
-                    return false;
-                ">
-
-                অভিযোগ
-
-            </a>
-
-
-            <a
-                href="tel:${agent.phone || ""}">
-
-                যোগ
-
-            </a>
-
-        </div>
-
-    `;
-
-
-    return row;
-
-}
-
-
-/* =====================================================
-   RENDER AGENTS
-===================================================== */
-
-function renderAgents(filter="all"){
-
-    const container =
-        document.getElementById(
-            "agentListContainer"
-        );
-
-
-    container.innerHTML = "";
-
-
-    const filtered =
-        agents.filter(function(agent){
-
-            if(filter === "all"){
-                return true;
             }
 
-            return agent.type === filter;
-
-        });
-
-
-    if(filtered.length === 0){
-
-        container.innerHTML = `
-
-            <div class="no-agent">
-
-                কোনো এজেন্ট পাওয়া যায়নি।
-
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    filtered.forEach(function(agent){
-
-        container.appendChild(
-            createAgentRow(agent)
-        );
-
-    });
-
-}
-
-
-/* =====================================================
-   FILTER
-===================================================== */
-
-document
-.querySelectorAll(".filter-btn")
-.forEach(function(button){
-
-    button.addEventListener("click",function(){
-
-        document
-        .querySelectorAll(".filter-btn")
-        .forEach(function(btn){
-
-            btn.classList.remove("active");
-
-        });
-
-
-        this.classList.add("active");
-
-
-        renderAgents(
-            this.dataset.filter
-        );
-
-    });
-
-});
-
-
-/* =====================================================
-   AGENT SEARCH
-===================================================== */
-
-function searchAgent(){
-
-    const id =
-        document
-        .getElementById("agentId")
-        .value
-        .trim()
-        .toLowerCase();
-
-
-    const type =
-        document
-        .getElementById("agentType")
-        .value;
-
-
-    const result =
-        document.getElementById(
-            "searchResult"
-        );
-
-
-    if(!id){
-
-        result.innerHTML = `
-
-            <div class="no-agent">
-
-                Agent ID লিখুন।
-
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    const found =
-        agents.find(function(agent){
-
-            return String(agent.id)
-                .toLowerCase() === id
-                &&
-                agent.type === type;
-
-        });
-
-
-    if(!found){
-
-        result.innerHTML = `
-
-            <div class="no-agent">
-
-                এই Agent ID পাওয়া যায়নি।
-
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    result.innerHTML = "";
-
-
-    const box =
-        document.createElement("div");
-
-
-    box.className =
-        "agent-row";
-
-
-    box.appendChild(
-        createAgentRow(found)
+        }
     );
 
 }
-
-
-/* =====================================================
-   SEARCH BUTTON
-===================================================== */
-
-document
-.getElementById("searchAgentBtn")
-.addEventListener(
-    "click",
-    searchAgent
-);
-
-
-/* =====================================================
-   ENTER SEARCH
-===================================================== */
-
-document
-.getElementById("agentId")
-.addEventListener(
-    "keydown",
-    function(e){
-
-        if(e.key === "Enter"){
-
-            searchAgent();
-
-        }
-
-    }
-);
 
 
 /* =====================================================
    TOP SEARCH
 ===================================================== */
 
-function topSearch(){
-
-    const id =
-        document
-        .getElementById("topSearchInput")
-        .value
-        .trim();
+const topSearchSubmit =
+    document.getElementById(
+        "topSearchSubmit"
+    );
 
 
-    if(!id) return;
+function performTopSearch(){
+
+    const value =
+        topSearchInput.value.trim();
 
 
-    document
-    .getElementById("agentId")
-    .value = id;
+    if(!value){
+
+        topSearchInput.focus();
+
+        return;
+
+    }
 
 
-    document
-    .getElementById("findAgent")
-    .scrollIntoView({
-        behavior:"smooth"
-    });
+    const mainInput =
+        document.getElementById(
+            "agentId"
+        );
 
 
-    setTimeout(function(){
+    if(mainInput){
 
-        searchAgent();
+        mainInput.value = value;
 
-    },500);
+    }
+
+
+    const findSection =
+        document.getElementById(
+            "findAgent"
+        );
+
+
+    if(findSection){
+
+        findSection.scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+        });
+
+    }
+
+
+    setTimeout(
+        function(){
+
+            const searchButton =
+                document.getElementById(
+                    "searchAgentBtn"
+                );
+
+
+            if(searchButton){
+
+                searchButton.click();
+
+            }
+
+        },
+        500
+    );
 
 }
 
 
-document
-.getElementById("topSearchSubmit")
-.addEventListener(
-    "click",
-    topSearch
-);
+if(topSearchSubmit){
+
+    topSearchSubmit.addEventListener(
+        "click",
+        performTopSearch
+    );
+
+}
 
 
-document
-.getElementById("topSearchInput")
-.addEventListener(
-    "keydown",
-    function(e){
+if(topSearchInput){
 
-        if(e.key === "Enter"){
+    topSearchInput.addEventListener(
+        "keydown",
+        function(event){
 
-            topSearch();
+            if(event.key === "Enter"){
+
+                performTopSearch();
+
+            }
 
         }
-
-    }
-);
-
-
-/* =====================================================
-   COMPLAINT
-===================================================== */
-
-function complaint(id){
-
-    alert(
-        "Agent ID: " +
-        id +
-        "\n\nঅভিযোগ করার জন্য Customer Service-এর সাথে যোগাযোগ করুন।"
     );
 
 }
 
 
 /* =====================================================
-   MENU AGENT FILTER
+   FILTER TITLE
 ===================================================== */
 
 document
-.querySelectorAll(".submenu a")
-.forEach(function(link){
+.querySelectorAll(".filter-btn")
+.forEach(function(button){
 
-    link.addEventListener("click",function(){
+    button.addEventListener(
+        "click",
+        function(){
 
-        const type =
-            this.dataset.type;
+            document
+            .querySelectorAll(".filter-btn")
+            .forEach(function(btn){
+
+                btn.classList.remove(
+                    "active"
+                );
+
+            });
 
 
-        document
-        .querySelectorAll(".filter-btn")
-        .forEach(function(btn){
-
-            btn.classList.remove("active");
+            this.classList.add("active");
 
 
-            if(
-                btn.dataset.filter === type
-            ){
+            const filter =
+                this.dataset.filter;
 
-                btn.classList.add("active");
+
+            const title =
+                document.getElementById(
+                    "agentListTitle"
+                );
+
+
+            if(filter === "master"){
+
+                title.textContent =
+                    "ALL MASTER AGENT LIST";
+
+            }
+            else if(filter === "super"){
+
+                title.textContent =
+                    "ALL SUPER AGENT LIST";
+
+            }
+            else if(filter === "admin"){
+
+                title.textContent =
+                    "ALL SUB ADMIN LIST";
+
+            }
+            else{
+
+                title.textContent =
+                    "ALL AGENT LIST";
 
             }
 
-        });
-
-
-        renderAgents(type);
-
-
-        mobileMenu.classList.remove("show");
-
-    });
+        }
+    );
 
 });
 
-
-/* =====================================================
-   INITIAL
-===================================================== */
-
-renderAgents("all");
 
 </script>
 
