@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="bn">
-
 <head>
 <meta charset="UTF-8">
 
@@ -10,23 +9,10 @@
       maximum-scale=1.0,
       user-scalable=no">
 
-<meta name="theme-color" content="#ffffff">
-
-<meta name="description"
-      content="Velki.Com Agent List - Master, Super Agent এবং Sub Admin খুঁজুন।">
-
 <title>Velki.Com - Agent List</title>
 
-<link rel="icon"
-      type="image/png"
-      href="logo.png">
-
-<link rel="preconnect"
-      href="https://fonts.googleapis.com">
-
-<link rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap"
       rel="stylesheet">
@@ -34,405 +20,1034 @@
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-<link rel="stylesheet"
-      href="style.css">
+<style>
 
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Noto Sans Bengali",Arial,sans-serif;
+    background:#f3f5f7;
+    color:#202124;
+}
+
+button,
+input,
+select{
+    font-family:inherit;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    background:#fff;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 2px 12px rgba(0,0,0,.10);
+}
+
+.header-inner{
+    max-width:1100px;
+    margin:auto;
+    min-height:72px;
+    padding:8px 16px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+}
+
+.logo-link{
+    display:flex;
+    align-items:center;
+}
+
+.main-logo{
+    width:58px;
+    height:58px;
+    object-fit:contain;
+}
+
+.site-name{
+    flex:1;
+    font-size:23px;
+    font-weight:800;
+    color:#111;
+}
+
+.header-controls{
+    display:flex;
+    gap:8px;
+}
+
+.control-button{
+    width:42px;
+    height:42px;
+    border:0;
+    border-radius:10px;
+    background:#f1f3f4;
+    cursor:pointer;
+    font-size:18px;
+}
+
+.control-button:hover{
+    background:#e5e7e9;
+}
+
+/* ================= TOP SEARCH ================= */
+
+.top-search{
+    display:none;
+    max-width:1100px;
+    margin:auto;
+    padding:10px 16px 14px;
+}
+
+.top-search.show{
+    display:flex;
+}
+
+.top-search input{
+    flex:1;
+    height:45px;
+    border:1px solid #ddd;
+    border-right:0;
+    border-radius:10px 0 0 10px;
+    padding:0 14px;
+    outline:none;
+    font-size:15px;
+    background:#fff;
+}
+
+.top-search button{
+    width:50px;
+    border:0;
+    border-radius:0 10px 10px 0;
+    background:#111;
+    color:#fff;
+    cursor:pointer;
+}
+
+/* ================= SIDE MENU ================= */
+
+.menu-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    z-index:2000;
+    display:none;
+}
+
+.menu-overlay.show{
+    display:block;
+}
+
+.side-menu{
+    position:absolute;
+    top:0;
+    right:0;
+    width:min(350px,88%);
+    height:100%;
+    background:#fff;
+    overflow-y:auto;
+    padding-bottom:30px;
+    box-shadow:-5px 0 25px rgba(0,0,0,.2);
+}
+
+.menu-header{
+    min-height:70px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:10px 16px;
+    border-bottom:1px solid #eee;
+}
+
+.close-menu{
+    width:42px;
+    height:42px;
+    border:0;
+    border-radius:10px;
+    background:#f1f1f1;
+    cursor:pointer;
+    font-size:20px;
+}
+
+.menu-title{
+    font-weight:800;
+    font-size:20px;
+}
+
+.menu-link,
+#agentMenuBtn{
+    width:100%;
+    min-height:52px;
+    border:0;
+    background:#fff;
+    border-bottom:1px solid #eee;
+    padding:0 18px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    font-size:15px;
+    cursor:pointer;
+    text-align:left;
+}
+
+.menu-link span,
+#agentMenuBtn span{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.menu-link i,
+#agentMenuBtn i{
+    width:22px;
+}
+
+.menu-link:hover,
+#agentMenuBtn:hover{
+    background:#f7f7f7;
+}
+
+.menu-dropdown{
+    border-bottom:1px solid #eee;
+}
+
+.submenu{
+    display:none;
+    background:#f7f7f7;
+}
+
+.submenu.show{
+    display:block;
+}
+
+.submenu a{
+    min-height:48px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:0 25px;
+    font-size:14px;
+    border-top:1px solid #e9e9e9;
+}
+
+.submenu a:hover{
+    background:#ededed;
+}
+
+#agentMenuArrow{
+    transition:.25s;
+}
+
+#agentMenuArrow.rotate{
+    transform:rotate(180deg);
+}
+
+/* ================= MAIN ================= */
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:25px 14px 90px;
+}
+
+.hero{
+    text-align:center;
+    padding:20px 10px 15px;
+}
+
+.hero h1{
+    font-size:34px;
+    font-weight:800;
+    margin-bottom:8px;
+}
+
+.hero h2{
+    font-size:18px;
+    font-weight:500;
+    line-height:1.7;
+}
+
+/* ================= FIND AGENT ================= */
+
+.find-agent-section{
+    scroll-margin-top:90px;
+}
+
+.search-card{
+    max-width:650px;
+    margin:20px auto 30px;
+    background:#fff;
+    border-radius:16px;
+    padding:22px;
+    box-shadow:0 4px 20px rgba(0,0,0,.08);
+}
+
+.find-title{
+    text-align:center;
+    font-size:24px;
+    font-weight:800;
+    margin-bottom:20px;
+}
+
+.form-group{
+    margin-bottom:16px;
+}
+
+.form-group label{
+    display:block;
+    font-size:14px;
+    font-weight:700;
+    margin-bottom:7px;
+}
+
+.form-group input,
+.form-group select{
+    width:100%;
+    height:48px;
+    border:1px solid #d7d7d7;
+    border-radius:9px;
+    padding:0 13px;
+    outline:none;
+    background:#fff;
+    font-size:15px;
+}
+
+.form-group input:focus,
+.form-group select:focus{
+    border-color:#111;
+}
+
+.submit-btn{
+    width:100%;
+    height:48px;
+    border:0;
+    border-radius:9px;
+    background:#111;
+    color:#fff;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.submit-btn:hover{
+    opacity:.9;
+}
+
+/* SEARCH RESULT */
+
+.search-result{
+    margin-top:16px;
+}
+
+.result-card{
+    border:1px solid #e3e3e3;
+    border-radius:12px;
+    padding:15px;
+    background:#fafafa;
+}
+
+.result-card.not-found{
+    text-align:center;
+    color:#b00020;
+}
+
+.result-row{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    padding:7px 0;
+    border-bottom:1px solid #eee;
+}
+
+.result-row:last-child{
+    border-bottom:0;
+}
+
+.result-label{
+    font-weight:700;
+}
+
+.whatsapp-btn{
+    margin-top:12px;
+    width:100%;
+    height:44px;
+    border:0;
+    border-radius:8px;
+    background:#25D366;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    font-weight:700;
+}
+
+/* ================= AGENT LIST ================= */
+
+.agent-list-box{
+    background:#fff;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 4px 20px rgba(0,0,0,.07);
+}
+
+.agent-list-title{
+    padding:18px;
+    text-align:center;
+    font-size:22px;
+    font-weight:800;
+    background:#fafafa;
+}
+
+.filter-box{
+    padding:14px;
+    display:flex;
+    gap:8px;
+    overflow-x:auto;
+    border-bottom:1px solid #eee;
+}
+
+.filter-btn{
+    white-space:nowrap;
+    border:1px solid #ddd;
+    background:#fff;
+    padding:9px 15px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:700;
+}
+
+.filter-btn.active{
+    background:#111;
+    color:#fff;
+    border-color:#111;
+}
+
+.agent-table-header{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr 1.5fr 1fr;
+    background:#f1f3f5;
+    font-weight:800;
+    padding:13px 10px;
+    text-align:center;
+    font-size:13px;
+}
+
+.agent-list-container{
+    min-height:100px;
+}
+
+.agent-row{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr 1.5fr 1fr;
+    align-items:center;
+    padding:12px 10px;
+    border-top:1px solid #eee;
+    text-align:center;
+    font-size:13px;
+}
+
+.agent-row:hover{
+    background:#fafafa;
+}
+
+.agent-type{
+    font-weight:700;
+}
+
+.phone-link{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:5px;
+    color:#159447;
+    font-weight:700;
+}
+
+.phone-link i{
+    font-size:18px;
+}
+
+.action-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:5px;
+    padding:7px 9px;
+    border-radius:7px;
+    background:#25D366;
+    color:#fff;
+    font-size:12px;
+    font-weight:700;
+}
+
+.loading-agent{
+    padding:30px;
+    text-align:center;
+    color:#777;
+}
+
+.no-agent{
+    padding:30px;
+    text-align:center;
+    color:#777;
+}
+
+/* ================= INFO ================= */
+
+.info-section{
+    background:#fff;
+    border-radius:16px;
+    margin-top:22px;
+    padding:22px;
+    box-shadow:0 3px 16px rgba(0,0,0,.06);
+}
+
+.info-section h2{
+    font-size:21px;
+    margin-bottom:10px;
+}
+
+.info-section p{
+    line-height:1.9;
+    color:#555;
+}
+
+.online-chat-button{
+    margin-top:15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    height:48px;
+    border-radius:9px;
+    background:#25D366;
+    color:#fff;
+    font-weight:800;
+}
+
+.info-link{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:12px;
+    margin-top:8px;
+    border-radius:8px;
+    background:#f5f5f5;
+}
+
+.brand-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:15px;
+}
+
+.brand-list span{
+    background:#f1f1f1;
+    border-radius:20px;
+    padding:8px 14px;
+    font-weight:700;
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+    background:#111;
+    color:#fff;
+    text-align:center;
+    padding:28px 15px;
+}
+
+.footer-logo-image{
+    width:65px;
+    height:65px;
+    object-fit:contain;
+    margin-bottom:10px;
+}
+
+.footer-links{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+    margin-top:15px;
+}
+
+.footer-links a{
+    color:#ddd;
+    font-size:13px;
+}
+
+.footer-links a:hover{
+    color:#fff;
+}
+
+.admin-link{
+    display:inline-block;
+    margin-top:18px;
+    color:#999;
+    font-size:12px;
+}
+
+/* ================= FLOATING CHAT ================= */
+
+.floating-whatsapp{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:#25D366;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:29px;
+    box-shadow:0 5px 20px rgba(0,0,0,.2);
+    z-index:900;
+}
+
+.online-dot{
+    position:absolute;
+    right:-1px;
+    top:-2px;
+    width:20px;
+    height:20px;
+    background:#ff3b30;
+    color:#fff;
+    border-radius:50%;
+    font-size:11px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:2px solid #fff;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:700px){
+
+    .header-inner{
+        min-height:65px;
+    }
+
+    .main-logo{
+        width:50px;
+        height:50px;
+    }
+
+    .site-name{
+        font-size:20px;
+    }
+
+    .hero h1{
+        font-size:28px;
+    }
+
+    .hero h2{
+        font-size:16px;
+    }
+
+    .agent-table-header{
+        display:none;
+    }
+
+    .agent-row{
+        display:block;
+        padding:16px;
+        text-align:left;
+        position:relative;
+    }
+
+    .agent-row > div{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        gap:10px;
+        padding:5px 0;
+    }
+
+    .agent-row > div::before{
+        font-weight:800;
+        color:#777;
+    }
+
+    .agent-row > div:nth-child(1)::before{
+        content:"ID";
+    }
+
+    .agent-row > div:nth-child(2)::before{
+        content:"TYPE";
+    }
+
+    .agent-row > div:nth-child(3)::before{
+        content:"BRAND";
+    }
+
+    .agent-row > div:nth-child(4)::before{
+        content:"PHONE";
+    }
+
+    .agent-row > div:nth-child(5)::before{
+        content:"ACTION";
+    }
+
+    .search-card{
+        padding:17px;
+    }
+
+    .info-section{
+        padding:18px;
+    }
+}
+
+</style>
 </head>
-
 
 <body>
 
+<!-- ================= HEADER ================= -->
 
-<!-- =====================================================
-     HEADER LOGO
-===================================================== -->
+<header class="header">
 
-<header class="top-logo-area">
+    <div class="header-inner">
 
-    <a href="index.html"
-       class="logo-link">
+        <a href="index.html" class="logo-link">
+            <img
+                src="logo.png"
+                alt="Velki.Com"
+                class="main-logo">
+        </a>
 
-        <img
-            src="logo.png"
-            alt="Velki.Com"
-            class="main-logo">
+        <div class="site-name">
+            Velki.Com
+        </div>
 
-    </a>
+        <div class="header-controls">
 
-    <div class="site-name">
-        Velki.Com
+            <button
+                type="button"
+                class="control-button"
+                id="menuBtn"
+                aria-label="Menu">
+
+                <i class="fa-solid fa-chevron-down"></i>
+
+            </button>
+
+            <button
+                type="button"
+                class="control-button"
+                id="topSearchBtn"
+                aria-label="Search">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="top-search" id="topSearch">
+
+        <input
+            type="text"
+            id="topSearchInput"
+            placeholder="Agent ID লিখুন..."
+            autocomplete="off">
+
+        <button
+            type="button"
+            id="topSearchSubmit">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+        </button>
+
     </div>
 
 </header>
 
 
-<!-- =====================================================
-     CONTROL BAR
-===================================================== -->
+<!-- ================= MENU ================= -->
 
-<nav class="control-bar">
+<div class="menu-overlay" id="menuOverlay">
 
-    <button
-        type="button"
-        class="control-button"
-        id="menuBtn"
-        aria-label="Menu">
+    <aside class="side-menu">
 
-        <i class="fa-solid fa-chevron-down"></i>
+        <div class="menu-header">
 
-    </button>
+            <button
+                type="button"
+                class="close-menu"
+                id="closeMenu">
 
+                <i class="fa-solid fa-xmark"></i>
 
-    <button
-        type="button"
-        class="control-button"
-        id="topSearchBtn"
-        aria-label="Search">
+            </button>
 
-        <i class="fa-solid fa-magnifying-glass"></i>
+            <div class="menu-title">
+                Velki.Com
+            </div>
 
-    </button>
-
-</nav>
+        </div>
 
 
-<!-- =====================================================
-     MOBILE MENU
-===================================================== -->
-
-<div
-    class="menu-overlay"
-    id="menuOverlay">
-</div>
-
-
-<aside
-    class="mobile-menu"
-    id="mobileMenu">
-
-
-    <button
-        type="button"
-        class="close-menu"
-        id="closeMenu">
-
-        <i class="fa-solid fa-xmark"></i>
-
-    </button>
-
-
-    <div class="menu-title">
-        Velki.Com
-    </div>
-
-
-    <a href="#findAgent"
-       class="menu-link">
-
-        <span>
-            <i class="fa-solid fa-magnifying-glass"></i>
-            এজেন্ট কে খুঁজুন
-        </span>
-
-    </a>
-
-
-    <!-- AGENT MENU -->
-
-    <div class="menu-dropdown">
-
-        <button
-            type="button"
-            id="agentMenuBtn">
+        <a href="#findAgent" class="menu-link">
 
             <span>
-                <i class="fa-solid fa-users"></i>
-                সকল এজেন্ট লিস্ট
+                <i class="fa-solid fa-magnifying-glass"></i>
+                Find Agent
             </span>
 
-            <i
-                class="fa-solid fa-chevron-down"
-                id="agentMenuArrow">
-            </i>
-
-        </button>
+        </a>
 
 
-        <div
-            class="submenu"
-            id="agentSubmenu">
+        <div class="menu-dropdown">
+
+            <button
+                type="button"
+                id="agentMenuBtn">
+
+                <span>
+                    <i class="fa-solid fa-users"></i>
+                    সকল এজেন্ট লিস্ট
+                </span>
+
+                <i
+                    class="fa-solid fa-chevron-down"
+                    id="agentMenuArrow">
+                </i>
+
+            </button>
 
 
-            <a href="master.html">
+            <div
+                class="submenu"
+                id="agentSubmenu">
 
-                <i class="fa-solid fa-crown"></i>
+                <a href="master.html">
 
-                মাস্টার এজেন্ট লিস্ট
+                    <i class="fa-solid fa-crown"></i>
 
-            </a>
+                    মাস্টার এজেন্ট লিস্ট
 
+                </a>
 
-            <a href="super.html">
+                <a href="super.html">
 
-                <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
 
-                সুপার এজেন্ট লিস্ট
+                    সুপার এজেন্ট লিস্ট
 
-            </a>
+                </a>
 
+                <a href="subadmin.html">
 
-            <a href="subadmin.html">
+                    <i class="fa-solid fa-user-shield"></i>
 
-                <i class="fa-solid fa-user-shield"></i>
+                    সাব এডমিন লিস্ট
 
-                সাব এডমিন লিস্ট
+                </a>
 
-            </a>
+            </div>
 
         </div>
 
-    </div>
+
+        <a
+            href="customer-service.html"
+            class="menu-link">
+
+            <span>
+
+                <i class="fa-solid fa-headset"></i>
+
+                কাস্টমার সার্ভিস
+
+            </span>
+
+        </a>
 
 
-    <a href="customer-service.html"
-       class="menu-link">
+        <a href="#importantLinks" class="menu-link">
 
-        <span>
+            <span>
 
-            <i class="fa-solid fa-headset"></i>
+                <i class="fa-solid fa-link"></i>
 
-            কাস্টমার সার্ভিস
+                প্রয়োজনীয় লিংক
 
-        </span>
+            </span>
 
-    </a>
-
-
-    <a href="#importantLinks"
-       class="menu-link">
-
-        <span>
-
-            <i class="fa-solid fa-link"></i>
-
-            প্রয়োজনীয় লিংক
-
-        </span>
-
-    </a>
+        </a>
 
 
-    <a href="#about"
-       class="menu-link">
+        <a href="#about" class="menu-link">
 
-        <span>
+            <span>
 
-            <i class="fa-solid fa-circle-info"></i>
+                <i class="fa-solid fa-circle-info"></i>
 
-            ভেলকি কি?
+                ভেলকি কি?
 
-        </span>
+            </span>
 
-    </a>
-
-
-    <a href="#rules"
-       class="menu-link">
-
-        <span>
-
-            <i class="fa-solid fa-file-lines"></i>
-
-            নিয়ম কানুন
-
-        </span>
-
-    </a>
+        </a>
 
 
-    <a href="#brands"
-       class="menu-link">
+        <a href="#rules" class="menu-link">
 
-        <span>
+            <span>
 
-            <i class="fa-solid fa-building"></i>
+                <i class="fa-solid fa-file-lines"></i>
 
-            ব্র্যান্ডস
+                নিয়ম কানুন
 
-        </span>
+            </span>
 
-    </a>
-
-
-</aside>
+        </a>
 
 
-<!-- =====================================================
-     TOP SEARCH
-===================================================== -->
+        <a href="#brands" class="menu-link">
 
-<div
-    class="top-search-box"
-    id="topSearchBox">
+            <span>
 
+                <i class="fa-solid fa-building"></i>
 
-    <input
-        type="text"
-        id="topSearchInput"
-        placeholder="Agent ID লিখুন..."
-        autocomplete="off">
+                ব্র্যান্ডস
 
+            </span>
 
-    <button
-        type="button"
-        id="topSearchSubmit">
+        </a>
 
-        <i class="fa-solid fa-magnifying-glass"></i>
-
-    </button>
+    </aside>
 
 </div>
 
 
-<!-- =====================================================
-     FIND AGENT
-===================================================== -->
+<!-- ================= MAIN ================= -->
 
-<main>
+<main class="container">
 
 
-<section
-    class="find-section"
-    id="findAgent">
+    <section class="hero">
+
+        <h1>
+            Agent List
+        </h1>
+
+        <h2>
+            এজেন্ট এর আইডি নাম্বার দিয়ে
+            <br>
+            খুঁজুনঃ
+        </h2>
+
+    </section>
 
 
-    <h1>
-        Agent List
-    </h1>
+    <!-- ================= FIND AGENT ================= -->
+
+    <section
+        id="findAgent"
+        class="find-agent-section">
+
+        <div class="search-card">
+
+            <div class="find-title">
+                Find Agent
+            </div>
 
 
-    <h2>
+            <div class="form-group">
 
-        এজেন্ট এর আইডি নাম্বার দিয়ে
+                <label for="agentType">
+                    Agent Type:
+                </label>
 
-        <br>
+                <select id="agentType">
 
-        খুঁজুনঃ
+                    <option value="master">
+                        মাস্টার এজেন্ট
+                    </option>
 
-    </h2>
+                    <option
+                        value="super"
+                        selected>
+                        সুপার এজেন্ট
+                    </option>
 
+                    <option value="admin">
+                        সাব এডমিন
+                    </option>
 
-    <div class="search-card">
+                </select>
 
-
-        <!-- AGENT TYPE -->
-
-        <div class="form-group">
-
-            <label for="agentType">
-
-                Agent Type:
-
-            </label>
-
-
-            <select
-                id="agentType"
-                aria-label="Agent Type">
+            </div>
 
 
-                <option value="master">
+            <div class="form-group">
 
-                    মাস্টার এজেন্ট
+                <label for="agentId">
+                    Agent ID:
+                </label>
 
-                </option>
+                <input
+                    type="text"
+                    id="agentId"
+                    placeholder="Agent ID লিখুন"
+                    autocomplete="off"
+                    inputmode="numeric">
 
-
-                <option
-                    value="super"
-                    selected>
-
-                    সুপার এজেন্ট
-
-                </option>
-
-
-                <option value="admin">
-
-                    সাব এডমিন
-
-                </option>
+            </div>
 
 
-            </select>
+            <button
+                type="button"
+                class="submit-btn"
+                id="searchAgentBtn">
 
-        </div>
+                Submit
 
-
-        <!-- AGENT ID -->
-
-        <div class="form-group">
-
-            <label for="agentId">
-
-                Agent ID:
-
-            </label>
+            </button>
 
 
-            <input
-                type="text"
-                id="agentId"
-                placeholder="Agent ID লিখুন"
-                autocomplete="off"
-                inputmode="numeric">
+            <div
+                id="searchResult"
+                class="search-result">
+            </div>
 
         </div>
 
-
-        <!-- SUBMIT -->
-
-        <button
-            type="button"
-            class="submit-btn"
-            id="searchAgentBtn">
-
-            Submit
-
-        </button>
+    </section>
 
 
-        <!-- RESULT -->
+    <!-- ================= ALL AGENT ================= -->
 
-        <div
-            id="searchResult"
-            class="search-result">
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     DIVIDER
-===================================================== -->
-
-<div class="section-divider"></div>
-
-
-<!-- =====================================================
-     QUICK AGENT
-===================================================== -->
-
-<section
-    class="agent-list-section"
-    id="agentList">
-
-
-    <div class="agent-list-box">
-
+    <section class="agent-list-box">
 
         <div class="agent-list-title">
 
@@ -443,10 +1058,7 @@
         </div>
 
 
-        <!-- FILTER -->
-
         <div class="filter-box">
-
 
             <button
                 type="button"
@@ -457,7 +1069,6 @@
 
             </button>
 
-
             <button
                 type="button"
                 class="filter-btn"
@@ -466,7 +1077,6 @@
                 MASTER
 
             </button>
-
 
             <button
                 type="button"
@@ -477,7 +1087,6 @@
 
             </button>
 
-
             <button
                 type="button"
                 class="filter-btn"
@@ -487,295 +1096,214 @@
 
             </button>
 
-
         </div>
 
 
-        <!-- AGENT TABLE HEADER -->
+        <div class="agent-table-header">
 
-        <div
-            class="agent-table-header">
-
-
-            <div>
-                ID
-            </div>
-
-
-            <div>
-                TYPE
-            </div>
-
-
-            <div>
-                BRAND
-            </div>
-
-
-            <div>
-                PHONE
-            </div>
-
-
-            <div>
-                ACTION
-            </div>
-
+            <div>ID</div>
+            <div>TYPE</div>
+            <div>BRAND</div>
+            <div>PHONE</div>
+            <div>ACTION</div>
 
         </div>
 
-
-        <!-- AGENT DATA -->
 
         <div
             id="agentListContainer"
             class="agent-list-container">
 
-            <div class="loading-agent">
+        </div>
 
-                <i class="fa-solid fa-spinner fa-spin"></i>
+    </section>
 
-                এজেন্ট লোড হচ্ছে...
 
-            </div>
+    <!-- ================= NOTICE ================= -->
+
+    <section class="info-section">
+
+        <h2>
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            লেনদেনের আগে জানার বিষয়
+        </h2>
+
+        <p>
+
+            লেনদেন করার পূর্বে অবশ্যই এজেন্টের
+            তথ্য ভালোভাবে যাচাই করে নিন।
+
+            ভুল এজেন্টের সাথে লেনদেনের জন্য
+            কর্তৃপক্ষ দায়ী থাকবে না।
+
+        </p>
+
+    </section>
+
+
+    <!-- ================= CHAT ================= -->
+
+    <section class="info-section">
+
+        <h2>
+            CHAT WITH US ONLINE
+        </h2>
+
+        <p>
+            যেকোনো প্রয়োজনে আমাদের সাথে যোগাযোগ করুন।
+        </p>
+
+
+        <a
+            href="https://wa.me/60108919892"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="online-chat-button">
+
+            <i class="fa-brands fa-whatsapp"></i>
+
+            Chat With Us
+
+        </a>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section
+        class="info-section"
+        id="about">
+
+        <h2>
+
+            <i class="fa-solid fa-circle-info"></i>
+
+            ভেলকি কি?
+
+        </h2>
+
+        <p>
+
+            Velki.Com এর মাধ্যমে Master Agent,
+            Super Agent এবং Sub Admin-এর
+            তথ্য সহজে খুঁজে পাওয়া ও যাচাই করা যায়।
+
+        </p>
+
+    </section>
+
+
+    <!-- ================= LINKS ================= -->
+
+    <section
+        class="info-section"
+        id="importantLinks">
+
+        <h2>
+
+            <i class="fa-solid fa-link"></i>
+
+            প্রয়োজনীয় লিংক
+
+        </h2>
+
+
+        <a
+            href="home.html"
+            class="info-link">
+
+            <i class="fa-solid fa-house"></i>
+
+            Home
+
+        </a>
+
+
+        <a
+            href="customer-service.html"
+            class="info-link">
+
+            <i class="fa-solid fa-headset"></i>
+
+            Customer Service
+
+        </a>
+
+    </section>
+
+
+    <!-- ================= RULES ================= -->
+
+    <section
+        class="info-section"
+        id="rules">
+
+        <h2>
+
+            <i class="fa-solid fa-scale-balanced"></i>
+
+            নিয়ম কানুন
+
+        </h2>
+
+        <p>
+
+            Agent-এর সাথে যোগাযোগ বা লেনদেনের
+            আগে Agent ID এবং ফোন নম্বর যাচাই করুন।
+
+            কোনো সন্দেহজনক তথ্য পেলে Customer
+            Service-এর সাথে যোগাযোগ করুন।
+
+        </p>
+
+    </section>
+
+
+    <!-- ================= BRANDS ================= -->
+
+    <section
+        class="info-section"
+        id="brands">
+
+        <h2>
+
+            <i class="fa-solid fa-building"></i>
+
+            ব্র্যান্ডস
+
+        </h2>
+
+
+        <div class="brand-list">
+
+            <span>
+                VELKI ✓
+            </span>
+
+            <span>
+                9XBET ✓
+            </span>
+
+            <span>
+                BAAJIWALA ✓
+            </span>
 
         </div>
 
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     NOTICE
-===================================================== -->
-
-<section class="notice-section">
-
-
-    <h2>
-
-        <i class="fa-solid fa-triangle-exclamation"></i>
-
-        লেনদেনের আগে জানার বিষয়
-
-    </h2>
-
-
-    <p>
-
-        লেনদেন করার পূর্বে অবশ্যই এজেন্টের
-        তথ্য ভালোভাবে যাচাই করে নিন।
-
-        ভুল এজেন্টের সাথে লেনদেনের জন্য
-        কর্তৃপক্ষ দায়ী থাকবে না।
-
-    </p>
-
-
-</section>
-
-
-<!-- =====================================================
-     CUSTOMER SERVICE
-===================================================== -->
-
-<section
-    class="chat-online-section"
-    id="customerService">
-
-
-    <h2>
-        CHAT WITH US ONLINE
-    </h2>
-
-
-    <p>
-
-        যেকোনো প্রয়োজনে আমাদের সাথে যোগাযোগ করুন।
-
-    </p>
-
-
-    <a
-        href="https://wa.me/60108919892"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="online-chat-button">
-
-        <i class="fa-brands fa-whatsapp"></i>
-
-        Chat With Us
-
-    </a>
-
-
-</section>
-
-
-<!-- =====================================================
-     ABOUT
-===================================================== -->
-
-<section
-    class="info-section"
-    id="about">
-
-
-    <h2>
-
-        <i class="fa-solid fa-circle-info"></i>
-
-        ভেলকি কি?
-
-    </h2>
-
-
-    <p>
-
-        Velki.Com এর মাধ্যমে Master Agent,
-        Super Agent এবং Sub Admin-এর
-        তথ্য সহজে খুঁজে পাওয়া ও যাচাই করা যায়।
-
-    </p>
-
-
-</section>
-
-
-<!-- =====================================================
-     IMPORTANT LINKS
-===================================================== -->
-
-<section
-    class="info-section"
-    id="importantLinks">
-
-
-    <h2>
-
-        <i class="fa-solid fa-link"></i>
-
-        প্রয়োজনীয় লিংক
-
-    </h2>
-
-
-    <a
-        href="home.html"
-        class="info-link">
-
-        <i class="fa-solid fa-house"></i>
-
-        Home
-
-    </a>
-
-
-    <a
-        href="customer-service.html"
-        class="info-link">
-
-        <i class="fa-solid fa-headset"></i>
-
-        Customer Service
-
-    </a>
-
-
-</section>
-
-
-<!-- =====================================================
-     RULES
-===================================================== -->
-
-<section
-    class="info-section"
-    id="rules">
-
-
-    <h2>
-
-        <i class="fa-solid fa-scale-balanced"></i>
-
-        নিয়ম কানুন
-
-    </h2>
-
-
-    <p>
-
-        Agent-এর সাথে যোগাযোগ বা লেনদেনের
-        আগে Agent ID এবং ফোন নম্বর যাচাই করুন।
-
-        কোনো সন্দেহজনক তথ্য পেলে Customer
-        Service-এর সাথে যোগাযোগ করুন।
-
-    </p>
-
-
-</section>
-
-
-<!-- =====================================================
-     BRANDS
-===================================================== -->
-
-<section
-    class="info-section"
-    id="brands">
-
-
-    <h2>
-
-        <i class="fa-solid fa-building"></i>
-
-        ব্র্যান্ডস
-
-    </h2>
-
-
-    <div class="brand-list">
-
-
-        <span>
-            VELKI ✓
-        </span>
-
-
-        <span>
-            9XBET ✓
-        </span>
-
-
-        <span>
-            BAAJIWALA ✓
-        </span>
-
-
-    </div>
-
-
-</section>
-
+    </section>
 
 </main>
 
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
+<!-- ================= FOOTER ================= -->
 
-<footer>
-
+<footer class="footer">
 
     <img
         src="logo.png"
         alt="Velki.Com"
         class="footer-logo-image">
-
 
     <p>
         © 2026 Velki.Com
@@ -784,29 +1312,26 @@
 
     <div class="footer-links">
 
-
         <a href="master.html">
             Master
         </a>
-
 
         <a href="super.html">
             Super
         </a>
 
-
         <a href="subadmin.html">
             Sub Admin
         </a>
-
 
         <a href="customer-service.html">
             Customer Service
         </a>
 
-
     </div>
 
+
+    <!-- আলাদা Admin Panel -->
 
     <a
         href="admin.html"
@@ -816,176 +1341,185 @@
 
     </a>
 
-
 </footer>
 
 
-<!-- =====================================================
-     FLOATING CUSTOMER SERVICE
-===================================================== -->
+<!-- FLOATING WHATSAPP -->
 
 <a
     href="https://wa.me/60108919892"
     target="_blank"
     rel="noopener noreferrer"
-    class="chat-button"
-    aria-label="Customer Service">
-
+    class="floating-whatsapp">
 
     <i class="fa-brands fa-whatsapp"></i>
-
 
     <span class="online-dot">
         1
     </span>
 
-
 </a>
-
-
-<!-- =====================================================
-     SCRIPT
-===================================================== -->
-
-<script src="script.js"></script>
 
 
 <script>
 
 /* =====================================================
-   MENU
+   AGENT DATA
+   এখানে আপনার প্রকৃত Agent তথ্য বসাবেন
+===================================================== */
+
+const agents = [
+
+    {
+        id:"1001",
+        type:"master",
+        typeName:"MASTER",
+        brand:"VELKI",
+        phone:"60108919892"
+    },
+
+    {
+        id:"1002",
+        type:"master",
+        typeName:"MASTER",
+        brand:"9XBET",
+        phone:"60123456789"
+    },
+
+    {
+        id:"2001",
+        type:"super",
+        typeName:"SUPER",
+        brand:"VELKI",
+        phone:"60111111111"
+    },
+
+    {
+        id:"2002",
+        type:"super",
+        typeName:"SUPER",
+        brand:"BAAJIWALA",
+        phone:"60122222222"
+    },
+
+    {
+        id:"3001",
+        type:"admin",
+        typeName:"SUB ADMIN",
+        brand:"VELKI",
+        phone:"60133333333"
+    }
+
+];
+
+
+/* =====================================================
+   ELEMENTS
 ===================================================== */
 
 const menuBtn =
     document.getElementById("menuBtn");
 
-const closeMenu =
-    document.getElementById("closeMenu");
-
-const mobileMenu =
-    document.getElementById("mobileMenu");
-
 const menuOverlay =
     document.getElementById("menuOverlay");
 
+const closeMenu =
+    document.getElementById("closeMenu");
 
-function openMenu(){
+const agentMenuBtn =
+    document.getElementById("agentMenuBtn");
 
-    mobileMenu.classList.add("show");
+const agentSubmenu =
+    document.getElementById("agentSubmenu");
+
+const agentMenuArrow =
+    document.getElementById("agentMenuArrow");
+
+const topSearchBtn =
+    document.getElementById("topSearchBtn");
+
+const topSearch =
+    document.getElementById("topSearch");
+
+const topSearchInput =
+    document.getElementById("topSearchInput");
+
+const topSearchSubmit =
+    document.getElementById("topSearchSubmit");
+
+const agentId =
+    document.getElementById("agentId");
+
+const agentType =
+    document.getElementById("agentType");
+
+const searchAgentBtn =
+    document.getElementById("searchAgentBtn");
+
+const searchResult =
+    document.getElementById("searchResult");
+
+const agentListContainer =
+    document.getElementById("agentListContainer");
+
+
+/* =====================================================
+   MENU OPEN
+===================================================== */
+
+menuBtn.addEventListener("click",()=>{
 
     menuOverlay.classList.add("show");
 
-    document.body.classList.add("menu-open");
-
-}
+});
 
 
-function closeMobileMenu(){
+/* =====================================================
+   MENU CLOSE
+===================================================== */
 
-    mobileMenu.classList.remove("show");
+closeMenu.addEventListener("click",()=>{
 
     menuOverlay.classList.remove("show");
 
-    document.body.classList.remove("menu-open");
-
-}
+});
 
 
-if(menuBtn){
+menuOverlay.addEventListener("click",(e)=>{
 
-    menuBtn.addEventListener(
-        "click",
-        openMenu
-    );
+    if(e.target === menuOverlay){
 
-}
+        menuOverlay.classList.remove("show");
 
+    }
 
-if(closeMenu){
-
-    closeMenu.addEventListener(
-        "click",
-        closeMobileMenu
-    );
-
-}
-
-
-if(menuOverlay){
-
-    menuOverlay.addEventListener(
-        "click",
-        closeMobileMenu
-    );
-
-}
+});
 
 
 /* =====================================================
-   SUB MENU
+   AGENT SUBMENU
 ===================================================== */
 
-const agentMenuBtn =
-    document.getElementById(
-        "agentMenuBtn"
-    );
+agentMenuBtn.addEventListener("click",()=>{
 
-const agentSubmenu =
-    document.getElementById(
-        "agentSubmenu"
-    );
+    agentSubmenu.classList.toggle("show");
 
-const agentMenuArrow =
-    document.getElementById(
-        "agentMenuArrow"
-    );
+    agentMenuArrow.classList.toggle("rotate");
 
-
-if(agentMenuBtn){
-
-    agentMenuBtn.addEventListener(
-        "click",
-        function(){
-
-            agentSubmenu.classList.toggle(
-                "show"
-            );
-
-
-            if(
-                agentSubmenu.classList.contains(
-                    "show"
-                )
-            ){
-
-                agentMenuArrow.style.transform =
-                    "rotate(180deg)";
-
-            }else{
-
-                agentMenuArrow.style.transform =
-                    "rotate(0deg)";
-
-            }
-
-        }
-    );
-
-}
+});
 
 
 /* =====================================================
-   CLOSE MENU WHEN LINK CLICKED
+   MENU LINK AUTO CLOSE
 ===================================================== */
 
-document
-.querySelectorAll(".mobile-menu a")
-.forEach(function(link){
+document.querySelectorAll(".menu-link").forEach(link=>{
 
-    link.addEventListener(
-        "click",
-        closeMobileMenu
-    );
+    link.addEventListener("click",()=>{
+
+        menuOverlay.classList.remove("show");
+
+    });
 
 });
 
@@ -994,230 +1528,405 @@ document
    TOP SEARCH
 ===================================================== */
 
-const topSearchBtn =
-    document.getElementById(
-        "topSearchBtn"
-    );
+topSearchBtn.addEventListener("click",()=>{
 
-const topSearchBox =
-    document.getElementById(
-        "topSearchBox"
-    );
+    topSearch.classList.toggle("show");
 
-const topSearchInput =
-    document.getElementById(
-        "topSearchInput"
-    );
+    if(topSearch.classList.contains("show")){
+
+        topSearchInput.focus();
+
+    }
+
+});
 
 
-if(topSearchBtn){
+topSearchSubmit.addEventListener("click",()=>{
 
-    topSearchBtn.addEventListener(
-        "click",
-        function(){
+    const id =
+        topSearchInput.value.trim();
 
-            topSearchBox.classList.toggle(
-                "show"
-            );
+    if(!id){
+
+        alert("Agent ID লিখুন");
+
+        return;
+
+    }
+
+    document
+        .getElementById("agentId")
+        .value = id;
+
+    document
+        .getElementById("findAgent")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+
+    setTimeout(()=>{
+
+        searchAgent();
+
+    },400);
+
+});
 
 
-            if(
-                topSearchBox.classList.contains(
-                    "show"
-                )
-            ){
+topSearchInput.addEventListener("keydown",(e)=>{
 
-                setTimeout(
-                    function(){
+    if(e.key === "Enter"){
 
-                        topSearchInput.focus();
+        topSearchSubmit.click();
 
-                    },
-                    100
-                );
+    }
 
-            }
+});
 
-        }
-    );
+
+/* =====================================================
+   WHATSAPP NUMBER
+===================================================== */
+
+function whatsappUrl(phone){
+
+    let number =
+        String(phone)
+        .replace(/\D/g,"");
+
+    return "https://wa.me/" + number;
 
 }
 
 
 /* =====================================================
-   TOP SEARCH
+   RENDER AGENT LIST
 ===================================================== */
 
-const topSearchSubmit =
-    document.getElementById(
-        "topSearchSubmit"
-    );
+function renderAgents(filter="all"){
+
+    const filtered =
+        filter === "all"
+        ? agents
+        : agents.filter(
+            agent =>
+            agent.type === filter
+        );
 
 
-function performTopSearch(){
+    if(filtered.length === 0){
 
-    const value =
-        topSearchInput.value.trim();
+        agentListContainer.innerHTML = `
 
+            <div class="no-agent">
 
-    if(!value){
+                কোনো এজেন্ট পাওয়া যায়নি।
 
-        topSearchInput.focus();
+            </div>
+
+        `;
 
         return;
 
     }
 
 
-    const mainInput =
-        document.getElementById(
-            "agentId"
-        );
+    agentListContainer.innerHTML =
+        filtered.map(agent=>`
 
+            <div class="agent-row">
 
-    if(mainInput){
+                <div>
+                    <strong>${escapeHtml(agent.id)}</strong>
+                </div>
 
-        mainInput.value = value;
+                <div class="agent-type">
+                    ${escapeHtml(agent.typeName)}
+                </div>
 
-    }
+                <div>
+                    ${escapeHtml(agent.brand)}
+                </div>
 
+                <div>
 
-    const findSection =
-        document.getElementById(
-            "findAgent"
-        );
+                    <a
+                        href="${whatsappUrl(agent.phone)}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="phone-link">
 
+                        <i class="fa-brands fa-whatsapp"></i>
 
-    if(findSection){
+                        ${escapeHtml(agent.phone)}
 
-        findSection.scrollIntoView({
-            behavior:"smooth",
-            block:"start"
-        });
+                    </a>
 
-    }
+                </div>
 
+                <div>
 
-    setTimeout(
-        function(){
+                    <a
+                        href="${whatsappUrl(agent.phone)}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="action-btn">
 
-            const searchButton =
-                document.getElementById(
-                    "searchAgentBtn"
-                );
+                        <i class="fa-brands fa-whatsapp"></i>
 
+                        WhatsApp
 
-            if(searchButton){
+                    </a>
 
-                searchButton.click();
+                </div>
 
-            }
+            </div>
 
-        },
-        500
-    );
-
-}
-
-
-if(topSearchSubmit){
-
-    topSearchSubmit.addEventListener(
-        "click",
-        performTopSearch
-    );
-
-}
-
-
-if(topSearchInput){
-
-    topSearchInput.addEventListener(
-        "keydown",
-        function(event){
-
-            if(event.key === "Enter"){
-
-                performTopSearch();
-
-            }
-
-        }
-    );
+        `).join("");
 
 }
 
 
 /* =====================================================
-   FILTER TITLE
+   SEARCH AGENT
 ===================================================== */
 
-document
-.querySelectorAll(".filter-btn")
-.forEach(function(button){
+function searchAgent(){
 
-    button.addEventListener(
-        "click",
-        function(){
+    const id =
+        agentId.value
+        .trim()
+        .toLowerCase();
 
-            document
-            .querySelectorAll(".filter-btn")
-            .forEach(function(btn){
-
-                btn.classList.remove(
-                    "active"
-                );
-
-            });
+    const type =
+        agentType.value;
 
 
-            this.classList.add("active");
+    if(!id){
+
+        searchResult.innerHTML = `
+
+            <div class="result-card not-found">
+
+                <i class="fa-solid fa-circle-exclamation"></i>
+
+                Agent ID লিখুন।
+
+            </div>
+
+        `;
+
+        return;
+
+    }
 
 
-            const filter =
-                this.dataset.filter;
+    const agent =
+        agents.find(item =>
+
+            String(item.id).toLowerCase() === id &&
+            item.type === type
+
+        );
 
 
-            const title =
-                document.getElementById(
-                    "agentListTitle"
-                );
+    if(!agent){
+
+        searchResult.innerHTML = `
+
+            <div class="result-card not-found">
+
+                <i class="fa-solid fa-circle-xmark"></i>
+
+                এই Agent ID পাওয়া যায়নি।
+
+            </div>
+
+        `;
+
+        return;
+
+    }
 
 
-            if(filter === "master"){
+    searchResult.innerHTML = `
 
-                title.textContent =
-                    "ALL MASTER AGENT LIST";
+        <div class="result-card">
 
-            }
-            else if(filter === "super"){
+            <div class="result-row">
 
-                title.textContent =
-                    "ALL SUPER AGENT LIST";
+                <span class="result-label">
+                    Agent ID
+                </span>
 
-            }
-            else if(filter === "admin"){
+                <span>
+                    ${escapeHtml(agent.id)}
+                </span>
 
-                title.textContent =
-                    "ALL SUB ADMIN LIST";
+            </div>
 
-            }
-            else{
 
-                title.textContent =
-                    "ALL AGENT LIST";
+            <div class="result-row">
 
-            }
+                <span class="result-label">
+                    Type
+                </span>
+
+                <span>
+                    ${escapeHtml(agent.typeName)}
+                </span>
+
+            </div>
+
+
+            <div class="result-row">
+
+                <span class="result-label">
+                    Brand
+                </span>
+
+                <span>
+                    ${escapeHtml(agent.brand)}
+                </span>
+
+            </div>
+
+
+            <div class="result-row">
+
+                <span class="result-label">
+                    Phone
+                </span>
+
+                <span>
+                    ${escapeHtml(agent.phone)}
+                </span>
+
+            </div>
+
+
+            <a
+                href="${whatsappUrl(agent.phone)}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="whatsapp-btn">
+
+                <i class="fa-brands fa-whatsapp"></i>
+
+                WhatsApp এ যোগাযোগ করুন
+
+            </a>
+
+        </div>
+
+    `;
+
+}
+
+
+searchAgentBtn.addEventListener(
+    "click",
+    searchAgent
+);
+
+
+agentId.addEventListener(
+    "keydown",
+    (e)=>{
+
+        if(e.key === "Enter"){
+
+            searchAgent();
 
         }
-    );
+
+    }
+);
+
+
+/* =====================================================
+   FILTER
+===================================================== */
+
+document.querySelectorAll(".filter-btn")
+.forEach(button=>{
+
+    button.addEventListener("click",()=>{
+
+        document
+            .querySelectorAll(".filter-btn")
+            .forEach(btn =>
+                btn.classList.remove("active")
+            );
+
+        button.classList.add("active");
+
+        const filter =
+            button.dataset.filter;
+
+        renderAgents(filter);
+
+        const title =
+            document.getElementById(
+                "agentListTitle"
+            );
+
+        if(filter === "all"){
+
+            title.textContent =
+                "ALL AGENT LIST";
+
+        }
+
+        if(filter === "master"){
+
+            title.textContent =
+                "MASTER AGENT LIST";
+
+        }
+
+        if(filter === "super"){
+
+            title.textContent =
+                "SUPER AGENT LIST";
+
+        }
+
+        if(filter === "admin"){
+
+            title.textContent =
+                "SUB ADMIN LIST";
+
+        }
+
+    });
 
 });
 
 
+/* =====================================================
+   SECURITY: HTML ESCAPE
+===================================================== */
+
+function escapeHtml(value){
+
+    return String(value)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+/* =====================================================
+   INITIAL LOAD
+===================================================== */
+
+renderAgents("all");
+
 </script>
 
-
 </body>
-
 </html>
