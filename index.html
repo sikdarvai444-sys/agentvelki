@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="bn">
+
 <head>
+
 <meta charset="UTF-8">
 
 <meta name="viewport"
@@ -12,7 +14,10 @@
 <title>Velki.Com - Agent List</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap"
       rel="stylesheet">
@@ -20,12 +25,17 @@
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
+
 <style>
 
+/* =====================================================
+   RESET
+===================================================== */
+
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
 }
 
 html{
@@ -34,7 +44,7 @@ html{
 
 body{
     font-family:"Noto Sans Bengali",Arial,sans-serif;
-    background:#f3f5f7;
+    background:#f4f6f8;
     color:#202124;
 }
 
@@ -49,25 +59,27 @@ a{
     color:inherit;
 }
 
-/* ================= HEADER ================= */
+
+/* =====================================================
+   HEADER
+===================================================== */
 
 .header{
-    background:#fff;
     position:sticky;
     top:0;
     z-index:1000;
+    background:#ffffff;
     box-shadow:0 2px 12px rgba(0,0,0,.10);
 }
 
 .header-inner{
     max-width:1100px;
-    margin:auto;
     min-height:72px;
-    padding:8px 16px;
+    margin:auto;
+    padding:7px 15px;
 
     display:flex;
     align-items:center;
-    justify-content:space-between;
     gap:12px;
 }
 
@@ -91,6 +103,7 @@ a{
 
 .header-controls{
     display:flex;
+    align-items:center;
     gap:8px;
 }
 
@@ -100,21 +113,25 @@ a{
     border:0;
     border-radius:10px;
     background:#f1f3f4;
+    color:#222;
     cursor:pointer;
-    font-size:18px;
+    font-size:17px;
 }
 
 .control-button:hover{
     background:#e5e7e9;
 }
 
-/* ================= TOP SEARCH ================= */
+
+/* =====================================================
+   TOP SEARCH
+===================================================== */
 
 .top-search{
     display:none;
     max-width:1100px;
     margin:auto;
-    padding:10px 16px 14px;
+    padding:8px 15px 14px;
 }
 
 .top-search.show{
@@ -123,18 +140,19 @@ a{
 
 .top-search input{
     flex:1;
-    height:45px;
+    height:46px;
     border:1px solid #ddd;
     border-right:0;
     border-radius:10px 0 0 10px;
     padding:0 14px;
-    outline:none;
     font-size:15px;
+    outline:none;
     background:#fff;
 }
 
 .top-search button{
-    width:50px;
+    width:52px;
+    height:46px;
     border:0;
     border-radius:0 10px 10px 0;
     background:#111;
@@ -142,13 +160,16 @@ a{
     cursor:pointer;
 }
 
-/* ================= SIDE MENU ================= */
+
+/* =====================================================
+   SIDE MENU
+===================================================== */
 
 .menu-overlay{
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,.45);
     z-index:2000;
+    background:rgba(0,0,0,.45);
     display:none;
 }
 
@@ -160,53 +181,68 @@ a{
     position:absolute;
     top:0;
     right:0;
-    width:min(350px,88%);
+
+    width:min(360px,88%);
     height:100%;
-    background:#fff;
+
     overflow-y:auto;
+
+    background:#fff;
+
+    box-shadow:-6px 0 25px rgba(0,0,0,.20);
+
     padding-bottom:30px;
-    box-shadow:-5px 0 25px rgba(0,0,0,.2);
 }
 
 .menu-header{
-    min-height:70px;
+    min-height:72px;
+    padding:10px 15px;
+
     display:flex;
     align-items:center;
     gap:12px;
-    padding:10px 16px;
+
     border-bottom:1px solid #eee;
 }
 
 .close-menu{
     width:42px;
     height:42px;
+
     border:0;
     border-radius:10px;
+
     background:#f1f1f1;
+
     cursor:pointer;
-    font-size:20px;
+    font-size:19px;
 }
 
 .menu-title{
-    font-weight:800;
     font-size:20px;
+    font-weight:800;
 }
 
 .menu-link,
 #agentMenuBtn{
+
     width:100%;
-    min-height:52px;
-    border:0;
-    background:#fff;
-    border-bottom:1px solid #eee;
+    min-height:53px;
+
     padding:0 18px;
+
+    border:0;
+    border-bottom:1px solid #eee;
+
+    background:#fff;
 
     display:flex;
     align-items:center;
     justify-content:space-between;
 
-    font-size:15px;
     cursor:pointer;
+
+    font-size:15px;
     text-align:left;
 }
 
@@ -218,7 +254,7 @@ a{
 }
 
 .menu-link i,
-#agentMenuBtn i{
+#agentMenuBtn span i{
     width:22px;
 }
 
@@ -226,6 +262,11 @@ a{
 #agentMenuBtn:hover{
     background:#f7f7f7;
 }
+
+
+/* =====================================================
+   AGENT SUB MENU
+===================================================== */
 
 .menu-dropdown{
     border-bottom:1px solid #eee;
@@ -241,17 +282,21 @@ a{
 }
 
 .submenu a{
-    min-height:48px;
+    min-height:50px;
+
+    padding:0 27px;
+
     display:flex;
     align-items:center;
     gap:12px;
-    padding:0 25px;
-    font-size:14px;
+
     border-top:1px solid #e9e9e9;
+
+    font-size:14px;
 }
 
 .submenu a:hover{
-    background:#ededed;
+    background:#ececec;
 }
 
 #agentMenuArrow{
@@ -262,7 +307,10 @@ a{
     transform:rotate(180deg);
 }
 
-/* ================= MAIN ================= */
+
+/* =====================================================
+   MAIN
+===================================================== */
 
 .container{
     max-width:1100px;
@@ -270,15 +318,20 @@ a{
     padding:25px 14px 90px;
 }
 
+
+/* =====================================================
+   HERO
+===================================================== */
+
 .hero{
     text-align:center;
-    padding:20px 10px 15px;
+    padding:12px 10px 18px;
 }
 
 .hero h1{
     font-size:34px;
     font-weight:800;
-    margin-bottom:8px;
+    margin-bottom:7px;
 }
 
 .hero h2{
@@ -287,22 +340,29 @@ a{
     line-height:1.7;
 }
 
-/* ================= FIND AGENT ================= */
 
-.find-agent-section{
+/* =====================================================
+   FIND AGENT
+===================================================== */
+
+#findAgent{
     scroll-margin-top:90px;
 }
 
 .search-card{
     max-width:650px;
-    margin:20px auto 30px;
-    background:#fff;
-    border-radius:16px;
+    margin:15px auto 30px;
+
     padding:22px;
+
+    background:#fff;
+
+    border-radius:16px;
+
     box-shadow:0 4px 20px rgba(0,0,0,.08);
 }
 
-.find-title{
+.find-agent-title{
     text-align:center;
     font-size:24px;
     font-weight:800;
@@ -315,20 +375,28 @@ a{
 
 .form-group label{
     display:block;
+
+    margin-bottom:7px;
+
     font-size:14px;
     font-weight:700;
-    margin-bottom:7px;
 }
 
 .form-group input,
 .form-group select{
+
     width:100%;
     height:48px;
+
+    padding:0 13px;
+
     border:1px solid #d7d7d7;
     border-radius:9px;
-    padding:0 13px;
+
     outline:none;
+
     background:#fff;
+
     font-size:15px;
 }
 
@@ -340,42 +408,51 @@ a{
 .submit-btn{
     width:100%;
     height:48px;
+
     border:0;
     border-radius:9px;
+
     background:#111;
     color:#fff;
+
     font-size:16px;
     font-weight:700;
+
     cursor:pointer;
 }
 
 .submit-btn:hover{
-    opacity:.9;
+    opacity:.90;
 }
 
-/* SEARCH RESULT */
+
+/* =====================================================
+   SEARCH RESULT
+===================================================== */
 
 .search-result{
     margin-top:16px;
 }
 
 .result-card{
-    border:1px solid #e3e3e3;
-    border-radius:12px;
-    padding:15px;
     background:#fafafa;
-}
 
-.result-card.not-found{
-    text-align:center;
-    color:#b00020;
+    border:1px solid #e3e3e3;
+
+    border-radius:12px;
+
+    padding:15px;
 }
 
 .result-row{
     display:flex;
+    align-items:center;
     justify-content:space-between;
+
     gap:15px;
-    padding:7px 0;
+
+    padding:8px 0;
+
     border-bottom:1px solid #eee;
 }
 
@@ -387,70 +464,140 @@ a{
     font-weight:700;
 }
 
-.whatsapp-btn{
+.result-whatsapp{
+
     margin-top:12px;
+
     width:100%;
-    height:44px;
-    border:0;
+    height:45px;
+
     border-radius:8px;
-    background:#25D366;
-    color:#fff;
+
     display:flex;
     align-items:center;
     justify-content:center;
     gap:8px;
+
+    background:#25D366;
+    color:#fff;
+
     font-weight:700;
 }
 
-/* ================= AGENT LIST ================= */
+.result-not-found{
+    padding:15px;
+
+    text-align:center;
+
+    color:#c62828;
+
+    background:#fff5f5;
+
+    border:1px solid #ffd5d5;
+
+    border-radius:10px;
+}
+
+
+/* =====================================================
+   AGENT LIST
+===================================================== */
 
 .agent-list-box{
+
     background:#fff;
+
     border-radius:16px;
+
     overflow:hidden;
+
     box-shadow:0 4px 20px rgba(0,0,0,.07);
 }
 
 .agent-list-title{
+
     padding:18px;
+
     text-align:center;
+
     font-size:22px;
+
     font-weight:800;
+
     background:#fafafa;
 }
 
+
+/* =====================================================
+   FILTER
+===================================================== */
+
 .filter-box{
+
     padding:14px;
+
     display:flex;
+
     gap:8px;
+
     overflow-x:auto;
+
     border-bottom:1px solid #eee;
 }
 
 .filter-btn{
+
     white-space:nowrap;
-    border:1px solid #ddd;
-    background:#fff;
+
     padding:9px 15px;
+
+    border:1px solid #ddd;
+
     border-radius:8px;
+
+    background:#fff;
+
     cursor:pointer;
+
+    font-size:13px;
+
     font-weight:700;
 }
 
 .filter-btn.active{
+
     background:#111;
+
     color:#fff;
+
     border-color:#111;
 }
 
+
+/* =====================================================
+   TABLE
+===================================================== */
+
 .agent-table-header{
+
     display:grid;
-    grid-template-columns:1fr 1fr 1fr 1.5fr 1fr;
-    background:#f1f3f5;
-    font-weight:800;
+
+    grid-template-columns:
+        1fr
+        1fr
+        1fr
+        1.6fr
+        1fr;
+
     padding:13px 10px;
+
+    background:#f1f3f5;
+
     text-align:center;
+
     font-size:13px;
+
+    font-weight:800;
 }
 
 .agent-list-container{
@@ -458,12 +605,24 @@ a{
 }
 
 .agent-row{
+
     display:grid;
-    grid-template-columns:1fr 1fr 1fr 1.5fr 1fr;
+
+    grid-template-columns:
+        1fr
+        1fr
+        1fr
+        1.6fr
+        1fr;
+
     align-items:center;
+
     padding:12px 10px;
+
     border-top:1px solid #eee;
+
     text-align:center;
+
     font-size:13px;
 }
 
@@ -476,11 +635,17 @@ a{
 }
 
 .phone-link{
+
     display:inline-flex;
+
     align-items:center;
+
     justify-content:center;
+
     gap:5px;
+
     color:#159447;
+
     font-weight:700;
 }
 
@@ -489,163 +654,259 @@ a{
 }
 
 .action-btn{
+
     display:inline-flex;
+
     align-items:center;
+
     justify-content:center;
+
     gap:5px;
-    padding:7px 9px;
+
+    padding:7px 10px;
+
     border-radius:7px;
+
     background:#25D366;
+
     color:#fff;
+
     font-size:12px;
+
     font-weight:700;
 }
 
 .loading-agent{
+
     padding:30px;
+
     text-align:center;
+
     color:#777;
 }
 
 .no-agent{
+
     padding:30px;
+
     text-align:center;
+
     color:#777;
 }
 
-/* ================= INFO ================= */
+
+/* =====================================================
+   INFO SECTIONS
+===================================================== */
 
 .info-section{
-    background:#fff;
-    border-radius:16px;
+
     margin-top:22px;
+
     padding:22px;
+
+    background:#fff;
+
+    border-radius:16px;
+
     box-shadow:0 3px 16px rgba(0,0,0,.06);
 }
 
 .info-section h2{
-    font-size:21px;
+
     margin-bottom:10px;
+
+    font-size:21px;
 }
 
 .info-section p{
-    line-height:1.9;
+
     color:#555;
+
+    line-height:1.9;
 }
 
 .online-chat-button{
+
     margin-top:15px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:9px;
+
     height:48px;
+
     border-radius:9px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:9px;
+
     background:#25D366;
+
     color:#fff;
+
     font-weight:800;
 }
 
 .info-link{
+
     display:flex;
+
     align-items:center;
+
     gap:10px;
-    padding:12px;
+
     margin-top:8px;
+
+    padding:12px;
+
     border-radius:8px;
+
     background:#f5f5f5;
 }
 
 .brand-list{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
+
     margin-top:15px;
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
 }
 
 .brand-list span{
-    background:#f1f1f1;
-    border-radius:20px;
+
     padding:8px 14px;
+
+    border-radius:20px;
+
+    background:#f1f1f1;
+
     font-weight:700;
 }
 
-/* ================= FOOTER ================= */
+
+/* =====================================================
+   FOOTER
+===================================================== */
 
 .footer{
-    background:#111;
-    color:#fff;
-    text-align:center;
+
     padding:28px 15px;
+
+    background:#111;
+
+    color:#fff;
+
+    text-align:center;
 }
 
 .footer-logo-image{
+
     width:65px;
     height:65px;
+
     object-fit:contain;
+
     margin-bottom:10px;
 }
 
 .footer-links{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:15px;
+
     margin-top:15px;
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:15px;
 }
 
 .footer-links a{
+
     color:#ddd;
+
     font-size:13px;
 }
 
-.footer-links a:hover{
-    color:#fff;
-}
-
 .admin-link{
+
     display:inline-block;
+
     margin-top:18px;
-    color:#999;
+
+    color:#888;
+
     font-size:12px;
 }
 
-/* ================= FLOATING CHAT ================= */
+
+/* =====================================================
+   FLOATING WHATSAPP
+===================================================== */
 
 .floating-whatsapp{
+
     position:fixed;
+
     right:18px;
     bottom:18px;
+
     width:58px;
     height:58px;
+
     border-radius:50%;
-    background:#25D366;
-    color:#fff;
+
     display:flex;
+
     align-items:center;
     justify-content:center;
+
+    background:#25D366;
+    color:#fff;
+
     font-size:29px;
-    box-shadow:0 5px 20px rgba(0,0,0,.2);
+
+    box-shadow:0 5px 20px rgba(0,0,0,.20);
+
     z-index:900;
 }
 
 .online-dot{
+
     position:absolute;
-    right:-1px;
+
     top:-2px;
+    right:-1px;
+
     width:20px;
     height:20px;
-    background:#ff3b30;
-    color:#fff;
-    border-radius:50%;
-    font-size:11px;
+
     display:flex;
+
     align-items:center;
     justify-content:center;
+
+    border-radius:50%;
+
+    background:#ff3b30;
+
+    color:#fff;
+
+    font-size:11px;
+
     border:2px solid #fff;
 }
 
-/* ================= MOBILE ================= */
+
+/* =====================================================
+   MOBILE
+===================================================== */
 
 @media(max-width:700px){
 
@@ -663,11 +924,15 @@ a{
     }
 
     .hero h1{
-        font-size:28px;
+        font-size:29px;
     }
 
     .hero h2{
         font-size:16px;
+    }
+
+    .search-card{
+        padding:17px;
     }
 
     .agent-table-header{
@@ -675,23 +940,34 @@ a{
     }
 
     .agent-row{
+
         display:block;
+
         padding:16px;
+
         text-align:left;
-        position:relative;
     }
 
     .agent-row > div{
+
+        min-height:28px;
+
         display:flex;
-        justify-content:space-between;
+
         align-items:center;
+
+        justify-content:space-between;
+
         gap:10px;
-        padding:5px 0;
+
+        padding:4px 0;
     }
 
     .agent-row > div::before{
-        font-weight:800;
+
         color:#777;
+
+        font-weight:800;
     }
 
     .agent-row > div:nth-child(1)::before{
@@ -714,38 +990,71 @@ a{
         content:"ACTION";
     }
 
-    .search-card{
-        padding:17px;
-    }
-
     .info-section{
         padding:18px;
     }
+
+}
+
+
+/* =====================================================
+   VERY SMALL SCREEN
+===================================================== */
+
+@media(max-width:380px){
+
+    .site-name{
+        font-size:18px;
+    }
+
+    .control-button{
+        width:39px;
+        height:39px;
+    }
+
+    .filter-btn{
+        padding:8px 11px;
+    }
+
 }
 
 </style>
+
 </head>
+
 
 <body>
 
-<!-- ================= HEADER ================= -->
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <header class="header">
 
     <div class="header-inner">
 
-        <a href="index.html" class="logo-link">
+
+        <a href="index.html"
+           class="logo-link">
+
             <img
                 src="logo.png"
                 alt="Velki.Com"
                 class="main-logo">
+
         </a>
 
+
         <div class="site-name">
+
             Velki.Com
+
         </div>
 
+
         <div class="header-controls">
+
 
             <button
                 type="button"
@@ -757,6 +1066,7 @@ a{
 
             </button>
 
+
             <button
                 type="button"
                 class="control-button"
@@ -767,17 +1077,25 @@ a{
 
             </button>
 
+
         </div>
 
     </div>
 
-    <div class="top-search" id="topSearch">
+
+    <!-- TOP SEARCH -->
+
+    <div
+        class="top-search"
+        id="topSearch">
+
 
         <input
             type="text"
             id="topSearchInput"
             placeholder="Agent ID লিখুন..."
             autocomplete="off">
+
 
         <button
             type="button"
@@ -787,18 +1105,27 @@ a{
 
         </button>
 
+
     </div>
 
 </header>
 
 
-<!-- ================= MENU ================= -->
 
-<div class="menu-overlay" id="menuOverlay">
+<!-- =====================================================
+     SIDE MENU
+===================================================== -->
+
+<div
+    class="menu-overlay"
+    id="menuOverlay">
+
 
     <aside class="side-menu">
 
+
         <div class="menu-header">
+
 
             <button
                 type="button"
@@ -809,45 +1136,71 @@ a{
 
             </button>
 
+
             <div class="menu-title">
+
                 Velki.Com
+
             </div>
+
 
         </div>
 
 
-        <a href="#findAgent" class="menu-link">
+
+        <!-- FIND AGENT -->
+
+        <a
+            href="#findAgent"
+            class="menu-link">
 
             <span>
+
                 <i class="fa-solid fa-magnifying-glass"></i>
+
                 Find Agent
+
             </span>
 
         </a>
 
 
+
+        <!-- AGENT MENU -->
+
         <div class="menu-dropdown">
+
 
             <button
                 type="button"
                 id="agentMenuBtn">
 
+
                 <span>
+
                     <i class="fa-solid fa-users"></i>
+
                     সকল এজেন্ট লিস্ট
+
                 </span>
+
 
                 <i
                     class="fa-solid fa-chevron-down"
                     id="agentMenuArrow">
                 </i>
 
+
             </button>
 
+
+
+            <!-- SUB MENU -->
 
             <div
                 class="submenu"
                 id="agentSubmenu">
+
 
                 <a href="master.html">
 
@@ -857,6 +1210,7 @@ a{
 
                 </a>
 
+
                 <a href="super.html">
 
                     <i class="fa-solid fa-star"></i>
@@ -864,6 +1218,7 @@ a{
                     সুপার এজেন্ট লিস্ট
 
                 </a>
+
 
                 <a href="subadmin.html">
 
@@ -873,9 +1228,11 @@ a{
 
                 </a>
 
+
             </div>
 
         </div>
+
 
 
         <a
@@ -893,7 +1250,10 @@ a{
         </a>
 
 
-        <a href="#importantLinks" class="menu-link">
+
+        <a
+            href="#importantLinks"
+            class="menu-link">
 
             <span>
 
@@ -906,7 +1266,10 @@ a{
         </a>
 
 
-        <a href="#about" class="menu-link">
+
+        <a
+            href="#about"
+            class="menu-link">
 
             <span>
 
@@ -919,7 +1282,10 @@ a{
         </a>
 
 
-        <a href="#rules" class="menu-link">
+
+        <a
+            href="#rules"
+            class="menu-link">
 
             <span>
 
@@ -932,7 +1298,10 @@ a{
         </a>
 
 
-        <a href="#brands" class="menu-link">
+
+        <a
+            href="#brands"
+            class="menu-link">
 
             <span>
 
@@ -944,15 +1313,21 @@ a{
 
         </a>
 
+
     </aside>
 
 </div>
 
 
-<!-- ================= MAIN ================= -->
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
 
 <main class="container">
 
+
+    <!-- HERO -->
 
     <section class="hero">
 
@@ -960,60 +1335,97 @@ a{
             Agent List
         </h1>
 
+
         <h2>
+
             এজেন্ট এর আইডি নাম্বার দিয়ে
+
             <br>
+
             খুঁজুনঃ
+
         </h2>
 
     </section>
 
 
-    <!-- ================= FIND AGENT ================= -->
+
+    <!-- =================================================
+         FIND AGENT
+    ================================================== -->
 
     <section
-        id="findAgent"
-        class="find-agent-section">
+        id="findAgent">
+
 
         <div class="search-card">
 
-            <div class="find-title">
+
+            <div class="find-agent-title">
+
                 Find Agent
+
             </div>
 
 
+            <!-- AGENT TYPE -->
+
             <div class="form-group">
 
+
                 <label for="agentType">
+
                     Agent Type:
+
                 </label>
 
-                <select id="agentType">
+
+                <select
+                    id="agentType"
+                    aria-label="Agent Type">
+
 
                     <option value="master">
+
                         মাস্টার এজেন্ট
+
                     </option>
+
 
                     <option
                         value="super"
                         selected>
+
                         সুপার এজেন্ট
+
                     </option>
+
 
                     <option value="admin">
+
                         সাব এডমিন
+
                     </option>
 
+
                 </select>
+
 
             </div>
 
 
+
+            <!-- AGENT ID -->
+
             <div class="form-group">
 
+
                 <label for="agentId">
+
                     Agent ID:
+
                 </label>
+
 
                 <input
                     type="text"
@@ -1022,8 +1434,12 @@ a{
                     autocomplete="off"
                     inputmode="numeric">
 
+
             </div>
 
+
+
+            <!-- SUBMIT -->
 
             <button
                 type="button"
@@ -1035,30 +1451,45 @@ a{
             </button>
 
 
+            <!-- RESULT -->
+
             <div
                 id="searchResult"
                 class="search-result">
+
             </div>
 
+
         </div>
+
 
     </section>
 
 
-    <!-- ================= ALL AGENT ================= -->
 
-    <section class="agent-list-box">
+    <!-- =================================================
+         ALL AGENT LIST
+    ================================================== -->
+
+    <div class="agent-list-box">
+
 
         <div class="agent-list-title">
 
             <span id="agentListTitle">
+
                 ALL AGENT LIST
+
             </span>
 
         </div>
 
 
+
+        <!-- FILTER -->
+
         <div class="filter-box">
+
 
             <button
                 type="button"
@@ -1069,6 +1500,7 @@ a{
 
             </button>
 
+
             <button
                 type="button"
                 class="filter-btn"
@@ -1077,6 +1509,7 @@ a{
                 MASTER
 
             </button>
+
 
             <button
                 type="button"
@@ -1087,6 +1520,7 @@ a{
 
             </button>
 
+
             <button
                 type="button"
                 class="filter-btn"
@@ -1096,37 +1530,83 @@ a{
 
             </button>
 
+
         </div>
 
+
+
+        <!-- TABLE HEADER -->
 
         <div class="agent-table-header">
 
-            <div>ID</div>
-            <div>TYPE</div>
-            <div>BRAND</div>
-            <div>PHONE</div>
-            <div>ACTION</div>
+
+            <div>
+                ID
+            </div>
+
+
+            <div>
+                TYPE
+            </div>
+
+
+            <div>
+                BRAND
+            </div>
+
+
+            <div>
+                PHONE
+            </div>
+
+
+            <div>
+                ACTION
+            </div>
+
 
         </div>
 
+
+
+        <!-- AGENT DATA -->
 
         <div
             id="agentListContainer"
             class="agent-list-container">
 
+
+            <div class="loading-agent">
+
+                <i class="fa-solid fa-spinner fa-spin"></i>
+
+                এজেন্ট লোড হচ্ছে...
+
+            </div>
+
+
         </div>
 
-    </section>
+
+    </div>
 
 
-    <!-- ================= NOTICE ================= -->
+
+    <!-- =================================================
+         NOTICE
+    ================================================== -->
 
     <section class="info-section">
 
+
         <h2>
+
             <i class="fa-solid fa-triangle-exclamation"></i>
+
             লেনদেনের আগে জানার বিষয়
+
         </h2>
+
 
         <p>
 
@@ -1138,19 +1618,29 @@ a{
 
         </p>
 
+
     </section>
 
 
-    <!-- ================= CHAT ================= -->
+
+    <!-- =================================================
+         CHAT
+    ================================================== -->
 
     <section class="info-section">
 
+
         <h2>
+
             CHAT WITH US ONLINE
+
         </h2>
 
+
         <p>
+
             যেকোনো প্রয়োজনে আমাদের সাথে যোগাযোগ করুন।
+
         </p>
 
 
@@ -1160,20 +1650,27 @@ a{
             rel="noopener noreferrer"
             class="online-chat-button">
 
+
             <i class="fa-brands fa-whatsapp"></i>
 
             Chat With Us
 
+
         </a>
+
 
     </section>
 
 
-    <!-- ================= ABOUT ================= -->
+
+    <!-- =================================================
+         ABOUT
+    ================================================== -->
 
     <section
         class="info-section"
         id="about">
+
 
         <h2>
 
@@ -1183,6 +1680,7 @@ a{
 
         </h2>
 
+
         <p>
 
             Velki.Com এর মাধ্যমে Master Agent,
@@ -1191,14 +1689,19 @@ a{
 
         </p>
 
+
     </section>
 
 
-    <!-- ================= LINKS ================= -->
+
+    <!-- =================================================
+         LINKS
+    ================================================== -->
 
     <section
         class="info-section"
         id="importantLinks">
+
 
         <h2>
 
@@ -1230,14 +1733,19 @@ a{
 
         </a>
 
+
     </section>
 
 
-    <!-- ================= RULES ================= -->
+
+    <!-- =================================================
+         RULES
+    ================================================== -->
 
     <section
         class="info-section"
         id="rules">
+
 
         <h2>
 
@@ -1246,6 +1754,7 @@ a{
             নিয়ম কানুন
 
         </h2>
+
 
         <p>
 
@@ -1257,14 +1766,19 @@ a{
 
         </p>
 
+
     </section>
 
 
-    <!-- ================= BRANDS ================= -->
+
+    <!-- =================================================
+         BRANDS
+    ================================================== -->
 
     <section
         class="info-section"
         id="brands">
+
 
         <h2>
 
@@ -1277,33 +1791,44 @@ a{
 
         <div class="brand-list">
 
+
             <span>
                 VELKI ✓
             </span>
+
 
             <span>
                 9XBET ✓
             </span>
 
+
             <span>
                 BAAJIWALA ✓
             </span>
 
+
         </div>
 
+
     </section>
+
 
 </main>
 
 
-<!-- ================= FOOTER ================= -->
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer class="footer">
+
 
     <img
         src="logo.png"
         alt="Velki.Com"
         class="footer-logo-image">
+
 
     <p>
         © 2026 Velki.Com
@@ -1312,26 +1837,31 @@ a{
 
     <div class="footer-links">
 
+
         <a href="master.html">
             Master
         </a>
+
 
         <a href="super.html">
             Super
         </a>
 
+
         <a href="subadmin.html">
             Sub Admin
         </a>
+
 
         <a href="customer-service.html">
             Customer Service
         </a>
 
+
     </div>
 
 
-    <!-- আলাদা Admin Panel -->
+    <!-- আলাদা ADMIN PANEL -->
 
     <a
         href="admin.html"
@@ -1341,10 +1871,14 @@ a{
 
     </a>
 
+
 </footer>
 
 
-<!-- FLOATING WHATSAPP -->
+
+<!-- =====================================================
+     FLOATING WHATSAPP
+===================================================== -->
 
 <a
     href="https://wa.me/60108919892"
@@ -1352,20 +1886,28 @@ a{
     rel="noopener noreferrer"
     class="floating-whatsapp">
 
+
     <i class="fa-brands fa-whatsapp"></i>
 
+
     <span class="online-dot">
+
         1
+
     </span>
+
 
 </a>
 
 
+
 <script>
+
 
 /* =====================================================
    AGENT DATA
-   এখানে আপনার প্রকৃত Agent তথ্য বসাবেন
+
+   এখানে আপনার আসল Agent তথ্য বসাবেন।
 ===================================================== */
 
 const agents = [
@@ -1411,6 +1953,7 @@ const agents = [
     }
 
 ];
+
 
 
 /* =====================================================
@@ -1463,8 +2006,9 @@ const agentListContainer =
     document.getElementById("agentListContainer");
 
 
+
 /* =====================================================
-   MENU OPEN
+   OPEN MENU
 ===================================================== */
 
 menuBtn.addEventListener("click",()=>{
@@ -1474,8 +2018,9 @@ menuBtn.addEventListener("click",()=>{
 });
 
 
+
 /* =====================================================
-   MENU CLOSE
+   CLOSE MENU
 ===================================================== */
 
 closeMenu.addEventListener("click",()=>{
@@ -1485,9 +2030,12 @@ closeMenu.addEventListener("click",()=>{
 });
 
 
-menuOverlay.addEventListener("click",(e)=>{
 
-    if(e.target === menuOverlay){
+/* বাইরে ক্লিক করলে menu বন্ধ */
+
+menuOverlay.addEventListener("click",(event)=>{
+
+    if(event.target === menuOverlay){
 
         menuOverlay.classList.remove("show");
 
@@ -1496,11 +2044,16 @@ menuOverlay.addEventListener("click",(e)=>{
 });
 
 
+
 /* =====================================================
-   AGENT SUBMENU
+   ALL AGENT LIST MENU
 ===================================================== */
 
-agentMenuBtn.addEventListener("click",()=>{
+agentMenuBtn.addEventListener("click",(event)=>{
+
+    event.preventDefault();
+
+    event.stopPropagation();
 
     agentSubmenu.classList.toggle("show");
 
@@ -1509,11 +2062,13 @@ agentMenuBtn.addEventListener("click",()=>{
 });
 
 
+
 /* =====================================================
-   MENU LINK AUTO CLOSE
+   MENU LINKS
 ===================================================== */
 
-document.querySelectorAll(".menu-link").forEach(link=>{
+document.querySelectorAll(".menu-link")
+.forEach(link=>{
 
     link.addEventListener("click",()=>{
 
@@ -1524,8 +2079,26 @@ document.querySelectorAll(".menu-link").forEach(link=>{
 });
 
 
+
 /* =====================================================
-   TOP SEARCH
+   SUBMENU LINKS
+===================================================== */
+
+document.querySelectorAll(".submenu a")
+.forEach(link=>{
+
+    link.addEventListener("click",()=>{
+
+        menuOverlay.classList.remove("show");
+
+    });
+
+});
+
+
+
+/* =====================================================
+   TOP SEARCH OPEN/CLOSE
 ===================================================== */
 
 topSearchBtn.addEventListener("click",()=>{
@@ -1534,63 +2107,25 @@ topSearchBtn.addEventListener("click",()=>{
 
     if(topSearch.classList.contains("show")){
 
-        topSearchInput.focus();
+        setTimeout(()=>{
+
+            topSearchInput.focus();
+
+        },100);
 
     }
 
 });
 
-
-topSearchSubmit.addEventListener("click",()=>{
-
-    const id =
-        topSearchInput.value.trim();
-
-    if(!id){
-
-        alert("Agent ID লিখুন");
-
-        return;
-
-    }
-
-    document
-        .getElementById("agentId")
-        .value = id;
-
-    document
-        .getElementById("findAgent")
-        .scrollIntoView({
-            behavior:"smooth"
-        });
-
-    setTimeout(()=>{
-
-        searchAgent();
-
-    },400);
-
-});
-
-
-topSearchInput.addEventListener("keydown",(e)=>{
-
-    if(e.key === "Enter"){
-
-        topSearchSubmit.click();
-
-    }
-
-});
 
 
 /* =====================================================
-   WHATSAPP NUMBER
+   WHATSAPP URL
 ===================================================== */
 
 function whatsappUrl(phone){
 
-    let number =
+    const number =
         String(phone)
         .replace(/\D/g,"");
 
@@ -1599,22 +2134,53 @@ function whatsappUrl(phone){
 }
 
 
+
+/* =====================================================
+   HTML ESCAPE
+===================================================== */
+
+function escapeHtml(value){
+
+    return String(value)
+
+        .replace(/&/g,"&amp;")
+
+        .replace(/</g,"&lt;")
+
+        .replace(/>/g,"&gt;")
+
+        .replace(/"/g,"&quot;")
+
+        .replace(/'/g,"&#039;");
+
+}
+
+
+
 /* =====================================================
    RENDER AGENT LIST
 ===================================================== */
 
 function renderAgents(filter="all"){
 
-    const filtered =
-        filter === "all"
-        ? agents
-        : agents.filter(
-            agent =>
-            agent.type === filter
-        );
+    let filteredAgents;
+
+    if(filter === "all"){
+
+        filteredAgents = agents;
+
+    }else{
+
+        filteredAgents =
+            agents.filter(
+                agent =>
+                agent.type === filter
+            );
+
+    }
 
 
-    if(filtered.length === 0){
+    if(filteredAgents.length === 0){
 
         agentListContainer.innerHTML = `
 
@@ -1632,23 +2198,41 @@ function renderAgents(filter="all"){
 
 
     agentListContainer.innerHTML =
-        filtered.map(agent=>`
+
+        filteredAgents.map(agent=>`
 
             <div class="agent-row">
 
+
                 <div>
-                    <strong>${escapeHtml(agent.id)}</strong>
+
+                    <strong>
+
+                        ${escapeHtml(agent.id)}
+
+                    </strong>
+
                 </div>
+
 
                 <div class="agent-type">
+
                     ${escapeHtml(agent.typeName)}
+
                 </div>
 
+
                 <div>
+
                     ${escapeHtml(agent.brand)}
+
                 </div>
 
+
                 <div>
+
+
+                    <!-- PHONE CLICK = WHATSAPP -->
 
                     <a
                         href="${whatsappUrl(agent.phone)}"
@@ -1662,9 +2246,14 @@ function renderAgents(filter="all"){
 
                     </a>
 
+
                 </div>
 
+
                 <div>
+
+
+                    <!-- WHATSAPP BUTTON -->
 
                     <a
                         href="${whatsappUrl(agent.phone)}"
@@ -1678,13 +2267,16 @@ function renderAgents(filter="all"){
 
                     </a>
 
+
                 </div>
+
 
             </div>
 
         `).join("");
 
 }
+
 
 
 /* =====================================================
@@ -1706,7 +2298,7 @@ function searchAgent(){
 
         searchResult.innerHTML = `
 
-            <div class="result-card not-found">
+            <div class="result-not-found">
 
                 <i class="fa-solid fa-circle-exclamation"></i>
 
@@ -1721,20 +2313,23 @@ function searchAgent(){
     }
 
 
-    const agent =
-        agents.find(item =>
+    const foundAgent =
+        agents.find(agent =>
 
-            String(item.id).toLowerCase() === id &&
-            item.type === type
+            String(agent.id).toLowerCase() === id
+
+            &&
+
+            agent.type === type
 
         );
 
 
-    if(!agent){
+    if(!foundAgent){
 
         searchResult.innerHTML = `
 
-            <div class="result-card not-found">
+            <div class="result-not-found">
 
                 <i class="fa-solid fa-circle-xmark"></i>
 
@@ -1753,14 +2348,19 @@ function searchAgent(){
 
         <div class="result-card">
 
+
             <div class="result-row">
 
                 <span class="result-label">
+
                     Agent ID
+
                 </span>
 
                 <span>
-                    ${escapeHtml(agent.id)}
+
+                    ${escapeHtml(foundAgent.id)}
+
                 </span>
 
             </div>
@@ -1769,11 +2369,15 @@ function searchAgent(){
             <div class="result-row">
 
                 <span class="result-label">
+
                     Type
+
                 </span>
 
                 <span>
-                    ${escapeHtml(agent.typeName)}
+
+                    ${escapeHtml(foundAgent.typeName)}
+
                 </span>
 
             </div>
@@ -1782,11 +2386,15 @@ function searchAgent(){
             <div class="result-row">
 
                 <span class="result-label">
+
                     Brand
+
                 </span>
 
                 <span>
-                    ${escapeHtml(agent.brand)}
+
+                    ${escapeHtml(foundAgent.brand)}
+
                 </span>
 
             </div>
@@ -1795,27 +2403,32 @@ function searchAgent(){
             <div class="result-row">
 
                 <span class="result-label">
+
                     Phone
+
                 </span>
 
                 <span>
-                    ${escapeHtml(agent.phone)}
+
+                    ${escapeHtml(foundAgent.phone)}
+
                 </span>
 
             </div>
 
 
             <a
-                href="${whatsappUrl(agent.phone)}"
+                href="${whatsappUrl(foundAgent.phone)}"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="whatsapp-btn">
+                class="result-whatsapp">
 
                 <i class="fa-brands fa-whatsapp"></i>
 
                 WhatsApp এ যোগাযোগ করুন
 
             </a>
+
 
         </div>
 
@@ -1824,17 +2437,25 @@ function searchAgent(){
 }
 
 
+
+/* =====================================================
+   SEARCH BUTTON
+===================================================== */
+
 searchAgentBtn.addEventListener(
     "click",
     searchAgent
 );
 
 
+
+/* ENTER KEY SEARCH */
+
 agentId.addEventListener(
     "keydown",
-    (e)=>{
+    event=>{
 
-        if(e.key === "Enter"){
+        if(event.key === "Enter"){
 
             searchAgent();
 
@@ -1844,32 +2465,103 @@ agentId.addEventListener(
 );
 
 
+
+/* =====================================================
+   TOP SEARCH
+===================================================== */
+
+function runTopSearch(){
+
+    const id =
+        topSearchInput.value.trim();
+
+    if(!id){
+
+        topSearchInput.focus();
+
+        return;
+
+    }
+
+
+    agentId.value = id;
+
+
+    document
+        .getElementById("findAgent")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+
+
+    setTimeout(()=>{
+
+        searchAgent();
+
+    },400);
+
+}
+
+
+
+topSearchSubmit.addEventListener(
+    "click",
+    runTopSearch
+);
+
+
+
+topSearchInput.addEventListener(
+    "keydown",
+    event=>{
+
+        if(event.key === "Enter"){
+
+            runTopSearch();
+
+        }
+
+    }
+);
+
+
+
 /* =====================================================
    FILTER
 ===================================================== */
 
-document.querySelectorAll(".filter-btn")
+document
+.querySelectorAll(".filter-btn")
 .forEach(button=>{
+
 
     button.addEventListener("click",()=>{
 
+
         document
-            .querySelectorAll(".filter-btn")
-            .forEach(btn =>
-                btn.classList.remove("active")
-            );
+        .querySelectorAll(".filter-btn")
+        .forEach(btn=>{
+
+            btn.classList.remove("active");
+
+        });
+
 
         button.classList.add("active");
+
 
         const filter =
             button.dataset.filter;
 
+
         renderAgents(filter);
+
 
         const title =
             document.getElementById(
                 "agentListTitle"
             );
+
 
         if(filter === "all"){
 
@@ -1878,6 +2570,7 @@ document.querySelectorAll(".filter-btn")
 
         }
 
+
         if(filter === "master"){
 
             title.textContent =
@@ -1885,12 +2578,14 @@ document.querySelectorAll(".filter-btn")
 
         }
 
+
         if(filter === "super"){
 
             title.textContent =
                 "SUPER AGENT LIST";
 
         }
+
 
         if(filter === "admin"){
 
@@ -1904,21 +2599,6 @@ document.querySelectorAll(".filter-btn")
 });
 
 
-/* =====================================================
-   SECURITY: HTML ESCAPE
-===================================================== */
-
-function escapeHtml(value){
-
-    return String(value)
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
-
-}
-
 
 /* =====================================================
    INITIAL LOAD
@@ -1926,7 +2606,10 @@ function escapeHtml(value){
 
 renderAgents("all");
 
+
 </script>
 
+
 </body>
+
 </html>
